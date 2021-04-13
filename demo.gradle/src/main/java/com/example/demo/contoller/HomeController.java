@@ -17,4 +17,10 @@ public class HomeController {
 		return "greeting/greeting";
 	}
 	
+	@GetMapping("/closet/list")
+	public String closetList() {
+		
+		return "closet/list";
+	}
+	
 }
