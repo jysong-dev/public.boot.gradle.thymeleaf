@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html
+	lang="ko"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout}"
+>
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+ 	<style>
+		.bd-placeholder-img {
+			font-size: 1.125rem;
+			text-anchor: middle;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			user-select: none;
+		}
+		.background-image-full {
+			background-image: url('https://source.unsplash.com/random');
+			background-repeat : no-repeat;
+			background-position: center center;
+			background-size : cover;
+		}
+
+		.pagination {
+			font-size: 14px;
+		  color: white;
+		  display: inline-block;
+		}
+		
+		.pagination a {
+		  color: #f8f9fa;
+		  float: left;
+		  padding: 4px 8px;
+		  text-decoration: none;
+		}
+		.pagination a.active {
+		  background-color: #f8f9fa;
+		  color: #343a40;
+		}
+	
+		.pagination a:hover:not(.active) {background-color: #ddd;}
+		
+		@media (min-width: 768px) {
+			.bd-placeholder-img-lg {
+				font-size: 3.5rem;
+			}
+						
+			.pagination {
+			  color: white;
+			  display: inline-block;
+			}
+			
+			.pagination a {
+			  color: #f8f9fa;
+			  float: left;
+			  padding: 8px 16px;
+			  text-decoration: none;
+			}
+			.pagination a.active {
+			  background-color: #f8f9fa;
+			  color: #343a40;
+			}
+		
+			.pagination a:hover:not(.active) {background-color: #ddd;}
+
+		}
+/* 		.carousel-item {
+			background-image: url('https://source.unsplash.com/random');
+			background-repeat : no-repeat;
+			background-position: center center;
+			background-size : cover;
+		} */
+
+	</style>
+	<script>
+		var myCarousel = document.querySelector('#carouselExampleCaptions');
+		var carousel = new bootstrap.Carousel(myCarousel);
+	</script>
+</head>
+
+<div layout:fragment="content" class="cover-container d-flex w-100 p-3 mx-auto flex-column">
+
+	<div id="carouselExampleCaptions" class="carousel slide mt-2" data-bs-ride="carousel">
+		  <div class="carousel-indicators">
+		    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+		    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+		    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+		  </div>
+		  <div class="carousel-inner">
+		    <div class="carousel-item active">
+		    	<img th:src="@{/example/images/photo_01.jpg}" class="d-block w-100" alt="...">
+		      <div class="carousel-caption d-none d-md-block">
+		        <h5>First slide label</h5>
+		        <p>Some representative placeholder content for the first slide.</p>
+		      </div>
+		    </div>
+		    <div class="carousel-item">
+		      <img th:src="@{/example/images/photo_02.jpg}" class="d-block w-100" alt="...">
+				<div class="carousel-caption d-none d-md-block">
+		        <h5>Second slide label</h5>
+		        <p>Some representative placeholder content for the second slide.</p>
+		      </div>
+		    </div>
+		    <div class="carousel-item">
+		      <img th:src="@{/example/images/photo_05.jpg}" class="d-block w-100" alt="...">
+				<div class="carousel-caption d-none d-md-block">
+		        <h5>Third slide label</h5>
+		        <p>Some representative placeholder content for the third slide.</p>
+		      </div>
+		    </div>
+		  </div>
+		  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+		    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		    <span class="visually-hidden">Previous</span>
+		  </button>
+		  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+		    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+		    <span class="visually-hidden">Next</span>
+		  </button>
+
+	</div>
+	<hr class="mt-2 mb-5">
+	
+	<div class="container">
+	
+	  <!-- <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Nam in blandit leo</h1> -->
+	  <!-- <hr class="mt-2 mb-5"> -->
+	  <div class="row text-center text-lg-left">
+	
+	    <div class="col-lg-3 col-md-4 col-6">
+	      <a href="#" class="d-block mb-4 h-100">
+	            <img class="img-fluid" th:src="@{/example/images/photo_04.jpg}" alt="">
+	          </a>
+	    </div>
+	    <div class="col-lg-3 col-md-4 col-6">
+	      <a href="#" class="d-block mb-4 h-100">
+	            <img class="img-fluid" th:src="@{/example/images/photo_05.jpg}" alt="">
+	          </a>
+	    </div>
+	    <div class="col-lg-3 col-md-4 col-6">
+	      <a href="#" class="d-block mb-4 h-100">
+	            <img class="img-fluid" th:src="@{/example/images/photo_06.jpg}" alt="">
+	          </a>
+	    </div>
+	    <div class="col-lg-3 col-md-4 col-6">
+	      <a href="#" class="d-block mb-4 h-100">
+	            <img class="img-fluid" th:src="@{/example/images/photo_07.jpg}" alt="">
+	          </a>
+	    </div>
+	    <div class="col-lg-3 col-md-4 col-6">
+	      <a href="#" class="d-block mb-4 h-100">
+	            <img class="img-fluid" th:src="@{/example/images/photo_08.jpg}" alt="">
+	          </a>
+	    </div>
+	    <div class="col-lg-3 col-md-4 col-6">
+	      <a href="#" class="d-block mb-4 h-100">
+	            <img class="img-fluid" th:src="@{/example/images/photo_09.jpg}" alt="">
+	          </a>
+	    </div>
+	    <div class="col-lg-3 col-md-4 col-6">
+	      <a href="#" class="d-block mb-4 h-100">
+	            <img class="img-fluid" th:src="@{/example/images/photo_10.jpg}" alt="">
+	          </a>
+	    </div>
+	    <div class="col-lg-3 col-md-4 col-6">
+	      <a href="#" class="d-block mb-4 h-100">
+	            <img class="img-fluid" th:src="@{/example/images/photo_11.jpg}" alt="">
+	          </a>
+	    </div>
+	    <div class="col-lg-3 col-md-4 col-6">
+	      <a href="#" class="d-block mb-4 h-100">
+	            <img class="img-fluid" th:src="@{/example/images/photo_12.jpg}" alt="">
+	          </a>
+	    </div>
+	    <div class="col-lg-3 col-md-4 col-6">
+	      <a href="#" class="d-block mb-4 h-100">
+	            <img class="img-fluid" th:src="@{/example/images/ffxiv_20201227_023826_970.png}" alt="">
+	          </a>
+	    </div>
+	    <div class="col-lg-3 col-md-4 col-6">
+	      <a href="#" class="d-block mb-4 h-100">
+	            <img class="img-fluid" th:src="@{/example/images/ffxiv_20201224_161151_329.png}" alt="">
+	          </a>
+	    </div>
+	    <div class="col-lg-3 col-md-4 col-6">
+	      <a href="#" class="d-block mb-4 h-100">
+	            <img class="img-fluid" th:src="@{/example/images/ffxiv_20210131_205356_522.png}" alt="">
+	          </a>
+	    </div>
+	  </div>
+	  <div class="row">
+			<!-- pagination -->
+			<div class="col-lg-2"></div>
+			<div class="col-lg-8">
+				<div class="pagination">
+				  <a href="#">&laquo;</a>
+				  <a class="active" href="#">1</a>
+				  <a href="#">2</a>
+				  <a href="#">3</a>
+				  <a href="#">4</a>
+				  <a href="#">5</a>
+				  <a href="#">&raquo;</a>
+				</div>
+			</div>
+			<div class="col-lg-2"></div>
+	  </div>
+	
+	</div>
+	
+</div>
+
+</html>

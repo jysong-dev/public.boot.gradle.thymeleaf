@@ -23,7 +23,6 @@ public class IndexController {
 		return "closet/list";
 	}
 
-	/** thymeleaf 테스트 **/
     @RequestMapping("/")
     public String home(){
         return "index";
@@ -33,6 +32,5 @@ public class IndexController {
     public String hello(){
         return "hello";
     }
-    /** thymeleaf 테스트 **/
 	
 }

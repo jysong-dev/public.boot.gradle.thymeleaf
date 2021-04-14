@@ -5,25 +5,31 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 >
 <head>
-	<meta charset="UTF-8" />
-	<!-- 공통으로 쓰이는 css파일을넣는다.-->
-	<link
-		rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+	<meta name="generator" content="Hugo 0.82.0">
+	<title>Somebody's Prototype</title>
+	<link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/cover/">
+	<!-- Bootstrap core CSS -->
+	<link th:href="@{/libs/bootstrap-5.0.0-beta3-examples/assets/dist/css/bootstrap.min.css}" rel="stylesheet">
+	<!-- Custom styles for this template -->
+	<link th:href="@{/libs/bootstrap-5.0.0-beta3-examples/cover/cover.css}" rel="stylesheet">
+
 	<!-- 컨텐츠페이지의 CSS 영역이 들어감 -->
 	<th:block layout:fragment="css"></th:block>
-	
-	<!-- 공통으로 쓰이는 css파일을넣는다.-->
-	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
 	<!-- 컨텐츠페이지의 스크립트 영역이 들어감 -->
 	<th:block layout:fragment="script"></th:block>
 </head>
-<body>
-	<header th:replace="fragments/header :: headerFragment"></header>
-
-	<div layout:fragment="content"></div>
-
-	<footer th:replace="fragments/footer :: footerFragment"></footer>
+<body class="d-flex text-center text-white bg-dark">
+<div class="cover-container d-flex w-100 p-3 mx-auto flex-column">
+	<header th:replace="fragments/header :: header-fragment" class="mb-auto"></header>
+	<main class="px-3">
+		<div layout:fragment="content"></div>
+	</main>
+	<footer th:replace="fragments/footer :: footer-fragment"></footer>
+</div>
 </body>
 </html>

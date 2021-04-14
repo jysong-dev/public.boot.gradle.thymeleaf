@@ -1,17 +1,46 @@
 <!DOCTYPE html>
-<html lang="ko"
-  xmlns:th="http://www.thymeleaf.org"
-  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-  layout:decorate="~{layouts/layout}"
+<html
+	lang="ko"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout}"
 >
-  <head>
-    <!--    thymeleaf layout dialect가 contents페이지의 head태그를 layout의 head태그에 자동으로 추가해준다. -->
-    <!--    필요힌 css, script 추가영역 -->
-  </head>
+ <head>
+	<style>
+	.bd-placeholder-img {
+		font-size: 1.125rem;
+		text-anchor: middle;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		user-select: none;
+	}
+	body {
+		/*background-image: url('https://source.unsplash.com/random');*/
+		background-image: url('example/images/photo_03.jpg');
+		background-repeat : no-repeat;
+		background-position: center center;
+		background-size : cover;
+	}
+	html, body {
+		height: 100%;
+	}
+	@media (min-width: 768px) {
+		.bd-placeholder-img-lg {
+			font-size: 3.5rem;
+		}
+	}
+</style>
+<script>
 
-  <div layout:fragment="content">
-    <div style="border: 1px solid red">
-      index.html 입니다. 즉 컨텐츠 영역
-    </div>
+</script>
+ </head>
+  <div layout:fragment="content" class="cover-container d-flex w-100 p-3 mx-auto flex-column">
+
+	    <h1>Cover your page.</h1>
+	    <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+	<!-- 	<p class="lead">
+	      	<a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Make my Prototype</a>
+	    </p> -->
+
   </div>
 </html>
