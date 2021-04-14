@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping(value="/")
-public class HomeController {
+public class IndexController {
 
 	@GetMapping("/greeting")
 	public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
@@ -22,5 +22,17 @@ public class HomeController {
 		
 		return "closet/list";
 	}
+
+	/** thymeleaf 테스트 **/
+    @RequestMapping("/")
+    public String home(){
+        return "index";
+    }
+
+    @RequestMapping("/hello")
+    public String hello(){
+        return "hello";
+    }
+    /** thymeleaf 테스트 **/
 	
 }
