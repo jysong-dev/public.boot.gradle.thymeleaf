@@ -4,11 +4,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class ClosetController {
+public class ProfileController {
 
-	@GetMapping("/closet/list")
-	public String closetList() {
+	@GetMapping("/profile/view")
+	public String profileView() {
 		
-		return "closet/list";
+		return "profile/view";
 	}
+
 }
