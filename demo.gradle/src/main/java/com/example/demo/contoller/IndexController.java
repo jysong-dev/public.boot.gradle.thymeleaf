@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping(value="/")
 public class IndexController {
 
-    @RequestMapping("/")
-    public String index(){
-        return "index";
-    }
+//    @RequestMapping("/")
+//    public String index(){
+//        return "index";
+//    }
     
 }

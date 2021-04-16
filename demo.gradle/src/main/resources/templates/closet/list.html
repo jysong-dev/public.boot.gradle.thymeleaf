@@ -6,8 +6,20 @@
 	layout:decorate="~{layouts/layout}"
 >
 <head>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+	<!-- <link rel="stylesheet" th:href="@{/libs/templatemo_434_masonry/css/normalize.css}"> -->
+	<!-- <link rel="stylesheet" th:href="@{/libs/templatemo_434_masonry/css/font-awesome.css}"> -->
+	<!-- <link rel="stylesheet" th:href="@{/libs/templatemo_434_masonry/css/bootstrap.min.css}"> -->
+	<link rel="stylesheet" th:href="@{/libs/templatemo_434_masonry/css/templatemo-style.css}">
+	<script th:src="@{/libs/templatemo_434_masonry/js/vendor/modernizr-2.6.2.min.js}"></script>
+	<script th:src="@{/libs/templatemo_434_masonry/js/vendor/jquery-1.10.2.min.js}"></script>
+	<script th:src="@{/libs/templatemo_434_masonry/js/min/plugins.min.js}"></script>
+	<script th:src="@{/libs/templatemo_434_masonry/js/min/main.min.js}"></script>
+	
+	<!-- Bootstrap core CSS -->
+	<!-- <link th:href="@{/libs/bootstrap-5.0.0-beta3-examples/assets/dist/css/bootstrap.min.css}" rel="stylesheet"> -->
+	<!-- Custom styles for this template -->
  	<style>
+ 	
 		.bd-placeholder-img {
 			font-size: 1.125rem;
 			text-anchor: middle;
@@ -20,6 +32,11 @@
 			background-repeat : no-repeat;
 			background-position: center center;
 			background-size : cover;
+		}
+		
+		body {
+			height: 100%;
+			box-shadow: none;
 		}
 
 		.pagination {
@@ -42,6 +59,11 @@
 		.pagination a:hover:not(.active) {background-color: #ddd;}
 		
 		@media (min-width: 768px) {
+			body {
+				height: 100%;
+				box-shadow: none;
+			}
+		
 			.bd-placeholder-img-lg {
 				font-size: 3.5rem;
 			}
@@ -65,149 +87,211 @@
 			.pagination a:hover:not(.active) {background-color: #ddd;}
 
 		}
-/* 		.carousel-item {
-			background-image: url('https://source.unsplash.com/random');
+ 		.carousel-item {
+			/*background-image: url('https://source.unsplash.com/random');*/
 			background-repeat : no-repeat;
 			background-position: center center;
 			background-size : cover;
+		}
+		
+		.carousel .carousel-item {
+		  /* height: 20em; */
+		}
+/* 		.carousel .carousel-item > *:first-child {
+		  background-position: 50%;
+		  background-repeat: no-repeat;
+		  background-size: cover;
+		  height: inherit;
 		} */
 
 	</style>
-	<script>
-		var myCarousel = document.querySelector('#carouselExampleCaptions');
-		var carousel = new bootstrap.Carousel(myCarousel);
-	</script>
 </head>
 
 <div layout:fragment="content" class="cover-container d-flex w-100 p-3 mx-auto flex-column">
 
-	<div id="carouselExampleCaptions" class="carousel slide mt-2" data-bs-ride="carousel">
-		  <div class="carousel-indicators">
-		    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-		    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-		    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-		  </div>
-		  <div class="carousel-inner">
-		    <div class="carousel-item active">
-		    	<img th:src="@{/example/images/photo_01.jpg}" class="d-block w-100" alt="...">
-		      <div class="carousel-caption d-none d-md-block">
-		        <h5>First slide label</h5>
-		        <p>Some representative placeholder content for the first slide.</p>
-		      </div>
-		    </div>
-		    <div class="carousel-item">
-		      <img th:src="@{/example/images/photo_02.jpg}" class="d-block w-100" alt="...">
-				<div class="carousel-caption d-none d-md-block">
-		        <h5>Second slide label</h5>
-		        <p>Some representative placeholder content for the second slide.</p>
-		      </div>
-		    </div>
-		    <div class="carousel-item">
-		      <img th:src="@{/example/images/photo_05.jpg}" class="d-block w-100" alt="...">
-				<div class="carousel-caption d-none d-md-block">
-		        <h5>Third slide label</h5>
-		        <p>Some representative placeholder content for the third slide.</p>
-		      </div>
-		    </div>
-		  </div>
-		  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-		    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-		    <span class="visually-hidden">Previous</span>
-		  </button>
-		  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-		    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-		    <span class="visually-hidden">Next</span>
-		  </button>
-
-	</div>
-	<hr class="mt-2 mb-5">
-	
-	<div class="container">
-	
-	  <!-- <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Nam in blandit leo</h1> -->
-	  <!-- <hr class="mt-2 mb-5"> -->
-	  <div class="row text-center text-lg-left">
-	
-	    <div class="col-lg-3 col-md-4 col-6">
-	      <a href="#" class="d-block mb-4 h-100">
-	            <img class="img-fluid" th:src="@{/example/images/photo_04.jpg}" alt="">
-	          </a>
-	    </div>
-	    <div class="col-lg-3 col-md-4 col-6">
-	      <a href="#" class="d-block mb-4 h-100">
-	            <img class="img-fluid" th:src="@{/example/images/photo_05.jpg}" alt="">
-	          </a>
-	    </div>
-	    <div class="col-lg-3 col-md-4 col-6">
-	      <a href="#" class="d-block mb-4 h-100">
-	            <img class="img-fluid" th:src="@{/example/images/photo_06.jpg}" alt="">
-	          </a>
-	    </div>
-	    <div class="col-lg-3 col-md-4 col-6">
-	      <a href="#" class="d-block mb-4 h-100">
-	            <img class="img-fluid" th:src="@{/example/images/photo_07.jpg}" alt="">
-	          </a>
-	    </div>
-	    <div class="col-lg-3 col-md-4 col-6">
-	      <a href="#" class="d-block mb-4 h-100">
-	            <img class="img-fluid" th:src="@{/example/images/photo_08.jpg}" alt="">
-	          </a>
-	    </div>
-	    <div class="col-lg-3 col-md-4 col-6">
-	      <a href="#" class="d-block mb-4 h-100">
-	            <img class="img-fluid" th:src="@{/example/images/photo_09.jpg}" alt="">
-	          </a>
-	    </div>
-	    <div class="col-lg-3 col-md-4 col-6">
-	      <a href="#" class="d-block mb-4 h-100">
-	            <img class="img-fluid" th:src="@{/example/images/photo_10.jpg}" alt="">
-	          </a>
-	    </div>
-	    <div class="col-lg-3 col-md-4 col-6">
-	      <a href="#" class="d-block mb-4 h-100">
-	            <img class="img-fluid" th:src="@{/example/images/photo_11.jpg}" alt="">
-	          </a>
-	    </div>
-	    <div class="col-lg-3 col-md-4 col-6">
-	      <a href="#" class="d-block mb-4 h-100">
-	            <img class="img-fluid" th:src="@{/example/images/photo_12.jpg}" alt="">
-	          </a>
-	    </div>
-	    <div class="col-lg-3 col-md-4 col-6">
-	      <a href="#" class="d-block mb-4 h-100">
-	            <img class="img-fluid" th:src="@{/example/images/ffxiv_20201227_023826_970.png}" alt="">
-	          </a>
-	    </div>
-	    <div class="col-lg-3 col-md-4 col-6">
-	      <a href="#" class="d-block mb-4 h-100">
-	            <img class="img-fluid" th:src="@{/example/images/ffxiv_20201224_161151_329.png}" alt="">
-	          </a>
-	    </div>
-	    <div class="col-lg-3 col-md-4 col-6">
-	      <a href="#" class="d-block mb-4 h-100">
-	            <img class="img-fluid" th:src="@{/example/images/ffxiv_20210131_205356_522.png}" alt="">
-	          </a>
-	    </div>
-	  </div>
-	  <div class="row">
-			<!-- pagination -->
-			<div class="col-lg-2"></div>
-			<div class="col-lg-8">
-				<div class="pagination">
-				  <a href="#">&laquo;</a>
-				  <a class="active" href="#">1</a>
-				  <a href="#">2</a>
-				  <a href="#">3</a>
-				  <a href="#">4</a>
-				  <a href="#">5</a>
-				  <a href="#">&raquo;</a>
+	<!-- MAIN POSTS -->
+	<div class="main-posts">
+	    <div class="container">
+	        <div class="row">
+	                <div class="post-masonry col-lg-6 col-md-6 col-sm-1">
+	                    <div class="post-thumb">
+	                        <img th:src="@{/libs/templatemo_434_masonry/images/1.jpg}" alt="">
+	                        <div class="title-over">
+	                            <h4><a href="#">Title one goes here</a></h4>
+	                        </div>
+	                        <div class="post-hover text-center">
+	                            <div class="inside">
+	                                <i class="fa fa-plus"></i>
+	                                <span class="date">25 Jan 2084</span>
+	                                <h4><a href="#">Title one goes here</a></h4>
+	                                <p>Cum sociis natoque penatibus et magnis dis parturient</p>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div> <!-- /.post-masonry -->
+	                <div class="post-masonry col-lg-6 col-md-6 col-sm-1">
+	                    <div class="post-thumb">
+	                        <img th:src="@{/libs/templatemo_434_masonry/images/2.jpg}" alt="">
+	                        <div class="title-over">
+	                            <h4><a href="#">Second Image Title</a></h4>
+	                        </div>
+	                        <div class="post-hover text-center">
+	                            <div class="inside">
+	                                <i class="fa fa-plus"></i>
+	                                <span class="date">24 Jan 2084</span>
+	                                <h4><a href="#">Second Image Title</a></h4>
+	                                <p>Donec venenatis libero sapien, eu condimentum lacus</p>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div> <!-- /.post-masonry -->
+	                <div class="post-masonry col-lg-6 col-md-6 col-sm-1">
+	                    <div class="post-thumb">
+	                        <img th:src="@{/libs/templatemo_434_masonry/images/3.jpg}" alt="">
+	                        <div class="title-over">
+	                            <h4><a href="#">Image Number Three</a></h4>
+	                        </div>
+	                        <div class="post-hover text-center">
+	                            <div class="inside">
+	                                <i class="fa fa-plus"></i>
+	                                <span class="date">23 Jan 2084</span>
+	                                <h4><a href="#">Image Number Three</a></h4>
+	                                <p>Sed vitae lacus eget ipsum scelerisque condimentum</p>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div> <!-- /.post-masonry -->
+	                <div class="post-masonry col-lg-6 col-md-6 col-sm-1">
+	                    <div class="post-thumb">
+	                        <img th:src="@{/libs/templatemo_434_masonry/images/4.jpg}" alt="">
+	                        <div class="title-over">
+	                            <h4><a href="#">Aliquam sed magna risus</a></h4>
+	                        </div>
+	                        <div class="post-hover text-center">
+	                            <div class="inside">
+	                                <i class="fa fa-plus"></i>
+	                                <span class="date">22 Jan 2084</span>
+	                                <h4><a href="#">Aliquam sed magna risus</a></h4>
+	                                <p>Praesent pharetra blandit ex sed imperdiet</p>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div> <!-- /.post-masonry -->
+	                <div class="post-masonry col-lg-6 col-md-6 col-sm-1">
+	                    <div class="post-thumb">
+	                        <img th:src="@{/libs/templatemo_434_masonry/images/5.jpg}" alt="">
+	                        <div class="title-over">
+	                            <h4><a href="#">Lorem ipsum dolor sit</a></h4>
+	                        </div>
+	                        <div class="post-hover text-center">
+	                            <div class="inside">
+	                                <i class="fa fa-plus"></i>
+	                                <span class="date">21 Jan 2084</span>
+	                                <h4><a href="#">Lorem ipsum dolor sit</a></h4>
+	                                <p>Vestibulum faucibus lacus ac risus efficitur</p>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div> <!-- /.post-masonry -->
+	                <div class="post-masonry col-lg-6 col-md-6 col-sm-1">
+	                    <div class="post-thumb">
+	                        <img th:src="@{/libs/templatemo_434_masonry/images/6.jpg}" alt="">
+	                        <div class="title-over">
+	                            <h4><a href="#">Praesent eget lectus mauris</a></h4>
+	                        </div>
+	                        <div class="post-hover text-center">
+	                            <div class="inside">
+	                                <i class="fa fa-plus"></i>
+	                                <span class="date">20 Jan 2084</span>
+	                                <h4><a href="#">Praesent eget lectus mauris</a></h4>
+	                                <p>Morbi placerat pellentesque tortor, sed auctor dolor</p>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div> <!-- /.post-masonry -->
+	                <div class="post-masonry col-lg-6 col-md-6 col-sm-1">
+	                    <div class="post-thumb">
+	                        <img th:src="@{/libs/templatemo_434_masonry/images/7.jpg}" alt="">
+	                        <div class="title-over">
+	                            <h4><a href="#">Donec nec metus non</a></h4>
+	                        </div>
+	                        <div class="post-hover text-center">
+	                            <div class="inside">
+	                                <i class="fa fa-plus"></i>
+	                                <span class="date">15 Jan 2084</span>
+	                                <h4><a href="#">Donec nec metus non</a></h4>
+	                                <p>Phasellus eu sapien sagittis, sodales neque ac</p>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div> <!-- /.post-masonry -->
+	                <div class="post-masonry col-lg-6 col-md-6 col-sm-1">
+	                    <div class="post-thumb">
+	                        <img th:src="@{/libs/templatemo_434_masonry/images/8.jpg}" alt="">
+	                        <div class="title-over">
+	                            <h4><a href="#">Vestibulum faucibus lacus</a></h4>
+	                        </div>
+	                        <div class="post-hover text-center">
+	                            <div class="inside">
+	                                <i class="fa fa-plus"></i>
+	                                <span class="date">14 Jan 2084</span>
+	                                <h4><a href="#">Vestibulum faucibus lacus</a></h4>
+	                                <p>In aliquet et tellus in iaculis. Ut fermentum quis tellus</p>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div> <!-- /.post-masonry -->
+	                <div class="post-masonry col-lg-6 col-md-6 col-sm-1">
+	                    <div class="post-thumb">
+	                        <img th:src="@{/libs/templatemo_434_masonry/images/9.jpg}" alt="">
+	                        <div class="title-over">
+	                            <h4><a href="#">Pellentesque habitant morbi</a></h4>
+	                        </div>
+	                        <div class="post-hover text-center">
+	                            <div class="inside">
+	                                <i class="fa fa-plus"></i>
+	                                <span class="date">13 Jan 2084</span>
+	                                <h4><a href="#">Pellentesque habitant morbi</a></h4>
+	                                <p>Fusce ullamcorper diam vel arcu scelerisque</p>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div> <!-- /.post-masonry -->
+	                <div class="post-masonry col-lg-6 col-md-6 col-sm-1">
+	                    <div class="post-thumb">
+	                        <img th:src="@{/libs/templatemo_434_masonry/images/9.jpg}" alt="">
+	                        <div class="title-over">
+	                            <h4><a href="#">Pellentesque habitant morbi</a></h4>
+	                        </div>
+	                        <div class="post-hover text-center">
+	                            <div class="inside">
+	                                <i class="fa fa-plus"></i>
+	                                <span class="date">13 Jan 2084</span>
+	                                <h4><a href="#">Pellentesque habitant morbi</a></h4>
+	                                <p>Fusce ullamcorper diam vel arcu scelerisque</p>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div> <!-- /.post-masonry -->
+	            </div>
+	            <div class="row">
+					<!-- pagination -->
+					<div class="col-lg-2"></div>
+					<div class="col-lg-8">
+						<div class="pagination">
+						  <a href="#">&laquo;</a>
+						  <a class="active" href="#">1</a>
+						  <a href="#">2</a>
+						  <a href="#">3</a>
+						  <a href="#">4</a>
+						  <a href="#">5</a>
+						  <a href="#">&raquo;</a>
+						</div>
+					</div>
+					<div class="col-lg-2"></div>
 				</div>
-			</div>
-			<div class="col-lg-2"></div>
-	  </div>
-	
+	        </div>
+	    </div>
 	</div>
-	
-</div>
 
 </html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html
+	lang="ko"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
+	<meta name="author" content="AdminKit">
+	<!-- <meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web"> -->
+	<link rel="shortcut icon" th:href="@{/libs/adminkit-master/static/img/icons/icon-48x48.png}"/>
+
+	<title>Prototype Maker</title>
+
+	<link th:href="@{/libs/adminkit-master/static/css/app.css}" rel="stylesheet">
+	<script th:src="@{/libs/adminkit-master/static/js/app.js}"></script>
+	
+	<th:block layout:fragment="css"></th:block>
+	<th:block layout:fragment="script"></th:block>
+</head>
+
+<body>
+	<div class="wrapper">
+		<div th:replace="admin/fragments/sidebar :: sidebar-fragment"></div>
+			<div class="main">
+			<nav th:replace="admin/fragments/header :: header-fragment"></nav>
+	
+			<main class="content">
+				<div layout:fragment="content" class="container-fluid p-0">
+				</div>
+			</main>
+		
+			<footer th:replace="admin/fragments/footer :: footer-fragment"></footer>
+		</div>
+	</div>
+</body>
+</html>

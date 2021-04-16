@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class ProfileController {
 
-	@GetMapping("/profile/view")
-	public String profileView() {
-		
-		return "profile/view";
-	}
+//	@GetMapping("/profile/view")
+//	public String profileView() {
+//		
+//		return "profile/view";
+//	}
 
 }
