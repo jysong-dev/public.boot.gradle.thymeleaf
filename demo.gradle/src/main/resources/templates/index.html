@@ -15,7 +15,8 @@
 		user-select: none;
 	}
 	body {
-		background-image: url('https://source.unsplash.com/random');
+		/* background-image: url('https://source.unsplash.com/random'); */
+		background-image: url('example/images/ffxiv_20201227_023826_970.png');
 		/* background-image: url('example/images/photo_03.jpg'); */
 		background-repeat : no-repeat;
 		background-position: center center;
@@ -24,22 +25,180 @@
 	html, body {
 		height: 100%;
 	}
+	
+	.card-body {
+		font-size: 11px;
+	}
+	
+	.card-body > h6 {
+		font-size: 12px;
+		font-weight: bold;
+	}
+	
+	.overflow-auto {
+		height: 400px; 
+	}
+	
+	hr {
+		visibility : hidden;
+	}
+	
 	@media (min-width: 768px) {
 		.bd-placeholder-img-lg {
 			font-size: 3.5rem;
 		}
+		
+		.overflow-auto {
+			height: 700px; 
+		}
 	}
-</style>
-<script>
+	
+	/*
+	*
+	* ==========================================
+	* CUSTOM UTIL CLASSES
+	* ==========================================
+	*
+	*/
+	.custom-scrollbar-js,
+	.custom-scrollbar-css {
+	  height: 200px;
+	}
+	
+	
+	/* Custom Scrollbar using CSS */
+	.custom-scrollbar-css {
+	  overflow-y: scroll;
+	}
+	
+	/* scrollbar width */
+	.custom-scrollbar-css::-webkit-scrollbar {
+	  width: 5px;
+	}
+	
+	/* scrollbar track */
+	.custom-scrollbar-css::-webkit-scrollbar-track {
+	  background: #eee;
+	}
+	
+	/* scrollbar handle */
+	.custom-scrollbar-css::-webkit-scrollbar-thumb {
+	  border-radius: 1rem;
+	  background-color: #00d2ff;
+	  background-image: linear-gradient(to top, #00d2ff 0%, #3a7bd5 100%);
+	}
 
+</style>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css" rel="stylesheet"></link>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+<script>
+	$(function () {
+		$('[data-toggle="popover"]').popover();
+
+		  $("#alerts").mCustomScrollbar({
+		    theme: "dark-thin"
+		  });
+	})
 </script>
  </head>
   <div layout:fragment="content" class="cover-container d-flex w-100 p-3 mx-auto flex-column">
+ <div class="row">
+    <div class="col-lg-3 align-self-start">
+    </div>
+    <div class="col-lg-4 align-self-center">
+    </div>
+    <div class="col-lg-5 align-self-end overflow-auto" style="overflow-x: hidden;" id="alerts">
+        <div class="card bg-dark" style="opacity: 70%;">
+	  		<div class="card-body">
+	  			<h6>언약 희망</h6>
+	  			<p><span class="badge bg-danger">플랜 : 플래티넘</span></p>
+	  		</div>
+	  </div>
+	  
+	  <hr class="mt-1">
+	  
+	  <div class="card bg-dark" style="opacity: 70%;">
+	  		<div class="card-body">
+	    		<h6>공대 가입 희망</h6>
+	  			<p><span class="badge bg-warning">희망의 낙원 에덴 : 재생편(영웅)</span></p>
+	  		</div>
+	  </div>
+	  
+	  <hr class="mt-1">
+	  
+	  <div class="card bg-dark" style="opacity: 70%;">
+	  		<div class="card-body">
+	    		<h6>공대 가입 희망</h6>
+	  			<p><span class="badge bg-warning">극 빛의 전사 토벌전</span></p>
+	  		</div>
+	  </div>
+	  
+	  <hr class="mt-1">
+	  
+	  <div class="card bg-dark" style="opacity: 70%;">
+	  		<div class="card-body">
+	    		<h6>게임 친구 모집 중</h6>
+	  			<p><span class="badge bg-warning">하드컨텐츠</span><span class="badge bg-success">채집/제작</span><span class="badge bg-info">딥 던전</span></p>
+	  		</div>
+	  </div>
+	  
+	  <hr class="mt-1">
+	  
+	  <div class="card bg-dark" style="opacity: 70%;">
+	  <!-- <div class="card bg-dark" style="opacity: 70%;" data-container="body" data-toggle="popover" data-placement="bottom" data-content="절렉 어쩌구 저쩌구 펩시맨 아이고힘들다"> -->
+	  		<div class="card-body">
+	    		<h6>공대원 모집 중</h6>
+	  			<p><span class="badge bg-danger">절 알렉산더 토벌전</span></p>
+	  		</div>
+	  </div>
+	  
+	  <hr class="mt-1">
+	  
+	  <div class="card bg-dark" style="opacity: 70%;">
+	  <!-- <div class="card bg-dark" style="opacity: 70%;" data-container="body" data-toggle="popover" data-placement="bottom" data-content="절렉 어쩌구 저쩌구 펩시맨 아이고힘들다"> -->
+	  		<div class="card-body">
+	    		<h6>공대원 모집 중</h6>
+	  			<p><span class="badge bg-danger">절 알렉산더 토벌전</span></p>
+	  		</div>
+	  </div>
+	  
+	  <hr class="mt-1">
+	  
+	  <div class="card bg-dark" style="opacity: 70%;">
+	  <!-- <div class="card bg-dark" style="opacity: 70%;" data-container="body" data-toggle="popover" data-placement="bottom" data-content="절렉 어쩌구 저쩌구 펩시맨 아이고힘들다"> -->
+	  		<div class="card-body">
+	    		<h6>공대원 모집 중</h6>
+	  			<p><span class="badge bg-danger">절 알렉산더 토벌전</span></p>
+	  		</div>
+	  </div>
+	  
+	  <hr class="mt-1">
+	  
+	  <div class="card bg-dark" style="opacity: 70%;">
+	  <!-- <div class="card bg-dark" style="opacity: 70%;" data-container="body" data-toggle="popover" data-placement="bottom" data-content="절렉 어쩌구 저쩌구 펩시맨 아이고힘들다"> -->
+	  		<div class="card-body">
+	    		<h6>공대원 모집 중</h6>
+	  			<p><span class="badge bg-danger">절 알렉산더 토벌전</span></p>
+	  		</div>
+	  </div>
+	   <hr class="mt-1">
+	  
+	  <div class="card bg-dark" style="opacity: 70%;">
+	  <!-- <div class="card bg-dark" style="opacity: 70%;" data-container="body" data-toggle="popover" data-placement="bottom" data-content="절렉 어쩌구 저쩌구 펩시맨 아이고힘들다"> -->
+	  		<div class="card-body">
+	    		<h6>공대원 모집 중</h6>
+	  			<p><span class="badge bg-danger">절 알렉산더 토벌전</span></p>
+	  		</div>
+	  </div>
+	  
+	</div>  
+	</div>
 
-	    <h1>What is Lorem Ipsum?</h1>
+  
+<!-- 		<h1>What is Lorem Ipsum?</h1>
 	    <p class="lead">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-	<!-- 	<p class="lead">
+		<p class="lead">
 	      	<a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Make my Prototype</a>
 	    </p> -->
-  </div>
+    </div>
 </html>

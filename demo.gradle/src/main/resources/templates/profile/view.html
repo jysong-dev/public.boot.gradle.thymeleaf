@@ -7,72 +7,34 @@
 >
 <head>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
  	<style>
  		body {
 			height: 100%;
 			box-shadow: none;
 		}
-		.bd-placeholder-img {
-			font-size: 1.125rem;
-			text-anchor: middle;
-			-webkit-user-select: none;
-			-moz-user-select: none;
-			user-select: none;
-		}
-		.background-image-full {
-			background-image: url('https://source.unsplash.com/random');
-			background-repeat : no-repeat;
-			background-position: center center;
-			background-size : cover;
-		}
-
-		.pagination {
-			font-size: 14px;
-		  color: white;
-		  display: inline-block;
-		}
-		
-		.pagination a {
-		  color: #f8f9fa;
-		  float: left;
-		  padding: 4px 8px;
-		  text-decoration: none;
-		}
-		.pagination a.active {
-		  background-color: #f8f9fa;
-		  color: #343a40;
-		}
-	
-		.pagination a:hover:not(.active) {background-color: #ddd;}
 		
 		@media (min-width: 768px) {
 			body {
 				height: 100%;
+				box-shadow: none;
 			}
 		
 			.bd-placeholder-img-lg {
 				font-size: 3.5rem;
 			}
-						
-			.pagination {
-			  color: white;
-			  display: inline-block;
-			}
-			
-			.pagination a {
-			  color: #f8f9fa;
-			  float: left;
-			  padding: 8px 16px;
-			  text-decoration: none;
-			}
-			.pagination a.active {
-			  background-color: #f8f9fa;
-			  color: #343a40;
-			}
-		
-			.pagination a:hover:not(.active) {background-color: #ddd;}
 
 		}
+		
+		.card {
+			text-align: justify;
+			text-shadow: none;
+		}
+		
+		.table {
+			font-size: 12px;
+		}
+		
  		.carousel-item {
 			/*background-image: url('https://source.unsplash.com/random');*/
 			background-repeat : no-repeat;
@@ -95,6 +57,7 @@
 	<script>
 		var myCarousel = document.querySelector('#carouselExampleCaptions');
 		var carousel = new bootstrap.Carousel(myCarousel);
+
 	</script>
 </head>
 
@@ -108,28 +71,28 @@
 		  </div>
 		  <div class="carousel-inner">
 		    <div class="carousel-item active">
-		    	<!-- <img th:src="@{/example/images/photo_01.jpg}" class="d-block w-100" alt="..."> -->
-		    	<img src="https://source.unsplash.com/random" class="d-block w-100" alt="...">
-		      <div class="carousel-caption d-none d-md-block">
+		    	<img th:src="@{/example/images/EzHWeqRVIAE3WsB.jpg}" class="d-block w-100" alt="...">
+<!-- 		    	<img src="https://source.unsplash.com/random" class="d-block w-100" alt="..."> -->
+<!-- 		      <div class="carousel-caption d-none d-md-block">
 		        <h5>First slide label</h5>
 		        <p>Some representative placeholder content for the first slide.</p>
-		      </div>
+		      </div> -->
 		    </div>
 		    <div class="carousel-item">
-		      <!-- <img th:src="@{/example/images/photo_02.jpg}" class="d-block w-100" alt="..."> -->
-		      	<img src="https://source.unsplash.com/random" class="d-block w-100" alt="...">
-				<div class="carousel-caption d-none d-md-block">
+		      <img th:src="@{/example/images/photo_02.jpg}" class="d-block w-100" alt="...">
+<!-- 		      	<img src="https://source.unsplash.com/random" class="d-block w-100" alt="..."> -->
+<!-- 				<div class="carousel-caption d-none d-md-block">
 		        <h5>Second slide label</h5>
 		        <p>Some representative placeholder content for the second slide.</p>
-		      </div>
+		      </div> -->
 		    </div>
 		    <div class="carousel-item">
-		      <!-- <img th:src="@{/example/images/photo_05.jpg}" class="d-block w-100" alt="..."> -->
-		      	<img src="https://source.unsplash.com/random" class="d-block w-100" alt="...">
-				<div class="carousel-caption d-none d-md-block">
+		      <img th:src="@{/example/images/photo_05.jpg}" class="d-block w-100" alt="...">
+<!-- 		      	<img src="https://source.unsplash.com/random" class="d-block w-100" alt="..."> -->
+<!-- 				<div class="carousel-caption d-none d-md-block">
 		        <h5>Third slide label</h5>
 		        <p>Some representative placeholder content for the third slide.</p>
-		      </div>
+		      </div> -->
 		    </div>
 		  </div>
 		  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
@@ -142,8 +105,215 @@
 		  </button>
 
 	</div>
+	
+	<hr class="mt-2 mb-2">
+	  
+	  <table class="table table-sm table-dark" style="text-align : left;">
+		  <thead>
+		    <tr>
+		      <th scope="col" colspan="1"># Basic Profile</th>
+		      <th></th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+		      <th scope="row">이름</th>
+		      <td>Somebody 《꺾이지 않는 충성》</td>
+		    </tr>
+		    <tr>
+		      <th scope="row">총사령부</th>
+		      <td>흑와단 (중위)</td>
+		    </tr>
+		    <tr>
+		      <th scope="row">종족 / 부족 / 성별</th>
+		      <td>휴런 / 중원 부족 / 여성</td>
+		    </tr>
+		    <tr>
+		      <th scope="row">시작 도시</th>
+		      <td>림사 로민사</td>
+		    </tr>
+		    <tr>
+		      <th scope="row">생일</th>
+		      <td>별빛 1월 1일</td>
+		    </tr>
+		    <tr>
+		      <th scope="row">수호신</th>
+		      <td>할로네</td>
+		    </tr>
+		  </tbody>
+		</table>
+	  
+	  <table class="table table-sm table-dark" style="text-align : left;">
+		  <thead>
+		    <tr>
+		      <th scope="col" colspan="1"># Status</th>
+		      <th></th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+		      <th scope="row">고향 서버</th>
+		      <td>모그리(한국)</td>
+		    </tr>
+		    <tr>
+		      <th scope="row">주직</th>
+		      <td><span class="badge bg-primary mr-1 my-1">건브레이커(Lv.80)</span></td>
+		    </tr>
+		    <tr>
+		      <th scope="row">언약자</th>
+		      <td>없음<span class="badge bg-warning mr-1 my-1">언약 희망 : 골드 플랜</span></td>
+		    </tr>
+		  </tbody>
+		</table>
+	  
+	  <table class="table table-sm table-dark" style="text-align : left;">
+		  <thead>
+		    <tr>
+		      <th scope="col" colspan="3"># Job / Class</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+		      <th rowspan="9">Class</th>
+		      <th><span class="badge bg-primary mr-1 my-1">검술사</span></th>
+		      <td>LV.80</td>
+		    </tr>
+		    <tr>
+		      <th><span class="badge bg-primary mr-1 my-1">도끼술사</span></th>
+		      <td>LV.0</td>
+		    </tr>
+		    <tr>
+		      <th><span class="badge bg-success mr-1 my-1">환술사</span></th>
+		      <td>LV.70</td>
+		    </tr>
+		    <tr>
+		      <th><span class="badge bg-danger mr-1 my-1">격투사</span></th>
+		      <td>LV.70</td>
+		    </tr>
+		    <tr>
+		      <th><span class="badge bg-danger mr-1 my-1">궁술사</span></th>
+		      <td>LV.70</td>
+		    </tr>
+		    <tr>
+		      <th><span class="badge bg-danger mr-1 my-1">창술사</span></th>
+		      <td>LV.70</td>
+		    </tr>
+		    <tr>
+		      <th><span class="badge bg-danger mr-1 my-1">쌍검사</span></th>
+		      <td>LV.70</td>
+		    </tr>
+		    <tr>
+		      <th><span class="badge bg-danger mr-1 my-1">주술사</span></th>
+		      <td>LV.70</td>
+		    </tr>
+		    <tr>
+		      <th><span class="badge bg-danger mr-1 my-1">비술사</span></th>
+		      <td>LV.70</td>
+		    </tr>
+		    
+		    <tr>
+		      <th rowspan="13">Job</th>
+		      <th><span class="badge bg-primary mr-1 my-1">나이트</span></th>
+		      <td>LV.80</td>
+		    </tr>
+		    <tr>
+		      <th><span class="badge bg-primary mr-1 my-1">전사</span></th>
+		      <td>LV.0</td>
+		    </tr>
+		    <tr>
+		      <th><span class="badge bg-primary mr-1 my-1">건브레이커</span></th>
+		      <td>LV.80</td>
+		    </tr>
+		    <tr>
+		      <th><span class="badge bg-success mr-1 my-1">백마도사</span></th>
+		      <td>LV.70</td>
+		    </tr>
+		    <tr>
+		      <th><span class="badge bg-success mr-1 my-1">학자</span></th>
+		      <td>LV.70</td>
+		    </tr>
+		    <tr>
+		      <th><span class="badge bg-success mr-1 my-1">점성술사</span></th>
+		      <td>LV.70</td>
+		    </tr>
+		    
+		    <tr>
+		      <th><span class="badge bg-danger mr-1 my-1">사무라이</span></th>
+		      <td>LV.70</td>
+		    </tr>
+		    <tr>
+		      <th><span class="badge bg-danger mr-1 my-1">기공사</span></th>
+		      <td>LV.70</td>
+		    </tr>
+		    <tr>
+		      <th><span class="badge bg-danger mr-1 my-1">무도가</span></th>
+		      <td>LV.70</td>
+		    </tr>
+		    <tr>
+		      <th><span class="badge bg-danger mr-1 my-1">흑마도사</span></th>
+		      <td>LV.70</td>
+		    </tr>
+		    <tr>
+		      <th><span class="badge bg-danger mr-1 my-1">소환사</span></th>
+		      <td>LV.70</td>
+		    </tr>
+		    <tr>
+		      <th><span class="badge bg-danger mr-1 my-1">적마도사</span></th>
+		      <td>LV.70</td>
+		    </tr>
+		    <tr>
+		      <th><span class="badge bg-danger mr-1 my-1">청마도사</span></th>
+		      <td>LV.70</td>
+		    </tr>
+		  </tbody>
+		</table>
 
-	<hr class="mt-2 mb-5">
+		<table class="table table-sm table-dark" style="text-align : left;">
+		  <thead>
+		    <tr>
+		      <th scope="col" colspan="3"># Main Quest</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+		    	<td>
+					<div class="progress">
+					  <div class="progress-bar bg-warning" role="progressbar" style="width: 25%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">신생 에오르제아</div>
+					  <div class="progress-bar bg-warning" role="progressbar" style="width: 25%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">창천의 이슈가르드</div>
+					  <div class="progress-bar bg-warning" role="progressbar" style="width: 25%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">홍련의 해방자</div>
+					  <div class="progress-bar bg-secondary" role="progressbar" style="width: 25%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">칠흑의 반역자</div>
+					</div>
+				</td>
+		    </tr>
+		  </tbody>
+		</table>
+		
+		<table class="table table-sm table-dark" style="text-align : left;">
+		  <thead>
+		    <tr>
+		      <th scope="col" colspan="3"># Duty Status</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+		    	<th>
+		    		절 알렉산더 토벌전
+				</th>
+		    	<td>
+				</td>
+		    	<td>
+				</td>
+		    </tr>
+		  </tbody>
+		</table>
+		
+<!-- 		2.1. 각성한 자들 -->
+<!-- 		2.2. 혼돈의 소용돌이 -->
+<!-- 		2.3. 에오르제아의 수호자 -->
+<!-- 		2.3. 빙결의 환상 -->
+<!-- 		2.5. 희망의 등불 -->
+<!-- 		3.0. 창천의 이슈가르드 -->
+<!-- 		3.1. 빛과 어둠의 경계 -->
+<!-- 		3.2. 운명의 톱니바퀴 -->
 
-</div>
 </html>
