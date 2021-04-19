@@ -29,12 +29,6 @@ public class PageController {
 		return "profile/view";
 	}
 	
-	/*
-	 * @GetMapping("/user/") public String userSignIn() {
-	 * 
-	 * return "user/sign_in"; }
-	 */
-	
 	@GetMapping("/user/sign_in")
 	public String userSignIn() {
 		

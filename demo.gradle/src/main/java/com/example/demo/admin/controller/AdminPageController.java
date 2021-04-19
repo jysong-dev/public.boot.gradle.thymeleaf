@@ -12,5 +12,11 @@ public class AdminPageController {
 		return "admin/index";
 	}
 	
+	@GetMapping("/admin/profile/form")
+	public String profileForm() {
+	
+		return "admin/profile/form";
+	}
+	
 	
 }
