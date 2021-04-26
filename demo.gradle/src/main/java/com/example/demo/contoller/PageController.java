@@ -17,11 +17,17 @@ public class PageController {
 		return "closet/list";
 	}
 	
-	@GetMapping("/closet/gallery")
-	public String closetGallery() {
+	@GetMapping("/closet/view")
+	public String closetView() {
 		
-		return "closet/gallery";
+		return "closet/view";
 	}
+	
+//	@GetMapping("/closet/gallery")
+//	public String closetGallery() {
+//		
+//		return "closet/gallery";
+//	}
 	
 	@GetMapping("/profile/view")
 	public String profileView() {

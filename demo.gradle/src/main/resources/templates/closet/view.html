@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html
+	lang="ko"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout}"
+>
+<head>
+	<link rel="stylesheet" th:href="@{/libs/templatemo_434_masonry/css/templatemo-style.css}">
+	<script th:src="@{/libs/templatemo_434_masonry/js/vendor/modernizr-2.6.2.min.js}"></script>
+	<script th:src="@{/libs/templatemo_434_masonry/js/vendor/jquery-1.10.2.min.js}"></script>
+	<script th:src="@{/libs/templatemo_434_masonry/js/min/plugins.min.js}"></script>
+	<script th:src="@{/libs/templatemo_434_masonry/js/min/main.min.js}"></script>
+	
+	<!-- Bootstrap core CSS -->
+	<!-- <link th:href="@{/libs/bootstrap-5.0.0-beta3-examples/assets/dist/css/bootstrap.min.css}" rel="stylesheet"> -->
+	<!-- Custom styles for this template -->
+	
+ 	<style>
+ 	
+		.bd-placeholder-img {
+			font-size: 1.125rem;
+			text-anchor: middle;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			user-select: none;
+		}
+		.background-image-full {
+			background-image: url('https://source.unsplash.com/random');
+			background-repeat : no-repeat;
+			background-position: center center;
+			background-size : cover;
+		}
+		
+		body {
+			height: 100%;
+			box-shadow: none;
+		}
+	
+		.pagination a:hover:not(.active) {background-color: #ddd;}
+		
+		@media (min-width: 768px) {
+			body {
+				height: 100%;
+				box-shadow: none;
+			}
+		
+			.bd-placeholder-img-lg {
+				font-size: 3.5rem;
+			}
+
+		}
+
+	</style>
+</head>
+
+<div layout:fragment="content" class="cover-container d-flex w-100 p-3 mx-auto flex-column">
+
+	<!-- MAIN POSTS -->
+	<div class="main-posts">
+	    <div class="container">
+	        <div class="row">
+                <div class="post-masonry col-12">
+                    <div class="post-thumb">
+                        <!-- <img th:src="@{/example/images/photo_01.jpg}" alt=""> -->
+                        <img src="https://source.unsplash.com/random" alt="">
+                        <div class="title-over">
+                            <h4><a href="#">Title one goes here</a></h4>
+                        </div>
+                        <div class="post-hover text-center">
+                            <div class="inside">
+                                <i class="fa fa-plus"></i>
+                                <span class="date">2021. 04. 17</span>
+                                <h4><a href="#">Title one goes here</a></h4>
+                                <p>Cum sociis natoque penatibus et magnis dis parturient</p>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- /.post-masonry -->
+			</div>			
+			
+	        </div>
+	    </div>
+	</div>
+
+</html>
