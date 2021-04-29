@@ -118,11 +118,11 @@
 		  <tbody>
 		    <tr>
 		      <th scope="row">이름</th>
-		      <td>Somebody 《꺾이지 않는 충성》</td>
+		      <td title="인게임 닉네임과 다릅니다.">Somebody 《꺾이지 않는 충성》</td>
 		    </tr>
 		    <tr>
 		      <th scope="row">총사령부</th>
-		      <td>흑와단 (중위)</td>
+		      <td title="The Maelstrom / First Storm Lieutenant"><img class="icon" th:src="@{/images/icons/grand_company/the_maelstrom/first_storm_lieutenant.png}">흑와단 (중위)</td>
 		    </tr>
 		    <tr>
 		      <th scope="row">종족 / 부족 / 성별</th>
@@ -130,7 +130,7 @@
 		    </tr>
 		    <tr>
 		      <th scope="row">시작 도시</th>
-		      <td>림사 로민사</td>
+		      <td><img class="icon" th:src="@{/images/icons/city/limsa_lominsa.png}">림사 로민사</td>
 		    </tr>
 		    <tr>
 		      <th scope="row">생일</th>
@@ -138,7 +138,7 @@
 		    </tr>
 		    <tr>
 		      <th scope="row">수호신</th>
-		      <td>할로네</td>
+		      <td><img class="icon" th:src="@{/images/icons/the_twelve/halone.png}">할로네</td>
 		    </tr>
 		  </tbody>
 		</table>
@@ -157,11 +157,11 @@
 		    </tr>
 		    <tr>
 		      <th scope="row">주직</th>
-		      <td><span class="badge bg-primary mr-1 my-1">건브레이커(Lv.80)</span></td>
+		      <td><img class="icon" th:src="@{/images/icons/job/gunbreaker.png}"> 건브레이커(Lv.80)</td>
 		    </tr>
 		    <tr>
 		      <th scope="row">언약자</th>
-		      <td>없음<span class="badge bg-warning mr-1 my-1">언약 희망 : 골드 플랜</span></td>
+		      <td>없음 <a href="#none" onclick="alert('언약 시트 모달 팝업')">[언약 희망 : 골드 플랜]</a></td>
 		    </tr>
 		  </tbody>
 		</table>
@@ -175,94 +175,109 @@
 		  <tbody>
 		    <tr>
 		      <th rowspan="9">Class</th>
-		      <th><span class="badge bg-primary mr-1 my-1">검술사</span></th>
-		      <td>LV.80</td>
+		      <th><img class="icon" th:src="@{/images/icons/class/gladiator.png}"> 검술사</th>
+		      <td>LV.7</td>
 		    </tr>
 		    <tr>
-		      <th><span class="badge bg-primary mr-1 my-1">도끼술사</span></th>
+		      <th><img class="icon" th:src="@{/images/icons/class/marauder.png}"> 도끼술사</th>
 		      <td>LV.0</td>
 		    </tr>
 		    <tr>
-		      <th><span class="badge bg-success mr-1 my-1">환술사</span></th>
+		      <th><img class="icon" th:src="@{/images/icons/class/conjurer.png}"> 환술사</th>
 		      <td>LV.70</td>
 		    </tr>
 		    <tr>
-		      <th><span class="badge bg-danger mr-1 my-1">격투사</span></th>
+		      <th><img class="icon" th:src="@{/images/icons/class/pugilist.png}"> 격투사</th>
 		      <td>LV.70</td>
 		    </tr>
 		    <tr>
-		      <th><span class="badge bg-danger mr-1 my-1">궁술사</span></th>
+		      <th><img class="icon" th:src="@{/images/icons/class/lancer.png}"> 창술사</th>
 		      <td>LV.70</td>
 		    </tr>
 		    <tr>
-		      <th><span class="badge bg-danger mr-1 my-1">창술사</span></th>
+		      <th><img class="icon" th:src="@{/images/icons/class/rogue.png}"> 쌍검사</th>
 		      <td>LV.70</td>
 		    </tr>
 		    <tr>
-		      <th><span class="badge bg-danger mr-1 my-1">쌍검사</span></th>
+		      <th><img class="icon" th:src="@{/images/icons/class/archer.png}"> 궁술사</th>
 		      <td>LV.70</td>
 		    </tr>
 		    <tr>
-		      <th><span class="badge bg-danger mr-1 my-1">주술사</span></th>
+		      <th><img class="icon" th:src="@{/images/icons/class/thaumaturge.png}"> 주술사</th>
 		      <td>LV.70</td>
 		    </tr>
 		    <tr>
-		      <th><span class="badge bg-danger mr-1 my-1">비술사</span></th>
+		      <th><img class="icon" th:src="@{/images/icons/class/arcanist.png}"> 비술사</th>
 		      <td>LV.70</td>
 		    </tr>
 		    
 		    <tr>
-		      <th rowspan="13">Job</th>
-		      <th><span class="badge bg-primary mr-1 my-1">나이트</span></th>
-		      <td>LV.80</td>
+		      <th rowspan="17">Job</th>
+		      <th><img class="icon" th:src="@{/images/icons/job/paladin.png}"> 나이트</th>
+		      <td>LV.7</td>
 		    </tr>
 		    <tr>
-		      <th><span class="badge bg-primary mr-1 my-1">전사</span></th>
+		      <th><img class="icon" th:src="@{/images/icons/job/warrior.png}"> 전사</th>
 		      <td>LV.0</td>
 		    </tr>
 		    <tr>
-		      <th><span class="badge bg-primary mr-1 my-1">건브레이커</span></th>
+		      <th><img class="icon" th:src="@{/images/icons/job/dark_knight.png}"> 암흑기사</th>
 		      <td>LV.80</td>
 		    </tr>
 		    <tr>
-		      <th><span class="badge bg-success mr-1 my-1">백마도사</span></th>
+		      <th><img class="icon" th:src="@{/images/icons/job/paladin.png}"> 건브레이커</th>
+		      <td>LV.80</td>
+		    </tr>
+		    <tr>
+		      <th><img class="icon" th:src="@{/images/icons/job/white_mage.png}"> 백마도사</th>
 		      <td>LV.70</td>
 		    </tr>
 		    <tr>
-		      <th><span class="badge bg-success mr-1 my-1">학자</span></th>
+		      <th><img class="icon" th:src="@{/images/icons/job/scholar.png}"> 학자</th>
 		      <td>LV.70</td>
 		    </tr>
 		    <tr>
-		      <th><span class="badge bg-success mr-1 my-1">점성술사</span></th>
-		      <td>LV.70</td>
-		    </tr>
-		    
-		    <tr>
-		      <th><span class="badge bg-danger mr-1 my-1">사무라이</span></th>
+		      <th><img class="icon" th:src="@{/images/icons/job/astrologian.png}"> 점성술사</th>
 		      <td>LV.70</td>
 		    </tr>
 		    <tr>
-		      <th><span class="badge bg-danger mr-1 my-1">기공사</span></th>
+		      <th><img class="icon" th:src="@{/images/icons/job/monk.png}"> 몽크</th>
+		      <td>LV.0</td>
+		    </tr>
+		    <tr>
+		      <th><img class="icon" th:src="@{/images/icons/job/dragoon.png}"> 용기사</th>
+		      <td>LV.0</td>
+		    </tr>		    
+		    <tr>
+		      <th><img class="icon" th:src="@{/images/icons/job/samurai.png}"> 사무라이</th>
 		      <td>LV.70</td>
 		    </tr>
 		    <tr>
-		      <th><span class="badge bg-danger mr-1 my-1">무도가</span></th>
+		      <th><img class="icon" th:src="@{/images/icons/job/bard.png}"> 음유시인</th>
 		      <td>LV.70</td>
 		    </tr>
 		    <tr>
-		      <th><span class="badge bg-danger mr-1 my-1">흑마도사</span></th>
+		      <th><img class="icon" th:src="@{/images/icons/job/machinist.png}"> 기공사</th>
 		      <td>LV.70</td>
 		    </tr>
 		    <tr>
-		      <th><span class="badge bg-danger mr-1 my-1">소환사</span></th>
+		      <th><img class="icon" th:src="@{/images/icons/job/dancer.png}"> 무도가</th>
 		      <td>LV.70</td>
 		    </tr>
 		    <tr>
-		      <th><span class="badge bg-danger mr-1 my-1">적마도사</span></th>
+		      <th><img class="icon" th:src="@{/images/icons/job/black_mage.png}"> 흑마도사</th>
 		      <td>LV.70</td>
 		    </tr>
 		    <tr>
-		      <th><span class="badge bg-danger mr-1 my-1">청마도사</span></th>
+		      <th><img class="icon" th:src="@{/images/icons/job/summoner.png}"> 소환사</th>
+		      <td>LV.70</td>
+		    </tr>
+		    <tr>
+		      <th><img class="icon" th:src="@{/images/icons/job/red_mage.png}"> 적마도사</th>
+		      <td>LV.70</td>
+		    </tr>
+		    <tr>
+		      <th><img class="icon" th:src="@{/images/icons/job/blue_mage.png}"> 청마도사</th>
 		      <td>LV.70</td>
 		    </tr>
 		  </tbody>
@@ -271,21 +286,139 @@
 		<table class="table table-sm table-dark" style="text-align : left;">
 		  <thead>
 		    <tr>
-		      <th scope="col" colspan="3"># Main Quest</th>
+		      <th scope="col" colspan="4"># Main Quest</th>
 		    </tr>
 		  </thead>
 		  <tbody>
-		    <tr>
-		    	<td>
-					<div class="progress">
-					  <div class="progress-bar bg-warning" role="progressbar" style="width: 25%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">신생 에오르제아</div>
-					  <div class="progress-bar bg-warning" role="progressbar" style="width: 25%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">창천의 이슈가르드</div>
-					  <div class="progress-bar bg-warning" role="progressbar" style="width: 25%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">홍련의 해방자</div>
-					  <div class="progress-bar bg-secondary" role="progressbar" style="width: 25%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">칠흑의 반역자</div>
-					</div>
-				</td>
-		    </tr>
-		  </tbody>
+			<tr>
+				<td rowspan="5">신생 에오르제아</td>
+				<td>2.0</td>
+				<td>각성한 자들</td>
+				<td><img class="icon" th:src="@{/images/icons/duty/main_quests_final_step.png}"></td>
+			</tr>
+			<tr>
+				<td>2.1</td>
+				<td>혼돈의 소용돌이</td>
+				<td><img class="icon" th:src="@{/images/icons/duty/main_quests_final_step.png}"></td>
+			</tr>
+			<tr>
+				<td>2.2</td>
+				<td>에오르제아의 수호자</td>
+				<td><img class="icon" th:src="@{/images/icons/duty/main_quests_final_step.png}"></td>
+			</tr>
+			<tr>
+				<td>2.3</td>
+				<td>빙결의 환상</td>
+				<td><img class="icon" th:src="@{/images/icons/duty/main_quests_final_step.png}"></td>
+			</tr>
+			<tr>
+				<td>2.4</td>
+				<td>희망의 등불</td>
+				<td><img class="icon" th:src="@{/images/icons/duty/main_quests_final_step.png}"></td>
+			</tr>
+
+			<tr>
+				<td rowspan="6">창천의 이슈가르드</td>
+				<td>3.0</td>
+				<td>창천의 이슈가르드</td>
+				<td><img class="icon" th:src="@{/images/icons/duty/main_quests_final_step.png}"></td>
+			</tr>
+			<tr>
+				<td>3.1</td>
+				<td>빛과 어둠의 경계</td>
+				<td><img class="icon" th:src="@{/images/icons/duty/main_quests_final_step.png}"></td>
+			</tr>
+			<tr>
+				<td>3.2</td>
+				<td>운명의 톱니바퀴</td>
+				<td><img class="icon" th:src="@{/images/icons/duty/main_quests_final_step.png}"></td>
+			</tr>
+			<tr>
+				<td>3.3</td>
+				<td>최후의 포효</td>
+				<td><img class="icon" th:src="@{/images/icons/duty/main_quests_final_step.png}"></td>
+			</tr>
+			<tr>
+				<td>3.4</td>
+				<td>혼을 계승하는 자</td>
+				<td><img class="icon" th:src="@{/images/icons/duty/main_quests_final_step.png}"></td>
+			</tr>
+			<tr>
+				<td>3.5</td>
+				<td>숙명의 끝</td>
+				<td><img class="icon" th:src="@{/images/icons/duty/main_quests_final_step.png}"></td>
+			</tr>
+
+			<tr>
+				<td rowspan="6">홍련의 해방자</td>
+				<td>4.0</td>
+				<td>홍련의 해방자</td>
+				<td><img class="icon" th:src="@{/images/icons/duty/main_quests_final_step.png}"></td>
+			</tr>
+			<tr>
+				<td>4.1</td>
+				<td>영웅의 귀환</td>
+				<td><img class="icon" th:src="@{/images/icons/duty/main_quests_final_step.png}"></td>
+			</tr>
+			<tr>
+				<td>4.2</td>
+				<td>새벽의 빛</td>
+				<td><img class="icon" th:src="@{/images/icons/duty/main_quests_final_step.png}"></td>
+			</tr>
+			<tr>
+				<td>4.3</td>
+				<td>월하의 꽃</td>
+				<td><img class="icon" th:src="@{/images/icons/duty/main_quests_final_step.png}"></td>
+			</tr>
+			<tr>
+				<td>4.4</td>
+				<td>광란의 전주곡</td>
+				<td><img class="icon" th:src="@{/images/icons/duty/main_quests_final_step.png}"></td>
+			</tr>
+			<tr>
+				<td>4.5</td>
+				<td>영웅을 위한 진혼가</td>
+				<td><img class="icon" th:src="@{/images/icons/duty/main_quests_final_step.png}"></td>
+			</tr>
+
+			<tr>
+				<td rowspan="6">칠흑의 반역자</td>
+				<td>5.0</td>
+				<td>칠흑의 반역자</td>
+				<td><img class="icon" th:src="@{/images/icons/duty/main_quests_final_step.png}"></td>
+			</tr>
+			<tr>
+				<td>5.1</td>
+				<td>하얀 서약, 검은 밀약</td>
+				<td><img class="icon" th:src="@{/images/icons/duty/main_quests_final_step.png}"></td>
+			</tr>
+			<tr>
+				<td>5.2</td>
+				<td>추억의 흉성</td>
+				<td><img class="icon" th:src="@{/images/icons/duty/main_quests_final_step.png}"></td>
+			</tr>
+			<tr>
+				<td>5.3</td>
+				<td>크리스탈의 잔광</td>
+				<td><img class="icon" th:src="@{/images/icons/duty/main_quests_in_progress.png}"></td>
+			</tr>
+			<tr>
+				<td>5.4</td>
+				<td>또 하나의 미래</td>
+				<td><img class="icon" th:src="@{/images/icons/duty/main_quests_available.png}"></td>
+			</tr>
+<!-- 			<tr>
+				<td>5.5</td>
+				<td>여명의 사투</td>
+				<td><img class="icon" th:src="@{/images/icons/duty/main_quests_available.png}"></td>
+			</tr> -->
+
+
+
+
+
+
+		</tbody>
 		</table>
 		
 		<table class="table table-sm table-dark" style="text-align : left;">
