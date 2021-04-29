@@ -35,6 +35,12 @@ public class PageController {
 		return "profile/view";
 	}
 	
+	@GetMapping("/search/list")
+	public String searchList() {
+		
+		return "search/list";
+	}
+	
 	@GetMapping("/user/sign_in")
 	public String userSignIn() {
 		

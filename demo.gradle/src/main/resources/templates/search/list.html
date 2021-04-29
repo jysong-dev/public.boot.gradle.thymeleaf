@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html
+	lang="ko"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout}"
+>
+<head>
+	<style>
+	
+	.bd-placeholder-img {
+		font-size: 1.125rem;
+		text-anchor: middle;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		user-select: none;
+	}
+	.background-image-full {
+		background-image: url('https://source.unsplash.com/random');
+		background-repeat : no-repeat;
+		background-position: center center;
+		background-size : cover;
+	}
+	
+	body {
+		height: 100%;
+		box-shadow: none;
+	}
+
+	.pagination {
+		font-size: 14px;
+	  color: white;
+	  display: inline-block;
+	}
+	
+	.pagination a {
+	  color: #f8f9fa;
+	  float: left;
+	  padding: 4px 8px;
+	  text-decoration: none;
+	}
+	.pagination a.active {
+	  background-color: #f8f9fa;
+	  color: #343a40;
+	}
+
+	.pagination a:hover:not(.active) {background-color: #ddd;}
+	
+	.search-list-thumb {
+		width:200px; height:200px; object-fit : cover;
+	}
+	
+	.search-list-item {
+		text-decoration: none;
+	}
+	
+	@media (min-width: 768px) {
+		body {
+			height: 100%;
+			box-shadow: none;
+		}
+	
+		.bd-placeholder-img-lg {
+			font-size: 3.5rem;
+		}
+					
+		.pagination {
+		  color: white;
+		  display: inline-block;
+		}
+		
+		.pagination a {
+		  color: #f8f9fa;
+		  float: left;
+		  padding: 8px 16px;
+		  text-decoration: none;
+		}
+		.pagination a.active {
+		  background-color: #f8f9fa;
+		  color: #343a40;
+		}
+	
+		.pagination a:hover:not(.active) {background-color: #ddd;}
+
+	}
+	
+	/* Bootstrap 4 text input with search icon */
+
+	.has-search .form-control {
+	    padding-left: 2.375rem;
+	}
+	
+	.has-search .form-control-feedback {
+	    position: absolute;
+	    z-index: 2;
+	    display: block;
+	    width: 2.375rem;
+	    height: 2.375rem;
+	    line-height: 2.375rem;
+	    text-align: center;
+	    pointer-events: none;
+	    color: #aaa;
+	}
+
+</style>
+</head>
+
+<div layout:fragment="content" class="cover-container d-flex w-100 p-3 mx-auto flex-column">
+
+<div class="container">
+
+	<div class="row mt-5">
+		  <div class="form-group has-search">
+		    <span class="fa fa-search form-control-feedback"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search align-middle mr-2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>
+		    <input type="text" class="form-control" placeholder="Search">
+		  </div>
+	</div>
+
+<!-- 	<div class="row mb-2"> -->
+<!-- 	    <div class="col-12"> -->
+<!-- 	    <a class="search-list-item" href="/" target="_blank"> -->
+<!-- 		      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 h-md-250 position-relative"> -->
+<!-- 		        <div class="col p-4 d-flex flex-column position-static"> -->
+<!-- 		          <strong class="d-inline-block mb-2 text-primary">World</strong> -->
+<!-- 		          <h3 class="mb-0">Jane Doe's Prototype</h3> -->
+<!-- 		          <small class="mb-1 text-muted">Jane Doe | Dancer | Moogle, Korea</small> -->
+<!-- 		          <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p> -->
+<!-- 		          <p class="mb-auto"> -->
+<!-- 					<span class="badge bg-warning">looking for friends</span> -->
+<!-- 					<span class="badge bg-success">looking for friends</span> -->
+<!-- 		          </p> -->
+<!-- 		        </div> -->
+<!-- 		        <div class="col-auto d-none d-lg-block"> -->
+<!-- 		          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
+<!-- 					<img class="search-list-thumb" src="http://farm8.staticflickr.com/7496/15959236842_6dbcb5b4c8_m.jpg"> -->
+<!-- 		        </div> -->
+<!-- 	      </div> -->
+<!-- 	     </a> -->
+<!-- 	    </div> -->
+	    
+<!-- 	    <div class="col-12"> -->
+<!-- 	    <a class="search-list-item" href="/" target="_blank"> -->
+<!-- 		      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 h-md-250 position-relative"> -->
+<!-- 		        <div class="col p-4 d-flex flex-column position-static"> -->
+<!-- 		          <strong class="d-inline-block mb-2 text-success">Design</strong> -->
+<!-- 		          <h3 class="mb-0">Jone Doe's Prototype</h3> -->
+<!-- 		          <small class="mb-1 text-muted">Jone Doe | White Mage | Tonberry, Korea</small> -->
+<!-- 		          <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p> -->
+<!-- 		          <p class="mb-auto"> -->
+<!-- 		          	<span class="badge bg-warning">looking for friends</span> -->
+<!-- 		          	<span class="badge bg-success">looking for friends</span> -->
+<!-- 		          </p> -->
+<!-- 		          <a href="#" class="stretched-link">Continue reading</a> -->
+<!-- 		        </div> -->
+<!-- 		        <div class="col-auto d-none d-lg-block"> -->
+<!-- 		        	<img class="search-list-thumb" src="https://lokeshdhakar.com/projects/lightbox2/images/image-3.jpg"> -->
+<!-- 		          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="url('https://lokeshdhakar.com/projects/lightbox2/images/image-3.jpg')"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
+<!-- 		        </div> -->
+<!-- 		      </div> -->
+<!-- 	      </a> -->
+<!-- 	    </div> -->
+	    
+<!-- 	    <div class="col-12"> -->
+<!-- 	    <a class="search-list-item" href="/" target="_blank"> -->
+<!-- 		      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 h-md-250 position-relative"> -->
+<!-- 		        <div class="col p-4 d-flex flex-column position-static"> -->
+<!-- 		          <strong class="d-inline-block mb-2 text-success">Design</strong> -->
+<!-- 		          <h3 class="mb-0">Jone Doe's Prototype</h3> -->
+<!-- 		          <small class="mb-1 text-muted">Jone Doe | White Mage | Tonberry, Korea</small> -->
+<!-- 		          <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p> -->
+<!-- 		          <p class="mb-auto"> -->
+<!-- 		          	<span class="badge bg-warning">looking for friends</span> -->
+<!-- 		          	<span class="badge bg-success">looking for friends</span> -->
+<!-- 		          </p> -->
+<!-- 		          <a href="#" class="stretched-link">Continue reading</a> -->
+<!-- 		        </div> -->
+<!-- 		        <div class="col-auto d-none d-lg-block"> -->
+<!-- 		        	<img class="search-list-thumb" src="https://lokeshdhakar.com/projects/lightbox2/images/image-3.jpg"> -->
+<!-- 		          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="url('https://lokeshdhakar.com/projects/lightbox2/images/image-3.jpg')"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
+<!-- 		        </div> -->
+<!-- 		      </div> -->
+<!-- 	      </a> -->
+<!-- 	    </div> -->
+	    
+<!-- 	    <div class="col-12"> -->
+<!-- 	    <a class="search-list-item" href="/" target="_blank"> -->
+<!-- 		      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 h-md-250 position-relative"> -->
+<!-- 		        <div class="col p-4 d-flex flex-column position-static"> -->
+<!-- 		          <strong class="d-inline-block mb-2 text-success">Design</strong> -->
+<!-- 		          <h3 class="mb-0">Jone Doe's Prototype</h3> -->
+<!-- 		          <small class="mb-1 text-muted">Jone Doe | White Mage | Tonberry, Korea</small> -->
+<!-- 		          <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p> -->
+<!-- 		          <p class="mb-auto"> -->
+<!-- 		          	<span class="badge bg-warning">looking for friends</span> -->
+<!-- 		          	<span class="badge bg-success">looking for friends</span> -->
+<!-- 		          </p> -->
+<!-- 		          <a href="#" class="stretched-link">Continue reading</a> -->
+<!-- 		        </div> -->
+<!-- 		        <div class="col-auto d-none d-lg-block"> -->
+<!-- 		        	<img class="search-list-thumb" src="https://lokeshdhakar.com/projects/lightbox2/images/image-3.jpg"> -->
+<!-- 		          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="url('https://lokeshdhakar.com/projects/lightbox2/images/image-3.jpg')"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
+<!-- 		        </div> -->
+<!-- 		      </div> -->
+<!-- 	      </a> -->
+<!-- 	    </div> -->
+	    
+<!-- 	  </div> -->
+
+<!-- 		<div class="row"> -->
+<!-- 			<!-- pagination --> -->
+<!-- 			<div class="col-lg-2"></div> -->
+<!-- 			<div class="col-lg-8"> -->
+<!-- 				<div class="pagination"> -->
+<!-- 				  <a href="#">&laquo;</a> -->
+<!-- 				  <a class="active" href="#">1</a> -->
+<!-- 				  <a href="#">2</a> -->
+<!-- 				  <a href="#">3</a> -->
+<!-- 				  <a href="#">4</a> -->
+<!-- 				  <a href="#">5</a> -->
+<!-- 				  <a href="#">&raquo;</a> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 			<div class="col-lg-2"></div> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
+	
+	</div> <!-- .container -->
+
+</html>

@@ -6,129 +6,148 @@
 	layout:decorate="~{layouts/layout}"
 >
 <head>
+<link rel="stylesheet" th:href="@{/libs/lightbox2-2.11.3/src/css/lightbox.css}">
+<script th:src="@{/libs/lightbox2-2.11.3/src/js/lightbox.js}"></script>
+<style>
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-
-<script type="text/javascript" th:src="@{/libs/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.pack.js}"></script>
-<link rel="stylesheet" th:href="@{/libs/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.css}" type="text/css" media="screen" />
-
-<script type="text/javascript" th:src="@{/libs/jquery.fancybox-1.3.4/fancybox/jquery.mousewheel-3.0.4.pack.js}"></script>
-
-<!-- 	<link rel="stylesheet" th:href="@{/libs/templatemo_434_masonry/css/templatemo-style.css}">
-	<script th:src="@{/libs/templatemo_434_masonry/js/vendor/modernizr-2.6.2.min.js}"></script>
-	<script th:src="@{/libs/templatemo_434_masonry/js/vendor/jquery-1.10.2.min.js}"></script>
-	<script th:src="@{/libs/templatemo_434_masonry/js/min/plugins.min.js}"></script>
-	<script th:src="@{/libs/templatemo_434_masonry/js/min/main.min.js}"></script>
-	 -->
-	<!-- Bootstrap core CSS -->
-	<!-- <link th:href="@{/libs/bootstrap-5.0.0-beta3-examples/assets/dist/css/bootstrap.min.css}" rel="stylesheet"> -->
-	<!-- Custom styles for this template -->
+	/* lightbox style */
+	.photo-gallery {
+	  color:#313437;
+	  background-color:#fff;
+	}
 	
- 	<style>
- 	
-		.bd-placeholder-img {
-			font-size: 1.125rem;
-			text-anchor: middle;
-			-webkit-user-select: none;
-			-moz-user-select: none;
-			user-select: none;
-		}
-		.background-image-full {
-			background-image: url('https://source.unsplash.com/random');
-			background-repeat : no-repeat;
-			background-position: center center;
-			background-size : cover;
-		}
+	.photo-gallery p {
+	  color:#7d8285;
+	}
+	
+	.photo-gallery h2 {
+	  font-weight:bold;
+	  margin-bottom:40px;
+	  padding-top:40px;
+	  color:inherit;
+	}
+	
+	@media (max-width:767px) {
+	  .photo-gallery h2 {
+	    margin-bottom:25px;
+	    padding-top:25px;
+	    font-size:24px;
+	  }
+	}
+	
+	.photo-gallery .intro {
+		font-size:16px;
+	}
+	
+	.photo-gallery .intro p {
+	  margin-bottom:0;
+	}
+	
+	.photo-gallery .photos {
+	  padding-bottom:20px;
+	}
+	
+	.photo-gallery .item {
+	  padding-bottom:30px;
+	}
+	
+	/* cover theme style */
+	.bd-placeholder-img {
+		font-size: 1.125rem;
+		text-anchor: middle;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		user-select: none;
+	}
+	.background-image-full {
+		background-image: url('https://source.unsplash.com/random');
+		background-repeat : no-repeat;
+		background-position: center center;
+		background-size : cover;
+	}
+	
+	body {
+		height: 100%;
+		box-shadow: none;
+	}
+	
+	.main-image {
+		width: 100%;
+		height : 150px;
+		object-fit:cover;
+		border : 7px solid #fff;
+	}
+
+	.item img {
+		width: 100%;
+		height : 100px;
+		object-fit : cover;
+		/* border : 5px solid #fff; */
+	}
 		
+	@media (min-width: 768px) {
 		body {
 			height: 100%;
 			box-shadow: none;
 		}
-	
-		.pagination a:hover:not(.active) {background-color: #ddd;}
+		.bd-placeholder-img-lg {
+			font-size: 3.5rem;
+		}
 		
-		@media (min-width: 768px) {
-			body {
-				height: 100%;
-				box-shadow: none;
-			}
+		.item img {
+			width: 100%;
+			height : 100px;
+			object-fit:cover;
+			/* border : 5px solid #fff; */
+		}
 		
-			.bd-placeholder-img-lg {
-				font-size: 3.5rem;
-			}
-
+		.main-image {
+			width: 100%;
+			height : 300px;
+			object-fit:cover;
+			border : 10px solid #fff;
 		}
 
-	</style>
-	<script>
+	}
+
+</style>
+<script>
 	(function() {
-	
-	$(document).ready(function() {
 
-// 		/* This is basic - uses default settings */
-		
-// 		$("a#single_image").fancybox();
-		
-// 		/* Using custom settings */
-		
-// 		$("a#inline").fancybox({
-// 			'hideOnContentClick': true
-// 		});
-
-// 		/* Apply fancybox to multiple items */
-		
-// 		$("a.group").fancybox({
-// 			'transitionIn'	:	'elastic',
-// 			'transitionOut'	:	'elastic',
-// 			'speedIn'		:	600, 
-// 			'speedOut'		:	200, 
-// 			'overlayShow'	:	false
-// 		});
-
-		$("a.grouped_elements").fancybox();
-		
-	});
+		$(document).ready(function() {
+			lightbox.option({
+				alwaysShowNavOnTouchDevices : false,
+				albumLabel : '%1 / %2',
+				positionFromTop : 100
+			});
+		});
 	
 	})();
-	</script>
+</script>
 </head>
 
 <div layout:fragment="content" class="cover-container d-flex w-100 p-3 mx-auto flex-column">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 mb-3"><a href="#none"><img class="img-fluid main-image" src="https://lokeshdhakar.com/projects/lightbox2/images/image-3.jpg"></a></div>
+		</div>
 
-<a class="grouped_elements" rel="group1" href="https://source.unsplash.com/random"><img src="https://source.unsplash.com/random" alt=""/></a>
-<a class="grouped_elements" rel="group1" href="https://source.unsplash.com/random"><img src="https://source.unsplash.com/random" alt=""/></a> 	
-
-<a class="grouped_elements" rel="group2" href="https://source.unsplash.com/random"><img src="https://source.unsplash.com/random" alt=""/></a> 
-<a class="grouped_elements" rel="group2" href="https://source.unsplash.com/random"><img src="https://source.unsplash.com/random" alt=""/></a> 
-
-	<!-- MAIN POSTS -->
-<!-- 	<div class="main-posts">
-	    <div class="container">
-	        <div class="row">
-                <div class="post-masonry col-12">
-                    <div class="post-thumb">
-                        <img th:src="@{/example/images/photo_01.jpg}" alt="">
-                        <img src="https://source.unsplash.com/random" alt="">
-                        <div class="title-over">
-                            <h4><a href="#">Title one goes here</a></h4>
-                        </div>
-                        <div class="post-hover text-center">
-                            <div class="inside">
-                                <i class="fa fa-plus"></i>
-                                <span class="date">2021. 04. 17</span>
-                                <h4><a href="#">Title one goes here</a></h4>
-                                <p>Cum sociis natoque penatibus et magnis dis parturient</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-			</div>			
-			
-	        </div>
-	    </div> -->
+	
+	    <div class="intro" style="text-align: left;"> <!-- TODO 추후 클래스로 변경 -->
+	    	<small><em>2021. 04. 17</em></small><a href="/closet/list" class="text-muted" style="float: right;">back to list &raquo;</a>
+	        <hr class="mt-1">
+	        <h5>Title one goes here</h5>
+	        <p>Cum sociis natoque penatibus et magnis dis parturient</p>
+	    </div>
 	    
-	    
-	    
+	    <div class="row photos">
+	        <div class="col-sm-6 col-md-4 col-lg-3 item mb-3"><a href="https://lokeshdhakar.com/projects/lightbox2/images/image-3.jpg" data-lightbox="photos"  data-title="대표 이미지"><img class="img-fluid" src="https://lokeshdhakar.com/projects/lightbox2/images/image-3.jpg"><span class="badge bg-warning"></span></a></div>
+	        <div class="col-sm-6 col-md-4 col-lg-3 item mb-3"><a href="http://farm8.staticflickr.com/7496/15959236842_6dbcb5b4c8_m.jpg" data-lightbox="photos"><img class="img-fluid" src="http://farm8.staticflickr.com/7496/15959236842_6dbcb5b4c8_m.jpg"></a></div>
+	        <div class="col-sm-6 col-md-4 col-lg-3 item mb-3"><a href="http://farm8.staticflickr.com/7404/12868632153_b0a5718c22_m.jpg" data-lightbox="photos"><img class="img-fluid" src="http://farm8.staticflickr.com/7404/12868632153_b0a5718c22_m.jpg"></a></div>
+	        <div class="col-sm-6 col-md-4 col-lg-3 item mb-3"><a href="http://farm4.staticflickr.com/3864/14420515212_9999c800b4_m.jpg" data-lightbox="photos"><img class="img-fluid" src="http://farm4.staticflickr.com/3864/14420515212_9999c800b4_m.jpg"></a></div>
+	        <div class="col-sm-6 col-md-4 col-lg-3 item mb-3"><a href="http://farm8.staticflickr.com/7489/15241066224_8864806ffd_m.jpg" data-lightbox="photos"><img class="img-fluid" src="http://farm8.staticflickr.com/7489/15241066224_8864806ffd_m.jpg"></a></div>
+	        <div class="col-sm-6 col-md-4 col-lg-3 item mb-3"><a href="http://farm9.staticflickr.com/8481/8215602321_69d9939b8b_m.jpg" data-lightbox="photos"><img class="img-fluid" src="http://farm9.staticflickr.com/8481/8215602321_69d9939b8b_m.jpg"></a></div>
+	    </div>
+	</div>
 </div>
-
 </html>
