@@ -4,7 +4,7 @@ Demo Project for Spring Boot, Gradle, Thymeleaf
 
 [1. Skill Stacks](#1.-skill-stacks)
 
-# 1. Skill Stacks
+## 1. Skill Stacks
 
 - Spring Boot
 - Gradle
