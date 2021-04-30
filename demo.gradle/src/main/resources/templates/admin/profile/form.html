@@ -5,6 +5,9 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{admin/layouts/layout}"
 >
+<style>
+
+</style>
 
 	<div layout:fragment="content" class="container-fluid p-0">
 
@@ -40,8 +43,8 @@
 					<a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">
 				      Your data
 				    </a>
-					<a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">
-				      Delete account
+					<a class="list-group-item list-group-item-action" data-toggle="list" href="#basic-profile" role="tab">
+				    	Basic Profile
 				    </a>
 				</div>
 			</div>
@@ -61,7 +64,7 @@
 								<div class="row">
 									<div class="col-md-8">
 										<div class="mb-3">
-											<label class="form-label" for="inputUsername">Username</label>
+											<label class="form-label" for="inputUsername">Name</label>
 											<input type="text" class="form-control" id="inputUsername" placeholder="Username">
 										</div>
 										<div class="mb-3">
@@ -164,6 +167,382 @@
 						</div>
 					</div>
 				</div>
+				
+				<div class="tab-pane fade" id="basic-profile" role="tabpanel">
+
+					<div class="card">
+						<div class="card-header">
+
+							<h5 class="card-title mb-0">Basic Profile</h5>
+						</div>
+						<div class="card-body">
+							<form>
+								<div class="row row-cols-md-auto align-items-center">
+									<div class="col-12">
+										<label class="mb-2" for="inlineFormInputName2">Name</label>
+										<input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Jane Doe">
+									</div>
+
+									<div class="col-12">
+										<label class="mb-2" for="inlineFormInputGroupUsername2">Entitle</label>
+										<input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Jane Doe">
+									</div>
+									<div class="col-12">
+										<div class="form-checkmb-1 mr-sm-2  mt-3">
+											<input type="checkbox" class="form-check-input " id="customControlInline">
+											<label class="form-check-label" for="customControlInline">It's different from in-game name</label>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-8">
+										<div class="mb-3">
+											<label class="form-label" for="inputUsername">Biography</label>
+											<textarea rows="2" class="form-control" id="inputBio" placeholder="Tell something about yourself"></textarea>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="text-center">
+											<img alt="Charles Hall" th:src="@{/libs/adminkit-master/static/img/avatars/avatar.jpg}" class="rounded img-responsive mt-2" width="128" height="128" />
+											<div class="mt-2">
+												<span class="btn btn-primary"><i class="fas fa-upload"></i> Upload</span>
+											</div>
+											<small>For best results, use an image at least 128px by 128px in .jpg format</small>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="mb-3 col-md-4">
+										<label class="form-label" for="inputState">City</label>
+										<select id="inputState" class="form-control">
+						                <option selected>Choose...</option>
+						                <option>Limsa Lominsa</option>
+						                <option>U'ldah</option>
+						                <option>Gridania</option>
+						              </select>
+									</div>
+									<div class="mb-3 col-md-4">
+										<label class="form-label" for="inputState">Grand Company</label>
+										<select id="inputState" class="form-control">
+						                <option selected>Choose...</option>
+						                <option>The Maelstorm</option>
+						              </select>
+									</div>
+									<div class="mb-3 col-md-4">
+										<label class="form-label" for="inputState">Lank</label>
+										<select id="inputState" class="form-control">
+						                <option selected>Choose...</option>
+						                <option>First Storm Lieutenant</option>
+						              </select>
+									</div>
+								</div>	
+								<div class="row">
+									<div class="mb-3 col-md-2">
+										<label class="form-label" for="inputZip">Birth</label>
+							              	<select id="inputState" class="form-control">
+							                	<option selected>Choose...</option>
+							                	<option>Starlight</option>
+							                	<option>Shadow</option>
+							              	</select>
+									</div>
+									<div class="mb-3 col-md-2">
+										<label class="form-label" for="inputZip">Day</label>
+										<select id="inputState" class="form-control col">
+						                	<option selected>Choose...</option>
+						                	<option>Day 1</option>
+						                	<option>Day 2</option>
+						              	</select>
+									</div>
+									<div class="mb-3 col-md-2">
+										<label class="form-label" for="inputZip">The Twelve</label>
+										<select id="inputState" class="form-control col">
+						                	<option selected>Choose...</option>
+						                	<option>Halone</option>
+						                	<option></option>
+						              	</select>
+									</div>
+								</div>
+
+								<button type="submit" class="btn btn-primary">Save changes</button>
+							</form>
+
+						</div>
+					</div>
+
+					<div class="card">
+						<div class="card-header">
+
+							<h5 class="card-title mb-0">Status</h5>
+						</div>
+						<div class="card-body">
+							<form>
+								<div class="row">
+									<div class="mb-3 col-md-6">
+										<label class="form-label" for="inputFirstName">Hometown Server</label>
+										<select id="inputState" class="form-control">
+						                <option selected>Choose...</option>
+						                <option>Tonberry</option>
+						                <option>Moogle</option>
+						                <option>C</option>
+						              	</select>
+									</div>
+									<div class="mb-3 col-md-6">
+										<label class="form-label" for="inputLastName">Main Job</label>
+										<select id="inputState" class="form-control col">
+						                	<option selected>Choose...</option>
+						                	<optgroup label="Classes">
+						                	<option>Archer</option>
+						                	<option>...</option>
+						                	</optgroup>
+						                	<optgroup label="Jobs">
+						                	<option>Gunbreaker</option>
+						                	<option>Dancer</option>
+						                	</optgroup>
+						              	</select>
+									</div>
+
+<!-- 									<div class="mb-3 col-md-2">
+										<label class="form-label" for="inputZip">Level</label>
+										<select id="inputState" class="form-control col">
+							                <option selected>Choose...</option>
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+											<option>4</option>
+											<option>5</option>
+											<option>6</option>
+											<option>7</option>
+											<option>8</option>
+											<option>9</option>
+											<option>10</option>
+											<option>11</option>
+											<option>12</option>
+											<option>13</option>
+											<option>14</option>
+											<option>15</option>
+											<option>16</option>
+											<option>17</option>
+											<option>18</option>
+											<option>19</option>
+											<option>20</option>
+											<option>21</option>
+											<option>22</option>
+											<option>23</option>
+											<option>24</option>
+											<option>25</option>
+											<option>26</option>
+											<option>27</option>
+											<option>28</option>
+											<option>29</option>
+											<option>30</option>
+											<option>31</option>
+											<option>32</option>
+											<option>33</option>
+											<option>34</option>
+											<option>35</option>
+											<option>36</option>
+											<option>37</option>
+											<option>38</option>
+											<option>39</option>
+											<option>40</option>
+											<option>41</option>
+											<option>42</option>
+											<option>43</option>
+											<option>44</option>
+											<option>45</option>
+											<option>46</option>
+											<option>47</option>
+											<option>48</option>
+											<option>49</option>
+											<option>50</option>
+											<option>51</option>
+											<option>52</option>
+											<option>53</option>
+											<option>54</option>
+											<option>55</option>
+											<option>56</option>
+											<option>57</option>
+											<option>58</option>
+											<option>59</option>
+											<option>60</option>
+											<option>61</option>
+											<option>62</option>
+											<option>63</option>
+											<option>64</option>
+											<option>65</option>
+											<option>66</option>
+											<option>67</option>
+											<option>68</option>
+											<option>69</option>
+											<option>70</option>
+											<option>71</option>
+											<option>72</option>
+											<option>73</option>
+											<option>74</option>
+											<option>75</option>
+											<option>76</option>
+											<option>77</option>
+											<option>78</option>
+											<option>79</option>
+											<option>80</option>
+						              	</select>
+									</div> -->
+								</div>
+								<div class="row">
+									<div class="mb-3 col-md-6">
+										<label class="form-label" for="inputFirstName">Eternal Bonding</label>
+										<select id="inputState" class="form-control">
+						                <option selected>Choose...</option>
+						                <option>Looking for a partner</option>
+						                <option>I don't want a bonding now</option>
+						                <option>...</option>
+						              	</select>
+									</div>
+									<div class="mb-3 col-md-2">
+										<label class="form-label" for="inputZip">Plan</label>
+										<select id="inputState" class="form-control col">
+							                <option selected>Choose...</option>
+							                <option>Standard</option>
+							                <option>Gold</option>
+							                <option>Platinum</option>
+						              	</select>
+									</div>
+									<div class="mb-3 col-md-4">
+										<label class="form-label" for="inputLastName">Bonding Sheet</label>
+										<select id="inputState" class="form-control col">
+							                <option selected>Choose...</option>
+							                <option>Sheet [2021. 04. 30]</option>
+							                <option>Sheet [2021. 04. 01]</option>
+						              	</select>
+									</div>
+								</div>
+								<button type="submit" class="btn btn-primary">Save changes</button>
+							</form>
+
+						</div>
+					</div>
+					
+					<div class="card">
+						<div class="card-header">
+							<h5 class="card-title">Job / Class</h5>
+							<!-- <h6 class="card-subtitle text-muted">Using the most basic table markup, here’s how .table-based tables look in Bootstrap.</h6> -->
+						</div>
+						<table class="table table-sm">
+							<thead>
+								<tr>
+									<th style="width:50%;">Job / Class</th>
+									<th style="width:50%">Level</th>
+<!-- 									<th class="d-none d-md-table-cell" style="width:25%">Date of Birth</th>
+									<th>Actions</th> -->
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><img class="icon" th:src="@{/images/icons/class/gladiator.png}"> Gladiator</td>
+									<td>
+										<select id="inputState" class="form-control col">
+											<!-- TODO 하드코딩된 숫자 부분 변경 -->
+											<th:block th:each="num : ${#numbers.sequence(1,80)}">
+												<option th:text="${num}"></option>
+											</th:block>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<td><img class="icon" th:src="@{/images/icons/class/gladiator.png}"> Gladiator</td>
+									<td>
+										<select id="inputState" class="form-control col">
+											<th:block th:each="num : ${#numbers.sequence(1,80)}">
+												<option th:text="${num}"></option>
+											</th:block>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<td><img class="icon" th:src="@{/images/icons/class/gladiator.png}"> Gladiator</td>
+									<td>
+										<select id="inputState" class="form-control col">
+											<th:block th:each="num : ${#numbers.sequence(1,80)}">
+												<option th:text="${num}"></option>
+											</th:block>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<td><img class="icon" th:src="@{/images/icons/class/gladiator.png}"> Gladiator</td>
+									<td>
+										<select id="inputState" class="form-control col">
+											<th:block th:each="num : ${#numbers.sequence(1,80)}">
+												<option th:text="${num}"></option>
+											</th:block>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<td><img class="icon" th:src="@{/images/icons/class/gladiator.png}"> Gladiator</td>
+									<td>
+										<select id="inputState" class="form-control col">
+											<th:block th:each="num : ${#numbers.sequence(1,80)}">
+												<option th:text="${num}"></option>
+											</th:block>
+										</select>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="card">
+						<div class="card-header">
+							<h5 class="card-title">Main Quest Progress <img class="icon" th:src="@{/images/icons/duty/main_quests_available.png}"></h5>
+							<!-- <h6 class="card-subtitle text-muted">Using the most basic table markup, here’s how .table-based tables look in Bootstrap.</h6> -->
+						</div>
+						<table class="table table-sm">
+							<thead>
+								<tr>
+									<th style="width:50%;">Job / Class</th>
+									<th style="width:50%">Progress</th>
+<!-- 									<th class="d-none d-md-table-cell" style="width:25%">Date of Birth</th>
+									<th>Actions</th> -->
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Reborn Realm</td>
+									<td>
+										<select id="inputState" class="form-control col">
+											<option value="main_quests_available">미진행</option>
+											<option value="main_quests_in_progress">진행중</option>
+											<option value="main_quests_final_step">완료</option>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<td>Heavensward</td>
+									<td>
+										<select id="inputState" class="form-control col">
+											<option value="main_quests_available">미진행</option>
+											<option value="main_quests_in_progress">진행중</option>
+											<option value="main_quests_final_step">완료</option>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<td>Stormblood</td>
+									<td>
+										<select id="inputState" class="form-control col">
+											<option value="main_quests_available">미진행</option>
+											<option value="main_quests_in_progress">진행중</option>
+											<option value="main_quests_final_step">완료</option>
+										</select>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+				</div>
+				
 			</div>
 		</div>
 	</div>

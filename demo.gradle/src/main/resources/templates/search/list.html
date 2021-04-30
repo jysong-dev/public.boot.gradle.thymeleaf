@@ -6,6 +6,7 @@
 	layout:decorate="~{layouts/layout}"
 >
 <head>
+	<link th:href="@{/libs/colorlib-search-8/css/main.css}" rel="stylesheet" />
 	<style>
 	
 	.bd-placeholder-img {
@@ -101,6 +102,14 @@
 	    pointer-events: none;
 	    color: #aaa;
 	}
+	
+	.s008 {
+		background: none;
+	}
+	
+	.input-select > * {
+		font-size: 10px;
+	}
 
 </style>
 </head>
@@ -109,121 +118,138 @@
 
 <div class="container">
 
-	<div class="row mt-5">
-		  <div class="form-group has-search">
-		    <span class="fa fa-search form-control-feedback"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search align-middle mr-2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>
-		    <input type="text" class="form-control" placeholder="Search">
-		  </div>
-	</div>
+    <div class="s008">
+      <form>
+        <div class="inner-form">
+          <div class="basic-search">
+            <div class="input-field">
+              <input id="search" type="text" placeholder="Type Keywords" />
+              <div class="icon-wrap">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+                  <path d="M18.869 19.162l-5.943-6.484c1.339-1.401 2.075-3.233 2.075-5.178 0-2.003-0.78-3.887-2.197-5.303s-3.3-2.197-5.303-2.197-3.887 0.78-5.303 2.197-2.197 3.3-2.197 5.303 0.78 3.887 2.197 5.303 3.3 2.197 5.303 2.197c1.726 0 3.362-0.579 4.688-1.645l5.943 6.483c0.099 0.108 0.233 0.162 0.369 0.162 0.121 0 0.242-0.043 0.338-0.131 0.204-0.187 0.217-0.503 0.031-0.706zM1 7.5c0-3.584 2.916-6.5 6.5-6.5s6.5 2.916 6.5 6.5-2.916 6.5-6.5 6.5-6.5-2.916-6.5-6.5z"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+<!--           <div class="advance-search"> -->
+<!--             <span class="desc">Advanced Search</span> -->
+<!--             <div class="row"> -->
+<!--               <div class="input-field"> -->
+<!--                 <div class="input-select"> -->
+<!--                   <select data-trigger="" name="choices-single-defaul"> -->
+<!--                     <option sty placeholder="" value="">SERVER</option> -->
+<!--                     <option>Tonberry</option> -->
+<!--                     <option>Moogle</option> -->
+<!--                     <option>KBC</option> -->
+<!--                   </select> -->
+<!--                 </div> -->
+<!--               </div> -->
+<!--               <div class="input-field"> -->
+<!--                 <div class="input-select"> -->
+<!--                   <select data-trigger="" name="choices-single-defaul"> -->
+<!--                     <option placeholder="" value="">COLOR</option> -->
+<!--                     <option>GREEN</option> -->
+<!--                     <option>SUBJECT B</option> -->
+<!--                     <option>SUBJECT C</option> -->
+<!--                   </select> -->
+<!--                 </div> -->
+<!--               </div> -->
+<!--               <div class="input-field"> -->
+<!--                 <div class="input-select"> -->
+<!--                   <select data-trigger="" name="choices-single-defaul"> -->
+<!--                     <option placeholder="" value="">SIZE</option> -->
+<!--                     <option>SIZE</option> -->
+<!--                     <option>SUBJECT B</option> -->
+<!--                     <option>SUBJECT C</option> -->
+<!--                   </select> -->
+<!--                 </div> -->
+<!--               </div> -->
+<!--             </div> -->
+<!--             <div class="row second"> -->
+<!--               <div class="input-field"> -->
+<!--                 <div class="input-select"> -->
+<!--                   <select data-trigger="" name="choices-single-defaul"> -->
+<!--                     <option placeholder="" value="">SALE</option> -->
+<!--                     <option>SALE</option> -->
+<!--                     <option>SUBJECT B</option> -->
+<!--                     <option>SUBJECT C</option> -->
+<!--                   </select> -->
+<!--                 </div> -->
+<!--               </div> -->
+<!--               <div class="input-field"> -->
+<!--                 <div class="input-select"> -->
+<!--                   <select data-trigger="" name="choices-single-defaul"> -->
+<!--                     <option placeholder="" value="">TIME</option> -->
+<!--                     <option>THIS WEEK</option> -->
+<!--                     <option>SUBJECT B</option> -->
+<!--                     <option>SUBJECT C</option> -->
+<!--                   </select> -->
+<!--                 </div> -->
+<!--               </div> -->
+<!--               <div class="input-field"> -->
+<!--                 <div class="input-select"> -->
+<!--                   <select data-trigger="" name="choices-single-defaul"> -->
+<!--                     <option placeholder="" value="">TYPE</option> -->
+<!--                     <option>TYPE</option> -->
+<!--                     <option>SUBJECT B</option> -->
+<!--                     <option>SUBJECT C</option> -->
+<!--                   </select> -->
+<!--                 </div> -->
+<!--               </div> -->
+<!--             </div> -->
+<!--             <div class="row third"> -->
+<!--               <div class="input-field"> -->
+<!--                 <div class="result-count d-none d-lg-block"> -->
+<!--                   <span>108 </span>results</div> -->
+<!--                 <div class="group-btn"> -->
+<!--                   <button class="btn-delete" id="delete">Reset</button> -->
+<!--                   <button class="btn-search">Search</button> -->
+<!--                 </div> -->
+<!--               </div> -->
+<!--             </div> -->
+<!--           </div> -->
+        </div>
+      </form>
+    </div>
 
-<!-- 	<div class="row mb-2"> -->
-<!-- 	    <div class="col-12"> -->
-<!-- 	    <a class="search-list-item" href="/" target="_blank"> -->
-<!-- 		      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 h-md-250 position-relative"> -->
-<!-- 		        <div class="col p-4 d-flex flex-column position-static"> -->
-<!-- 		          <strong class="d-inline-block mb-2 text-primary">World</strong> -->
-<!-- 		          <h3 class="mb-0">Jane Doe's Prototype</h3> -->
-<!-- 		          <small class="mb-1 text-muted">Jane Doe | Dancer | Moogle, Korea</small> -->
-<!-- 		          <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p> -->
-<!-- 		          <p class="mb-auto"> -->
-<!-- 					<span class="badge bg-warning">looking for friends</span> -->
-<!-- 					<span class="badge bg-success">looking for friends</span> -->
-<!-- 		          </p> -->
-<!-- 		        </div> -->
-<!-- 		        <div class="col-auto d-none d-lg-block"> -->
-<!-- 		          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
-<!-- 					<img class="search-list-thumb" src="http://farm8.staticflickr.com/7496/15959236842_6dbcb5b4c8_m.jpg"> -->
-<!-- 		        </div> -->
-<!-- 	      </div> -->
-<!-- 	     </a> -->
-<!-- 	    </div> -->
-	    
-<!-- 	    <div class="col-12"> -->
-<!-- 	    <a class="search-list-item" href="/" target="_blank"> -->
-<!-- 		      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 h-md-250 position-relative"> -->
-<!-- 		        <div class="col p-4 d-flex flex-column position-static"> -->
-<!-- 		          <strong class="d-inline-block mb-2 text-success">Design</strong> -->
-<!-- 		          <h3 class="mb-0">Jone Doe's Prototype</h3> -->
-<!-- 		          <small class="mb-1 text-muted">Jone Doe | White Mage | Tonberry, Korea</small> -->
-<!-- 		          <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p> -->
-<!-- 		          <p class="mb-auto"> -->
-<!-- 		          	<span class="badge bg-warning">looking for friends</span> -->
-<!-- 		          	<span class="badge bg-success">looking for friends</span> -->
-<!-- 		          </p> -->
-<!-- 		          <a href="#" class="stretched-link">Continue reading</a> -->
-<!-- 		        </div> -->
-<!-- 		        <div class="col-auto d-none d-lg-block"> -->
-<!-- 		        	<img class="search-list-thumb" src="https://lokeshdhakar.com/projects/lightbox2/images/image-3.jpg"> -->
-<!-- 		          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="url('https://lokeshdhakar.com/projects/lightbox2/images/image-3.jpg')"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
-<!-- 		        </div> -->
-<!-- 		      </div> -->
-<!-- 	      </a> -->
-<!-- 	    </div> -->
-	    
-<!-- 	    <div class="col-12"> -->
-<!-- 	    <a class="search-list-item" href="/" target="_blank"> -->
-<!-- 		      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 h-md-250 position-relative"> -->
-<!-- 		        <div class="col p-4 d-flex flex-column position-static"> -->
-<!-- 		          <strong class="d-inline-block mb-2 text-success">Design</strong> -->
-<!-- 		          <h3 class="mb-0">Jone Doe's Prototype</h3> -->
-<!-- 		          <small class="mb-1 text-muted">Jone Doe | White Mage | Tonberry, Korea</small> -->
-<!-- 		          <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p> -->
-<!-- 		          <p class="mb-auto"> -->
-<!-- 		          	<span class="badge bg-warning">looking for friends</span> -->
-<!-- 		          	<span class="badge bg-success">looking for friends</span> -->
-<!-- 		          </p> -->
-<!-- 		          <a href="#" class="stretched-link">Continue reading</a> -->
-<!-- 		        </div> -->
-<!-- 		        <div class="col-auto d-none d-lg-block"> -->
-<!-- 		        	<img class="search-list-thumb" src="https://lokeshdhakar.com/projects/lightbox2/images/image-3.jpg"> -->
-<!-- 		          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="url('https://lokeshdhakar.com/projects/lightbox2/images/image-3.jpg')"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
-<!-- 		        </div> -->
-<!-- 		      </div> -->
-<!-- 	      </a> -->
-<!-- 	    </div> -->
-	    
-<!-- 	    <div class="col-12"> -->
-<!-- 	    <a class="search-list-item" href="/" target="_blank"> -->
-<!-- 		      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 h-md-250 position-relative"> -->
-<!-- 		        <div class="col p-4 d-flex flex-column position-static"> -->
-<!-- 		          <strong class="d-inline-block mb-2 text-success">Design</strong> -->
-<!-- 		          <h3 class="mb-0">Jone Doe's Prototype</h3> -->
-<!-- 		          <small class="mb-1 text-muted">Jone Doe | White Mage | Tonberry, Korea</small> -->
-<!-- 		          <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p> -->
-<!-- 		          <p class="mb-auto"> -->
-<!-- 		          	<span class="badge bg-warning">looking for friends</span> -->
-<!-- 		          	<span class="badge bg-success">looking for friends</span> -->
-<!-- 		          </p> -->
-<!-- 		          <a href="#" class="stretched-link">Continue reading</a> -->
-<!-- 		        </div> -->
-<!-- 		        <div class="col-auto d-none d-lg-block"> -->
-<!-- 		        	<img class="search-list-thumb" src="https://lokeshdhakar.com/projects/lightbox2/images/image-3.jpg"> -->
-<!-- 		          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="url('https://lokeshdhakar.com/projects/lightbox2/images/image-3.jpg')"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
-<!-- 		        </div> -->
-<!-- 		      </div> -->
-<!-- 	      </a> -->
-<!-- 	    </div> -->
-	    
-<!-- 	  </div> -->
-
-<!-- 		<div class="row"> -->
-<!-- 			<!-- pagination --> -->
-<!-- 			<div class="col-lg-2"></div> -->
-<!-- 			<div class="col-lg-8"> -->
-<!-- 				<div class="pagination"> -->
-<!-- 				  <a href="#">&laquo;</a> -->
-<!-- 				  <a class="active" href="#">1</a> -->
-<!-- 				  <a href="#">2</a> -->
-<!-- 				  <a href="#">3</a> -->
-<!-- 				  <a href="#">4</a> -->
-<!-- 				  <a href="#">5</a> -->
-<!-- 				  <a href="#">&raquo;</a> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
-<!-- 			<div class="col-lg-2"></div> -->
-<!-- 		</div> -->
-<!-- 	</div> -->
-	
 	</div> <!-- .container -->
+ 	<script th:src="@{/libs/colorlib-search-8/js/extention/choices.js}"></script>
+    <script>
+      const customSelects = document.querySelectorAll("select");
+      const deleteBtn = document.getElementById('delete')
+      const choices = new Choices('select',
+      {
+        searchEnabled: false,
+        removeItemButton: true,
+        itemSelectText: '',
+      });
+      for (let i = 0; i < customSelects.length; i++)
+      {
+        customSelects[i].addEventListener('addItem', function(event)
+        {
+          if (event.detail.value)
+          {
+            let parent = this.parentNode.parentNode
+            parent.classList.add('valid')
+            parent.classList.remove('invalid')
+          }
+          else
+          {
+            let parent = this.parentNode.parentNode
+            parent.classList.add('invalid')
+            parent.classList.remove('valid')
+          }
+        }, false);
+      }
+      deleteBtn.addEventListener("click", function(e)
+      {
+        e.preventDefault()
+        const deleteAll = document.querySelectorAll('.choices__button')
+        for (let i = 0; i < deleteAll.length; i++)
+        {
+          deleteAll[i].click();
+        }
+      });
 
+    </script>
 </html>
