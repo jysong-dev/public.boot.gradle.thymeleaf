@@ -5,10 +5,9 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{admin/layouts/layout}"
 >
-<style>
+<head>
 
-</style>
-
+</head>
 	<div layout:fragment="content" class="container-fluid p-0">
 
 	<h1 class="h3 mb-3">Profile</h1>
@@ -61,43 +60,50 @@
 										<small class="form-text text-muted">Example block-level help text here.</small>
 									</div>
 								</div>
-								<table class="table table-sm">
+								<!-- table -->
+								<table class="table table-sm"
+								    id="table"
+								    data-use-row-attr-func="true"
+									data-reorderable-rows="true"
+									data-resizable="true"
+									data-height="550">
 								<thead>
 									<tr>
-										<th style="width:25%;">no</th>
-										<th style="width:25%">filename</th>
-										<th style="width:25%">preview</th>
-										<th>actions</th>
+										<th scope="col" data-field="row_id" data-sortable="false" style="width:25%;">no</th>
+										<th scope="col" data-field="filename" data-sortable="false" style="width:25%">filename</th>
+										<th scope="col" data-field="preview" data-sortable="false" style="width:25%">preview</th>
+										<th scope="col" data-field="actions" data-sortable="false" >actions</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr>
-										<td>1</td>
-										<td>image.jpg</td>
-										<td><img class="icon" src="https://source.unsplash.com/random"></td>
-										<td class="table-action">
+										<td data-field="row_id">1</td>
+										<td data-field="filename">image.jpg</td>
+										<td data-field="preview"><img class="icon" src="https://source.unsplash.com/random"></td>
+										<td data-field="actions" class="table-action">
 											<a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash align-middle"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></a>
 										</td>
 									</tr>
 									<tr>
-										<td>2</td>
-										<td>image.jpg</td>
-										<td><img class="icon" src="https://source.unsplash.com/random"></td>
-										<td class="table-action">
+										<td data-field="row_id">2</td>
+										<td data-field="filename">image.jpg</td>
+										<td data-field="preview"><img class="icon" src="https://source.unsplash.com/random"></td>
+										<td data-field="actions" class="table-action">
 											<a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash align-middle"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></a>
 										</td>
 									</tr>
 									<tr>
-										<td>3</td>
-										<td>image.jpg</td>
-										<td><img class="icon" src="https://source.unsplash.com/random"></td>
-										<td class="table-action">
+										<td data-field="row_id">3</td>
+										<td data-filed="filename">image.jpg</td>
+										<td data-field="preview"><img class="icon" src="https://source.unsplash.com/random"></td>
+										<td data-field="actions" class="table-action">
 											<a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash align-middle"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></a>
 										</td>
 									</tr>
 								</tbody>
 							</table>
 								<button type="submit" class="btn btn-primary">Save changes</button>
+								<button type="submit" class="btn btn-success">Show Preview</button>
 							</form>
 
 						</div>
@@ -441,5 +447,48 @@
 	</div>
 
 </div>
+
+<script>
+		$(function() {			
+			$('#table').bootstrapTable({
+        		onReorderRowsDrop: function (row) {
+        			//sortRowOrder();
+        		}
+			});
+			
+			// 1행 추가
+			$("#addRow").click(function () {
+
+				var row_cnt = $('#table').bootstrapTable('getData').length;
+				var goodsId = 'GOODS_00000000001923';
+				var goodsNm = '수제크림소스2종(각120g)';
+	
+				$('#table').bootstrapTable('insertRow', {
+					index: row_cnt,
+					row: {
+					  rId: row_cnt+1,
+					  goodsId: goodsId,
+					  goodsNm: goodsNm/*,
+					  edit: ''*/
+					}
+			});
+
+		});
+			
+		sortRowOrder = function() {
+			var row_cnt = $('#table').bootstrapTable('getData').length;
+			for (var i=0; i < row_cnt; i++) {
+				$('#table').bootstrapTable('updateRow', {index: i, row: {'rId' : i+1}});
+			}
+		}
+		
+// 		editFormatter = function(value, row, index) {
+// 			var btn = '<button type="button" class="btn btn-sm btn-success" onclick="updateSaleGoodsPop(' + index + ');">수정</button>';
+// 			btn += '<button type="button" class="btn btn-sm btn-danger" onclick="deleteSaleGoods(' + index + ');">삭제</button>';
+// 			return btn;
+// 		}
+		
+	  })
+</script> 
 
 </html>
