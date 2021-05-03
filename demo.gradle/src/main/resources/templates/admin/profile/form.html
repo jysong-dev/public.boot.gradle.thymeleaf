@@ -7,6 +7,9 @@
 >
 <head>
 
+<link th:href="@{/libs/bootstrap-table-master/dist/bootstrap-table.min.css}" rel="stylesheet">
+<link th:href="@{/libs/bootstrap-table-master/dist/extensions/reorder-rows/bootstrap-table-reorder-rows.css}" rel="stylesheet">
+
 </head>
 	<div layout:fragment="content" class="container-fluid p-0">
 
@@ -59,14 +62,14 @@
 										<input type="file" multiple="multiple">
 										<small class="form-text text-muted">Example block-level help text here.</small>
 									</div>
-								</div>
+								</div>								
 								<!-- table -->
-								<table class="table table-sm"
+ 								<table class="table table-sm"
 								    id="table"
-								    data-use-row-attr-func="true"
-									data-reorderable-rows="true"
-									data-resizable="true"
-									data-height="550">
+								  data-search="true"
+								  data-use-row-attr-func="true"
+								  data-reorderable-rows="true"
+								  data-height="460">
 								<thead>
 									<tr>
 										<th scope="col" data-field="row_id" data-sortable="false" style="width:25%;">no</th>
@@ -448,47 +451,70 @@
 
 </div>
 
+<script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
+<script th:src="@{/libs/TableDnD-master/js/jquery.tablednd.js}"></script>
+<script th:src="@{/libs/bootstrap-table-master/dist/bootstrap-table.min.js}"></script>
+<script th:src="@{/libs/bootstrap-table-master/dist/extensions/reorder-rows/bootstrap-table-reorder-rows.min.js}"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<script src="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.js"></script>
 <script>
-		$(function() {			
-			$('#table').bootstrapTable({
-        		onReorderRowsDrop: function (row) {
-        			//sortRowOrder();
-        		}
-			});
-			
-			// 1행 추가
-			$("#addRow").click(function () {
-
-				var row_cnt = $('#table').bootstrapTable('getData').length;
-				var goodsId = 'GOODS_00000000001923';
-				var goodsNm = '수제크림소스2종(각120g)';
-	
-				$('#table').bootstrapTable('insertRow', {
-					index: row_cnt,
-					row: {
-					  rId: row_cnt+1,
-					  goodsId: goodsId,
-					  goodsNm: goodsNm/*,
-					  edit: ''*/
-					}
-			});
-
+	$(function() {
+		$('#table').bootstrapTable({
+			onReorderRowsDrop: function (row) {
+	        	sortRowOrder();
+	        }
 		});
-			
-		sortRowOrder = function() {
-			var row_cnt = $('#table').bootstrapTable('getData').length;
-			for (var i=0; i < row_cnt; i++) {
-				$('#table').bootstrapTable('updateRow', {index: i, row: {'rId' : i+1}});
-			}
+		$("#addRow").click(function () {
+	
+			var rId = $("#table tr").length;
+			var goodsId = 'GOODS_00000000001923';
+			var goodsNm = '수제크림소스2종(각120g)';
+
+			$('#table').bootstrapTable('insertRow', {
+				index: rId-1,
+				row: {
+				  rId: null,
+				  goodsId: goodsId,
+				  goodsNm: goodsNm
+				}
+		});
+		
+		//$('#table > tbody > tr:last').after(row);
+	});
+	
+	sortRowOrder = function() {
+		var row_cnt = $('#table').bootstrapTable('getData').length;
+		for (var i=0; i < row_cnt; i++) {
+			$('#table').bootstrapTable('updateRow', {index: i, row: {'rId' : i+1}});
 		}
+	}
+
+	$(document).on('reorder-row.bs.table', '#table', function (e, n_data, dropped_row, old_pos) {
+		//alert('dropped');
+		/*console.log(n_data);
+		var rowData = $('#table > tbody').children();
+
+		$.each(n_data, function(index, item) {
+			console.log(index, item);
+			$('#table').bootstrapTable('updateCell', {
+				index: index,
+				field: 'rId',
+				value: index
+			});
+		});*/
 		
-// 		editFormatter = function(value, row, index) {
-// 			var btn = '<button type="button" class="btn btn-sm btn-success" onclick="updateSaleGoodsPop(' + index + ');">수정</button>';
-// 			btn += '<button type="button" class="btn btn-sm btn-danger" onclick="deleteSaleGoods(' + index + ');">삭제</button>';
-// 			return btn;
-// 		}
+		//console.log($('#table > tbody').children()[0]);
+		//console.log(n_data, dropped_row, old_pos);
 		
-	  })
-</script> 
+		
+		
+	});
+	
+  })
+</script>
 
 </html>
