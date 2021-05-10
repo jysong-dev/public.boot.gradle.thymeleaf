@@ -11,6 +11,7 @@
 <link th:href="@{/libs/bootstrap-table-master/dist/extensions/reorder-rows/bootstrap-table-reorder-rows.css}" rel="stylesheet">
 
 </head>
+
 	<div layout:fragment="content" class="container-fluid p-0">
 
 	<h1 class="h3 mb-3">Profile</h1>
@@ -60,53 +61,74 @@
 									<div class="mb-3">
 										<label class="form-label w-100">File input</label>
 										<input type="file" multiple="multiple">
-										<small class="form-text text-muted">Example block-level help text here.</small>
+										<small class="form-text text-muted">파일은 최대 n개까지 추가할 수 있습니다.</small>
 									</div>
-								</div>								
+								</div>
+
 								<!-- table -->
- 								<table class="table table-sm"
+ 								<table class="table table-sm mb-3"
 								    id="table"
-								  data-search="true"
 								  data-use-row-attr-func="true"
 								  data-reorderable-rows="true"
-								  data-height="460">
-								<thead>
-									<tr>
-										<th scope="col" data-field="row_id" data-sortable="false" style="width:25%;">no</th>
-										<th scope="col" data-field="filename" data-sortable="false" style="width:25%">filename</th>
-										<th scope="col" data-field="preview" data-sortable="false" style="width:25%">preview</th>
-										<th scope="col" data-field="actions" data-sortable="false" >actions</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td data-field="row_id">1</td>
-										<td data-field="filename">image.jpg</td>
-										<td data-field="preview"><img class="icon" src="https://source.unsplash.com/random"></td>
-										<td data-field="actions" class="table-action">
-											<a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash align-middle"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></a>
-										</td>
-									</tr>
-									<tr>
-										<td data-field="row_id">2</td>
-										<td data-field="filename">image.jpg</td>
-										<td data-field="preview"><img class="icon" src="https://source.unsplash.com/random"></td>
-										<td data-field="actions" class="table-action">
-											<a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash align-middle"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></a>
-										</td>
-									</tr>
-									<tr>
-										<td data-field="row_id">3</td>
-										<td data-filed="filename">image.jpg</td>
-										<td data-field="preview"><img class="icon" src="https://source.unsplash.com/random"></td>
-										<td data-field="actions" class="table-action">
-											<a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash align-middle"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></a>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-								<button type="submit" class="btn btn-primary">Save changes</button>
-								<button type="submit" class="btn btn-success">Show Preview</button>
+								  data-height="190">
+									<thead>
+										<tr>
+											<th scope="col" data-field="row_id" data-sortable="false" style="width:10%;">no</th>
+											<th scope="col" data-field="filename" data-sortable="false">filename</th>
+											<th scope="col" data-field="preview" data-sortable="false" style="width:25%">preview</th>
+											<th scope="col" data-field="actions" data-sortable="false" data-formatter="editFormatter" style="width:5%">actions</th>
+										</tr>
+									</thead>
+									<tbody>
+									
+										<tr>
+											<td data-field="row_id">1</td>
+											<td data-field="filename">image.jpg</td>
+											<td data-field="preview"><img class="icon" src="https://source.unsplash.com/random"></td>
+											<td data-field="actions" class="table-action">
+												
+											</td>
+										</tr>
+										<tr>
+											<td data-field="row_id">2</td>
+											<td data-field="filename">image.jpg</td>
+											<td data-field="preview"><img class="icon" src="https://source.unsplash.com/random"></td>
+											<td data-field="actions" class="table-action">
+												<!-- <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash align-middle"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></a> -->
+											</td>
+										</tr>
+										<tr>
+											<td data-field="row_id">3</td>
+											<td data-filed="filename">image.jpg</td>
+											<td data-field="preview"><img class="icon" src="https://source.unsplash.com/random"></td>
+											<td data-field="actions" class="table-action">
+												<!-- <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash align-middle"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></a> -->
+											</td>
+										</tr>
+										<tr>
+											<td data-field="row_id">4</td>
+											<td data-filed="filename">image.jpg</td>
+											<td data-field="preview"><img class="icon" src="https://source.unsplash.com/random"></td>
+											<td data-field="actions" class="table-action">
+												<!-- <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash align-middle"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></a> -->
+											</td>
+										</tr>
+										<tr>
+											<td data-field="row_id">5</td>
+											<td data-filed="filename">image.jpg</td>
+											<td data-field="preview"><img class="icon" src="https://source.unsplash.com/random"></td>
+											<td data-field="actions" class="table-action">
+												<!-- <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash align-middle"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></a> -->
+											</td>
+										</tr>
+										
+									</tbody>
+								</table>
+								
+								<div class="mt-3">
+									<button type="submit" class="btn btn-primary">Save changes</button>
+									<button type="submit" class="btn btn-success">Show Preview</button>
+								</div>
 							</form>
 
 						</div>
@@ -169,11 +191,19 @@
 								<div class="row">
 									<div class="mb-3 col-md-2">
 										<label class="form-label" for="inputZip">Birth</label>
-							              	<select id="inputState" class="form-control">
-							                	<option selected>Choose...</option>
-							                	<option>Starlight</option>
-							                	<option>Shadow</option>
-							              	</select>
+						              	<select id="inputState" class="form-control">
+						                	<option selected>Choose...</option>
+						                	<option>Starlight</option>
+						                	<option>Shadow</option>
+						              	</select>
+									</div>
+									<div class="mb-3 col-md-2">
+										<label class="form-label" for="inputZip">Month</label>
+						              	<select id="inputState" class="form-control">
+						                	<option selected>Choose...</option>
+						                	<option>Month 1</option>
+						                	<option>Month 2</option>
+						              	</select>
 									</div>
 									<div class="mb-3 col-md-2">
 										<label class="form-label" for="inputZip">Day</label>
@@ -449,72 +479,80 @@
 		</div>
 	</div>
 
-</div>
-
-<script
-  src="https://code.jquery.com/jquery-3.5.1.js"
-  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-  crossorigin="anonymous"></script>
-<script th:src="@{/libs/TableDnD-master/js/jquery.tablednd.js}"></script>
-<script th:src="@{/libs/bootstrap-table-master/dist/bootstrap-table.min.js}"></script>
-<script th:src="@{/libs/bootstrap-table-master/dist/extensions/reorder-rows/bootstrap-table-reorder-rows.min.js}"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-<script src="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.js"></script>
-<script>
-	$(function() {
-		$('#table').bootstrapTable({
-			onReorderRowsDrop: function (row) {
-	        	sortRowOrder();
-	        }
-		});
-		$("#addRow").click(function () {
-	
-			var rId = $("#table tr").length;
-			var goodsId = 'GOODS_00000000001923';
-			var goodsNm = '수제크림소스2종(각120g)';
-
-			$('#table').bootstrapTable('insertRow', {
-				index: rId-1,
-				row: {
-				  rId: null,
-				  goodsId: goodsId,
-				  goodsNm: goodsNm
-				}
-		});
-		
-		//$('#table > tbody > tr:last').after(row);
-	});
-	
-	sortRowOrder = function() {
-		var row_cnt = $('#table').bootstrapTable('getData').length;
-		for (var i=0; i < row_cnt; i++) {
-			$('#table').bootstrapTable('updateRow', {index: i, row: {'rId' : i+1}});
-		}
-	}
-
-	$(document).on('reorder-row.bs.table', '#table', function (e, n_data, dropped_row, old_pos) {
-		//alert('dropped');
-		/*console.log(n_data);
-		var rowData = $('#table > tbody').children();
-
-		$.each(n_data, function(index, item) {
-			console.log(index, item);
-			$('#table').bootstrapTable('updateCell', {
-				index: index,
-				field: 'rId',
-				value: index
+	<script
+	  src="https://code.jquery.com/jquery-3.5.1.js"
+	  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+	  crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script th:src="@{/libs/TableDnD-master/js/jquery.tablednd.js}"></script>
+	<script th:src="@{/libs/bootstrap-table-master/dist/bootstrap-table.min.js}"></script>
+	<script th:src="@{/libs/bootstrap-table-master/dist/extensions/reorder-rows/bootstrap-table-reorder-rows.min.js}"></script>  
+	<script>
+		$(function() {
+			
+			editFormatter = function(value, row, index) {
+				var btn = '<a onclick="deleteRow(' + index + ');"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash align-middle"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></a>';
+				return btn;
+			}
+			
+			$('#table').bootstrapTable({
+				onReorderRowsDrop: function (row) {
+		        	sortRowOrder();
+		        }
 			});
-		});*/
-		
-		//console.log($('#table > tbody').children()[0]);
-		//console.log(n_data, dropped_row, old_pos);
-		
-		
-		
-	});
+			
+			sortRowOrder = function() {
+				var row_cnt = $('#table').bootstrapTable('getData').length;
+				for (var i=0; i < row_cnt; i++) {
+					$('#table').bootstrapTable('updateRow', {index: i, row: {'row_id' : i+1}});
+				}
+			}
+			
+			deleteRow = function(idx) {
+				console.log(idx);
+				//alert('Delete Row!');
+				
+				$('#table').bootstrapTable('remove', {
+			        field: '$index',
+			        values: [idx]
+			    });
+				
+				sortRowOrder();
+			}
+			
+			addRow = function() {
+				var rId = $("#table tr").length;
+				var goodsId = 'GOODS_00000000001923';
+				var goodsNm = '수제크림소스2종(각120g)';
 	
-  })
-</script>
+				$('#table').bootstrapTable('insertRow', {
+					index: rId-1,
+					row: {
+					  rId: null,
+					  goodsId: goodsId,
+					  goodsNm: goodsNm
+					}
+				});
+			}
+			
+// 			$("#addRow").click(function () {
+		
+// 				var rId = $("#table tr").length;
+// 				var goodsId = 'GOODS_00000000001923';
+// 				var goodsNm = '수제크림소스2종(각120g)';
+	
+// 				$('#table').bootstrapTable('insertRow', {
+// 					index: rId-1,
+// 					row: {
+// 					  rId: null,
+// 					  goodsId: goodsId,
+// 					  goodsNm: goodsNm
+// 					}
+// 			});
 
+// 		});
+		
+	  })
+	</script>
+</div>
 </html>

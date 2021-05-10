@@ -52,5 +52,11 @@ public class PageController {
 		return "user/sign_up";
 	}
 
+	@GetMapping("/demo/table_reorder")
+	public String tableReorder() {
+		
+		return "demo/table-reorder-example";
+	}
+	
 
 }
