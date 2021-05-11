@@ -24,9 +24,26 @@ public class CodeController {
 		
 		List<CodeVO> codeClassList = codeService.selectCodeClassList();
 		
+		for (CodeVO codeClass : codeClassList) {
+			List<CodeVO> codeItemsList = codeService.selectCodeItemsList(codeClass);
+			codeClass.setCodeItems(codeItemsList);
+		}
+
 		result.put("list", codeClassList);
 
 		return result;
 	}
+	
+//	@ResponseBody
+//	@GetMapping("/json/code-class/items")
+//	public Map<String, Object> jsonCodeItemsList(CodeVO codeVO) {
+//		Map<String, Object> result = new HashMap<String, Object>();
+//		
+//		List<CodeVO> codeItemsList = codeService.selectCodeItemsList(codeVO);
+//
+//		result.put("list", codeItemsList);
+//
+//		return result;
+//	}
 	
 }

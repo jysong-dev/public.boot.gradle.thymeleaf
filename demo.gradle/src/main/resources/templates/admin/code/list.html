@@ -22,9 +22,9 @@
 			<table id="code-class-list" class="table table-sm">
 				<thead>
 					<tr>
-						<th>no</th>
+						<th>code class id</th>
 						<th style="width: 30%;">code class</th>
-						<th style="width: 60%;">code desc</th>
+						<th style="width: 40%;">code desc</th>
 					</tr>
 				</thead>
 				<tbody></tbody>
@@ -104,24 +104,28 @@
 	</div>
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script>
+		var code_dict = {};
+	
 		$(document).ready(function(){
-			getDataList();
+			getCodeClassList();
 		});
 		
-		async function getDataList() {
-			await axios.get(contextPath + '/json/code-class/list')
+		async function getCodeClassList() {
+			axios.get(contextPath + '/json/code-class/list')
 				.then(function(response) {
 					//console.log(response);
 			    	var list = response.data.list;
+			    	code_dict = list;
+			    	
 		        	var html = '';
 					for (var i=0; i<list.length; i++) {
 						html += '<tr>';
 						html += '<td>' + list[i].codeClassId + '</td>';
-						html += '<td><a onclick="getCodeItemList(' + list[i].codeClassId + ');">' + list[i].codeClassNameEng + '</a></td>';
+						html += '<td><a onclick="getCodeItemList(\'' + list[i].codeClassId + '\');">' + list[i].codeClassNameEng + '</a></td>';
 						html += '<td>' + list[i].codeClassDesc + '</td>';
-						html += '</tr>';
+						html += '</tr>';						
 					}
-				$('#code-class-list > tbody').html(html);
+					$('#code-class-list > tbody').html(html);
 				})
 				
 				.catch(function (error) {
@@ -132,10 +136,7 @@
 				
 				});
 		}
-		
-		getCodeItemList = function(id) {
-			//alert(id);
-		}
+
 	</script>
 </div> <!-- .container-fluid -->
 </html>

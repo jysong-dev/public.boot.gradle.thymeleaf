@@ -1,7 +1,6 @@
 package com.example.demo.service;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,5 +16,10 @@ public class CodeService {
 	public List<CodeVO> selectCodeClassList() {
 		
 		return codeMapper.selectCodeClassList();
+	}
+
+	public List<CodeVO> selectCodeItemsList(CodeVO codeVO) {
+
+		return codeMapper.selectCodeItemsList(codeVO);
 	}
 }

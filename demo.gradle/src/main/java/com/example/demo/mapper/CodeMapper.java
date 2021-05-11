@@ -12,5 +12,7 @@ import com.example.demo.domain.CodeVO;
 public interface CodeMapper {
 
 	public List<CodeVO> selectCodeClassList();
+
+	public List<CodeVO> selectCodeItemsList(CodeVO codeVO);
 	
 }

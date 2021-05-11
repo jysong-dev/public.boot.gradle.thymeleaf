@@ -5,12 +5,23 @@
 <mapper namespace="com.example.demo.mapper.CodeMapper">
 
 	<select id="selectCodeClassList" resultType="com.example.demo.domain.CodeVO">
-		SELECT
+		select
 			code_class_id
 			, code_class_name_eng
 			, code_class_name_kr
 			, code_class_desc
-		FROM code_class_tb
+		from code_class_tb
+	</select>
+	
+	<select id="selectCodeItemsList" parameterType="com.example.demo.domain.CodeVO" resultType="com.example.demo.domain.CodeVO">
+		select
+			code_class_id
+			, code_val
+			, code_nm_en
+			, code_nm_ko
+			, code_desc
+		from code_tb
+		where code_class_id=#{codeClassId}
 	</select>
   
 </mapper>

@@ -1,16 +1,31 @@
 package com.example.demo.domain;
 
+import java.util.List;
+
 public class CodeVO {
 	
-	private java.math.BigDecimal codeClassId;
+	/**
+	 * code_class_tb
+	 */
+	private String codeClassId;
 	private String codeClassNameEng;
 	private String codeClassNameKr;
 	private String codeClassDesc;
+
+	/**
+	 * code_tb
+	 */
+	private String codeVal;
+	private String codeNmEn;
+	private String codeNmKo;
+	private String codeDesc;
 	
-	public java.math.BigDecimal getCodeClassId() {
+	private List<CodeVO> codeItems;
+	
+	public String getCodeClassId() {
 		return codeClassId;
 	}
-	public void setCodeClassId(java.math.BigDecimal codeClassId) {
+	public void setCodeClassId(String codeClassId) {
 		this.codeClassId = codeClassId;
 	}
 	public String getCodeClassNameEng() {
@@ -30,6 +45,36 @@ public class CodeVO {
 	}
 	public void setCodeClassDesc(String codeClassDesc) {
 		this.codeClassDesc = codeClassDesc;
+	}
+	public String getCodeVal() {
+		return codeVal;
+	}
+	public void setCodeVal(String codeVal) {
+		this.codeVal = codeVal;
+	}
+	public String getCodeNmEn() {
+		return codeNmEn;
+	}
+	public void setCodeNmEn(String codeNmEn) {
+		this.codeNmEn = codeNmEn;
+	}
+	public String getCodeNmKo() {
+		return codeNmKo;
+	}
+	public void setCodeNmKo(String codeNmKo) {
+		this.codeNmKo = codeNmKo;
+	}
+	public String getCodeDesc() {
+		return codeDesc;
+	}
+	public void setCodeDesc(String codeDesc) {
+		this.codeDesc = codeDesc;
+	}
+	public List<CodeVO> getCodeItems() {
+		return codeItems;
+	}
+	public void setCodeItems(List<CodeVO> codeItems) {
+		this.codeItems = codeItems;
 	}
 	
 }
