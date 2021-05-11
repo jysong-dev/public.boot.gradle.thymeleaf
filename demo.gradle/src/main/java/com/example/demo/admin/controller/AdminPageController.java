@@ -8,7 +8,7 @@ public class AdminPageController {
 
 	@GetMapping("/admin/index")
 	public String index() {
-	
+
 		return "admin/index";
 	}
 	
@@ -16,6 +16,12 @@ public class AdminPageController {
 	public String profileForm() {
 	
 		return "admin/profile/form";
+	}
+	
+	@GetMapping("/admin/code/list")
+	public String codeList() {
+	
+		return "admin/code/list";
 	}
 	
 	

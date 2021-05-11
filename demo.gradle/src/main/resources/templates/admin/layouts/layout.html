@@ -18,6 +18,12 @@
 	<link th:href="@{/libs/adminkit-master/static/css/app.css}" rel="stylesheet">
 	<script th:src="@{/libs/adminkit-master/static/js/app.js}"></script>
 	
+	<!-- TODO -->
+	<script
+	  src="https://code.jquery.com/jquery-3.5.1.js"
+	  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+	  crossorigin="anonymous"></script>
+	
 	<style type="text/css">
 		.icon {
 			width: 20px;
@@ -27,6 +33,15 @@
 	
 	<th:block layout:fragment="css"></th:block>
 	<th:block layout:fragment="script"></th:block>
+	
+	<link id="contextPathHolder" th:data-contextPath="${#httpServletRequest.getContextPath()}"/>
+	<script>
+		var contextPath = $('#contextPathHolder').attr('data-contextPath') ? $('#contextPathHolder').attr('data-contextPath') : '';
+		
+		$(document).ready(function(){
+			console.log('context path :', contextPath);
+		});
+	</script>
 </head>
 
 <body>

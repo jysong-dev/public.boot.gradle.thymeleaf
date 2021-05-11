@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html
+	lang="ko"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{admin/layouts/layout}"
+>
+<div layout:fragment="content" class="container-fluid p-0">
+
+	<h1 class="h3 mb-3">Code List</h1>
+
+	<div class="row">
+	<div class="col">
+	
+		<div class="card">
+			<div class="card-header">
+				<button class="btn btn-square btn-info float-right">new code</button>
+				<!-- <h5 class="card-title">Code List</h5>
+				<h6 class="card-subtitle text-muted">Add <code>.table-sm</code> to make tables more compact by cutting cell padding in half.</h6> -->
+			</div>
+			
+			<table id="code-class-list" class="table table-sm">
+				<thead>
+					<tr>
+						<th>no</th>
+						<th style="width: 30%;">code class</th>
+						<th style="width: 60%;">code desc</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+			
+		</div> <!-- .card -->
+		
+		</div>
+	</div>
+
+	<script>
+		$(document).ready(function(){
+			getDataList();
+		});
+		
+		getDataList = function() {
+			$.ajax({
+			    url: contextPath + '/json/code-class/list',
+			    type: 'GET',
+			    success: function(result) {
+			        //console.log(result);
+					var list = result.data;
+			        var html = '';
+			        
+					for (var i=0; i<list.length; i++) {
+						html += '<tr>';
+						html += '<td>' + list[i].codeClassId + '</td>';
+						html += '<td>' + list[i].codeClassNameEng + '</td>';
+						html += '<td>' + list[i].codeClassDesc + '</td>';
+						html += '</tr>';
+					}
+			        
+			        $('#code-class-list > tbody').html(html);
+			        
+			    },
+			    error: function(error) {
+			        //console.error(error);
+			    }
+			});	
+		}
+	</script>
+</div> <!-- .container-fluid -->
+</html>
