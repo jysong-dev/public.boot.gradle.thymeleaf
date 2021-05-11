@@ -12,9 +12,9 @@
 	<div class="row">
 	<div class="col">
 	
-		<div class="card">
+		<div class="card rounded-0">
 			<div class="card-header">
-				<button class="btn btn-square btn-info float-right">new code</button>
+				<button class="btn btn-square btn-success float-right" data-toggle="modal" data-target="#modal-code-create">new code</button>
 				<!-- <h5 class="card-title">Code List</h5>
 				<h6 class="card-subtitle text-muted">Add <code>.table-sm</code> to make tables more compact by cutting cell padding in half.</h6> -->
 			</div>
@@ -32,38 +32,109 @@
 			
 		</div> <!-- .card -->
 		
-		</div>
-	</div>
+		<div class="modal fade" id="modal-code-create" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content rounded-0">
+					<div class="modal-header">
+						<h5 class="modal-title">New Code Class</h5>
+						<button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body m-0">
+					
+						<form>
+							<div class="mb-3 row">
+								<label class="col-form-label col-sm-3 text-sm-right">Code Class</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control">
+								</div>
+							</div>
+							<div class="mb-3 row">
+								<label class="col-form-label col-sm-3 text-sm-right">Code Class Name (English)</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control">
+								</div>
+							</div>
+							<div class="mb-3 row">
+								<label class="col-form-label col-sm-3 text-sm-right">Code Class Name (Korean)</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control">
+								</div>
+							</div>
+							<div class="mb-3 row">
+								<label class="col-form-label col-sm-3 text-sm-right">Description</label>
+								<div class="col-sm-9">
+									<textarea class="form-control" rows="3"></textarea>
+								</div>
+							</div>
+							<div class="mb-3 row">
+								<label class="col-form-label col-sm-3 text-sm-right pt-sm-0">Availability</label>
+								<div class="col-sm-9">
+									<label class="form-check m-0"> <input type="checkbox"
+										class="form-check-input"> <span
+										class="form-check-label">Make Available This Code</span>
+									</label>
+								</div>
+							</div>
+							<!-- 										<div class="mb-3 row"> -->
+							<!-- 											<div class="col-sm-10 ml-sm-auto"> -->
+							<!-- 												<button type="submit" class="btn btn-primary">Submit</button> -->
+							<!-- 											</div> -->
+							<!-- 										</div> -->
+						</form>
 
+						<div class="alert alert-danger alert-dismissible rounded-0" role="alert">
+							<button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+							<div class="alert-message">
+								<strong>Hello there!</strong> A simple primary alert—check it out!
+							</div>
+						</div>
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-square btn-secondary" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-square btn-success">Create</button>
+					</div>
+				</div>
+			</div>
+		</div><!-- #modal-code-create -->
+		
+		
+	</div>
+	
+	</div>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script>
 		$(document).ready(function(){
 			getDataList();
 		});
 		
-		getDataList = function() {
-			$.ajax({
-			    url: contextPath + '/json/code-class/list',
-			    type: 'GET',
-			    success: function(result) {
-			        //console.log(result);
-					var list = result.data;
-			        var html = '';
-			        
+		async function getDataList() {
+			await axios.get(contextPath + '/json/code-class/list')
+				.then(function(response) {
+					//console.log(response);
+			    	var list = response.data.list;
+		        	var html = '';
 					for (var i=0; i<list.length; i++) {
 						html += '<tr>';
 						html += '<td>' + list[i].codeClassId + '</td>';
-						html += '<td>' + list[i].codeClassNameEng + '</td>';
+						html += '<td><a onclick="getCodeItemList(' + list[i].codeClassId + ');">' + list[i].codeClassNameEng + '</a></td>';
 						html += '<td>' + list[i].codeClassDesc + '</td>';
 						html += '</tr>';
 					}
-			        
-			        $('#code-class-list > tbody').html(html);
-			        
-			    },
-			    error: function(error) {
-			        //console.error(error);
-			    }
-			});	
+				$('#code-class-list > tbody').html(html);
+				})
+				
+				.catch(function (error) {
+					console.log(error);
+				})
+			
+				.then(function () {
+				
+				});
+		}
+		
+		getCodeItemList = function(id) {
+			//alert(id);
 		}
 	</script>
 </div> <!-- .container-fluid -->

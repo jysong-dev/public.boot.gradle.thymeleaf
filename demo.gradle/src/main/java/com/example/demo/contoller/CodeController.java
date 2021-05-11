@@ -24,7 +24,7 @@ public class CodeController {
 		
 		List<CodeVO> codeClassList = codeService.selectCodeClassList();
 		
-		result.put("data", codeClassList);
+		result.put("list", codeClassList);
 
 		return result;
 	}
