@@ -60,7 +60,7 @@
 								<div class="row">
 									<div class="mb-3">
 										<label class="form-label w-100">File input</label>
-										<input type="file" multiple="multiple">
+										<input id="file" type="file" multiple="multiple">
 										<small class="form-text text-muted">파일은 최대 5개까지 추가할 수 있습니다.</small>
 									</div>
 								</div>
@@ -70,58 +70,17 @@
 								    id="table"
 								  data-use-row-attr-func="true"
 								  data-reorderable-rows="true"
-								  data-height="190">
+								  data-height="280">
 									<thead>
 										<tr>
-											<th scope="col" data-field="row_id" data-sortable="false" style="width:10%;">no</th>
-											<th scope="col" data-field="filename" data-sortable="false">filename</th>
+											<th scope="col" data-field="row_id" data-sortable="false" style="width:5%;">no</th>
+											<th scope="col" data-field="filename" data-sortable="false" style="width:65%;">filename</th>
 											<th scope="col" data-field="preview" data-sortable="false" style="width:25%">preview</th>
 											<th scope="col" data-field="actions" data-sortable="false" data-formatter="editFormatter" style="width:5%">actions</th>
 										</tr>
 									</thead>
 									<tbody>
-									
-										<tr>
-											<td data-field="row_id">1</td>
-											<td data-field="filename">image.jpg</td>
-											<td data-field="preview"><img class="icon" src="https://source.unsplash.com/random"></td>
-											<td data-field="actions" class="table-action">
-												
-											</td>
-										</tr>
-										<tr>
-											<td data-field="row_id">2</td>
-											<td data-field="filename">image.jpg</td>
-											<td data-field="preview"><img class="icon" src="https://source.unsplash.com/random"></td>
-											<td data-field="actions" class="table-action">
-												<!-- <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash align-middle"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></a> -->
-											</td>
-										</tr>
-										<tr>
-											<td data-field="row_id">3</td>
-											<td data-filed="filename">image.jpg</td>
-											<td data-field="preview"><img class="icon" src="https://source.unsplash.com/random"></td>
-											<td data-field="actions" class="table-action">
-												<!-- <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash align-middle"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></a> -->
-											</td>
-										</tr>
-										<tr>
-											<td data-field="row_id">4</td>
-											<td data-filed="filename">image.jpg</td>
-											<td data-field="preview"><img class="icon" src="https://source.unsplash.com/random"></td>
-											<td data-field="actions" class="table-action">
-												<!-- <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash align-middle"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></a> -->
-											</td>
-										</tr>
-										<tr>
-											<td data-field="row_id">5</td>
-											<td data-filed="filename">image.jpg</td>
-											<td data-field="preview"><img class="icon" src="https://source.unsplash.com/random"></td>
-											<td data-field="actions" class="table-action">
-												<!-- <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash align-middle"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></a> -->
-											</td>
-										</tr>
-										
+
 									</tbody>
 								</table>
 								
@@ -166,12 +125,7 @@
 								<div class="row">
 									<div class="mb-3 col-md-4">
 										<label class="form-label" for="inputState">City</label>
-										<select id="inputState" class="form-control">
-						                <option selected>Choose...</option>
-						                <option>Limsa Lominsa</option>
-						                <option>U'ldah</option>
-						                <option>Gridania</option>
-						              </select>
+										<select name="city" class="form-control" data-code="city"></select>
 									</div>
 									<div class="mb-3 col-md-4">
 										<label class="form-label" for="inputState">Grand Company</label>
@@ -190,68 +144,16 @@
 								</div>	
 								<div class="row">
 									<div class="mb-3 col-md-2">
-										<label class="form-label" for="inputZip">Birth</label>
-						              	<select id="inputState" class="form-control">
-						              		<option selected>Choose...</option>
-											<option>First Astral Moon</option>
-											<option>First Umbral Moon</option>
-											<option>Second Astral Moon</option>
-											<option>Second Umbral Moon</option>
-											<option>Third Astral Moon</option>
-											<option>Third Umbral Moon</option>
-											<option>Fourth Astral Moon</option>
-											<option>Fourth Umbral Moon</option>
-											<option>Fifth Astral Moon</option>
-											<option>Fifth Umbral Moon</option>
-											<option>Sixth Astral Moon</option>
-											<option>Sixth Umbral Moon</option>
-						              	</select>
+										<label class="form-label" for="inputZip">BirthDay</label>
+						              	<select name="birthMonth" class="form-control" data-code="birth_month"></select>
 									</div>
 									<div class="mb-3 col-md-2">
-										<label class="form-label" for="inputZip">Day</label>
-										<select id="inputState" class="form-control col">
-						                	<option selected>Choose...</option>
-											<option>1st Sun</option>
-											<option>2nd Sun</option>
-											<option>3rd Sun</option>
-											<option>4th Sun</option>
-											<option>5th Sun</option>
-											<option>6th Sun</option>
-											<option>7th Sun</option>
-											<option>8th Sun</option>
-											<option>9th Sun</option>
-											<option>10th Sun</option>
-											<option>11th Sun</option>
-											<option>12th Sun</option>
-											<option>13th Sun</option>
-											<option>14th Sun</option>
-											<option>15th Sun</option>
-											<option>16th Sun</option>
-											<option>17th Sun</option>
-											<option>18th Sun</option>
-											<option>19th Sun</option>
-											<option>20th Sun</option>
-											<option>21st Sun</option>
-											<option>22nd Sun</option>
-											<option>23rd Sun</option>
-											<option>24th Sun</option>
-											<option>25th Sun</option>
-											<option>26th Sun</option>
-											<option>27th Sun</option>
-											<option>28th Sun</option>
-											<option>29th Sun</option>
-											<option>30th Sun</option>
-											<option>31st Sun</option>
-											<option>32nd Sun</option>
-						              	</select>
+										<label class="form-label" for="inputZip">&nbsp;</label>
+										<select id="birthDay" class="form-control col" data-code="birth_day"></select>
 									</div>
 									<div class="mb-3 col-md-2">
 										<label class="form-label" for="inputZip">The Twelve</label>
-										<select id="inputState" class="form-control col">
-						                	<option selected>Choose...</option>
-						                	<option>Halone</option>
-						                	<option></option>
-						              	</select>
+										<select name="theTwelve" data-code="the_twelve" class="form-control col"></select>
 									</div>
 								</div>
 
@@ -520,30 +422,42 @@
 	<script th:src="@{/libs/bootstrap-table-master/dist/extensions/reorder-rows/bootstrap-table-reorder-rows.min.js}"></script>  
 	<script>
 		$(function() {
+			//initCodeSelect();
+			
+			$table = $('#table');
+
+	        var formData = new FormData();
 			
 			editFormatter = function(value, row, index) {
 				var btn = '<a onclick="deleteRow(' + index + ');"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash align-middle"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></a>';
 				return btn;
 			}
 			
-			$('#table').bootstrapTable({
+			$table.bootstrapTable({
 				onReorderRowsDrop: function (row) {
 		        	sortRowOrder();
 		        }
 			});
 			
 			sortRowOrder = function() {
-				var row_cnt = $('#table').bootstrapTable('getData').length;
+				var row_cnt = $table.bootstrapTable('getData').length;
 				for (var i=0; i < row_cnt; i++) {
-					$('#table').bootstrapTable('updateRow', {index: i, row: {'row_id' : i+1}});
+					$table.bootstrapTable('updateRow', {index: i, row: {'row_id' : i+1}});
 				}
 			}
 			
 			deleteRow = function(idx) {
-				console.log(idx);
-				//alert('Delete Row!');
-				
-				$('#table').bootstrapTable('remove', {
+				//console.log(idx);				
+				var row_data = $table.bootstrapTable('getData')[idx];
+				//console.log(row_data);
+				//console.log(row_data['preview']);
+				var imgObj = $.parseHTML(row_data['preview']);
+				var target_id = $(imgObj).data('code');
+				//console.log(target_id);
+
+				deleteFormDataElement(target_id, formData);
+
+				$table.bootstrapTable('remove', {
 			        field: '$index',
 			        values: [idx]
 			    });
@@ -551,39 +465,82 @@
 				sortRowOrder();
 			}
 			
-			addRow = function() {
-				var rId = $("#table tr").length;
-				var goodsId = 'GOODS_00000000001923';
-				var goodsNm = '수제크림소스2종(각120g)';
+			function deleteFormDataElement(target_id, formData) {
+				console.log('============before delete============');
+				console.log(formData);
+				console.log('=====================================');
+				
+				var tempFormData = new FormData();
+				
+				for (var key of formData.keys()) {
+				   if (key != target_id) {
+					   tempFormData.append(key, formData[key]);
+				   }
+				}
+				
+				formData = tempFormData;
+				
+				console.log('============after delete============');
+				console.log(formData);
+				console.log('=====================================');
+			}
+
+			var fileList = new Object();
+
+			$('#file').change(function(evt) {
+				var imgObj;
+
+			    if($('#file').files && $('#file').files[0]) {
+
+			        const reader = new FileReader();
+			        reader.onload = function(e){
+			        	console.log(e.target.result);
+			        	imgObj = e.target.result;
+			        }
+
+			        reader.readAsDataURL(input.files[0]);
+			    }
+				
+				fileList = $(this)[0].files;
+
+			    for(var i=0;i < fileList.length;i++){
+			    	if (i >= 5) {
+			    		alert('파일은 5개까지 추가할 수 있습니다.');
+			    		break;
+			    	} else {
+			    		var file = fileList[i];
+			    		console.log(file);
+			    		
+				        var temp_id = (new Date()).valueOf();
+				        formData.append(temp_id, file);
+				        addRow(temp_id , imgObj);	
+			    	}
+
+			    }
+			    
+		        console.log(formData);
+			});
+
+			addRow = function(temp_id, img) {
+				var table_length = $("#table tr").length;
+				var filename = 'image.jpg';
+				var preview = '<img data-code="' + temp_id + '"class="list-img-thumb" src="' + img + '">';
 	
-				$('#table').bootstrapTable('insertRow', {
-					index: rId-1,
+				$table.bootstrapTable('insertRow', {
+					index: table_length-1,
 					row: {
-					  rId: null,
-					  goodsId: goodsId,
-					  goodsNm: goodsNm
+						row_id: null,
+						filename: filename,
+						preview: preview,
+						actions: null
 					}
 				});
+				
+				sortRowOrder();
 			}
-			
-// 			$("#addRow").click(function () {
-		
-// 				var rId = $("#table tr").length;
-// 				var goodsId = 'GOODS_00000000001923';
-// 				var goodsNm = '수제크림소스2종(각120g)';
-	
-// 				$('#table').bootstrapTable('insertRow', {
-// 					index: rId-1,
-// 					row: {
-// 					  rId: null,
-// 					  goodsId: goodsId,
-// 					  goodsNm: goodsNm
-// 					}
-// 			});
 
-// 		});
-		
 	  })
+
 	</script>
 </div>
 </html>

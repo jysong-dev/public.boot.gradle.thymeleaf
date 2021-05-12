@@ -102,41 +102,55 @@
 	</div>
 	
 	</div>
-	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script>
-		var code_dict = {};
 	
 		$(document).ready(function(){
 			getCodeClassList();
 		});
 		
-		async function getCodeClassList() {
-			axios.get(contextPath + '/json/code-class/list')
-				.then(function(response) {
-					//console.log(response);
-			    	var list = response.data.list;
-			    	code_dict = list;
-			    	
-		        	var html = '';
+		function getCodeClassList() {
+			$.ajax({
+			    url: contextPath + '/json/code-class/list',
+			    type: 'GET',
+			    success: function(result) {
+			        //console.log(result);
+					var list = result.list;
+			        var html = '';
+			        
 					for (var i=0; i<list.length; i++) {
 						html += '<tr>';
 						html += '<td>' + list[i].codeClassId + '</td>';
-						html += '<td><a onclick="getCodeItemList(\'' + list[i].codeClassId + '\');">' + list[i].codeClassNameEng + '</a></td>';
+						html += '<td><a onclick="getCodeItemList(' + list[i].codeClassId + ');">' + list[i].codeClassNameEng + '</a></td>';
 						html += '<td>' + list[i].codeClassDesc + '</td>';
-						html += '</tr>';						
+						html += '</tr>';
 					}
-					$('#code-class-list > tbody').html(html);
-				})
-				
-				.catch(function (error) {
-					console.log(error);
-				})
-			
-				.then(function () {
-				
-				});
+			        
+			        $('#code-class-list > tbody').html(html);
+			        
+			    },
+			    error: function(error) {
+			        //console.error(error);
+			    }
+			});
+		}
+		
+		
+		function getCodeItems(codeClassId) {
+			$.ajax({
+			    url: contextPath + '/json/code-class/items?codeClassId=' + codeClassId,
+			    type: 'GET',
+			    aysnc: false,
+			    success: function(result) {
+			    	var list = result.list;
+			    },
+			    error: function(error) {
+			        //console.error(error);
+			    }
+			});
+		
 		}
 
+		
 	</script>
 </div> <!-- .container-fluid -->
 </html>

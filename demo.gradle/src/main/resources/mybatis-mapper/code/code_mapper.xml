@@ -22,6 +22,7 @@
 			, code_desc
 		from code_tb
 		where code_class_id=#{codeClassId}
+		order by code_val
 	</select>
   
 </mapper>

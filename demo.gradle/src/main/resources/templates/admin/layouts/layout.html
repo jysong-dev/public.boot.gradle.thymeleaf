@@ -30,6 +30,10 @@
 			width: 20px;
 			height: 20px;
 		}
+		.list-img-thumb {
+			width: 40px;
+			height: 40px;
+		}
 		.sidebar-item.active .sidebar-link:hover i, .sidebar-item.active .sidebar-link:hover svg, .sidebar-item.active>.sidebar-link i, .sidebar-item.active>.sidebar-link svg {
 			color: #518be1;
 	 	}
@@ -41,11 +45,53 @@
 	<link id="contextPathHolder" th:data-contextPath="${#httpServletRequest.getContextPath()}"/>
 	<script>
 		var contextPath = $('#contextPathHolder').attr('data-contextPath') ? $('#contextPathHolder').attr('data-contextPath') : '';
+		var code_dict = {};
 		
 		$(document).ready(function(){
-			console.log('context path :', contextPath);
+			//console.log('context path :', contextPath);
+			initCodeSelect();
 		});
+
+		function initCodeSelect() {
+			var selects = $('select');
+			
+			for(var i=0; i<selects.length; i++) {
+				var select = selects[i];
+				
+				//console.log(select);
+				var code_class_id = $(select).data('code');
+				var html = '<option value="" selected>Choose...</option>';
+				
+				var options;
+				
+				$.ajax({
+				    url: contextPath + '/json/code-class/items?codeClassId=' + code_class_id,
+				    type: 'GET',
+				    async: false,
+				    success: function(result) {
+				    	var options = result.list;
+
+						for (var j=0; j<options.length; j++){
+							html += '<option value="' + options[j].codeVal + '">' + options[j].codeNmEn + '</option>';
+						}
+						console.log(html);
+						$(select).html(html);
+						
+				    },
+				    error: function(error) {
+				        //console.error(error);
+				    },
+				    complete: function() {
+
+				    }
+				});
+
+			}
+
+		}
+
 	</script>
+
 </head>
 
 <body>

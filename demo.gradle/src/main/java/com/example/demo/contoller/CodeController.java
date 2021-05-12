@@ -34,16 +34,16 @@ public class CodeController {
 		return result;
 	}
 	
-//	@ResponseBody
-//	@GetMapping("/json/code-class/items")
-//	public Map<String, Object> jsonCodeItemsList(CodeVO codeVO) {
-//		Map<String, Object> result = new HashMap<String, Object>();
-//		
-//		List<CodeVO> codeItemsList = codeService.selectCodeItemsList(codeVO);
-//
-//		result.put("list", codeItemsList);
-//
-//		return result;
-//	}
+	@ResponseBody
+	@GetMapping("/json/code-class/items")
+	public Map<String, Object> jsonCodeItemsList(CodeVO codeVO) {
+		Map<String, Object> result = new HashMap<String, Object>();
+		
+		List<CodeVO> codeItemsList = codeService.selectCodeItemsList(codeVO);
+
+		result.put("list", codeItemsList);
+
+		return result;
+	}
 	
 }
