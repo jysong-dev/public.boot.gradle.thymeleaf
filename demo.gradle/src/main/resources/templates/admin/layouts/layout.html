@@ -60,33 +60,37 @@
 				
 				//console.log(select);
 				var code_class_id = $(select).data('code');
-				var html = '<option value="" selected>Choose...</option>';
 				
-				var options;
-				
-				$.ajax({
-				    url: contextPath + '/json/code-class/items?codeClassId=' + code_class_id,
-				    type: 'GET',
-				    async: false,
-				    success: function(result) {
-				    	var options = result.list;
+				if ($(select).data('code')) {
 
-						for (var j=0; j<options.length; j++){
-							html += '<option value="' + options[j].codeVal + '">' + options[j].codeNmEn + '</option>';
-						}
-						console.log(html);
-						$(select).html(html);
-						
-				    },
-				    error: function(error) {
-				        //console.error(error);
-				    },
-				    complete: function() {
+					var html = '<option value="" selected>Choose...</option>';
+					var options;
+					
+					$.ajax({
+					    url: contextPath + '/json/code-class/items?codeClassId=' + code_class_id,
+					    type: 'GET',
+					    async: false,
+					    success: function(result) {
+					    	var options = result.list;
 
-				    }
-				});
+							for (var j=0; j<options.length; j++){
+								html += '<option value="' + options[j].codeVal + '">' + options[j].codeNmEn + '</option>';
+							}
+							//console.log(html);
+							$(select).html(html);
+							
+					    },
+					    error: function(error) {
+					        //console.error(error);
+					    },
+					    complete: function() {
 
-			}
+					    }
+					});
+					
+				}
+
+			} // for
 
 		}
 

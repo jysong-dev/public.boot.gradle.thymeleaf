@@ -124,36 +124,30 @@
 								</div> -->
 								<div class="row">
 									<div class="mb-3 col-md-4">
-										<label class="form-label" for="inputState">City</label>
+										<label class="form-label" for="city">City</label>
 										<select name="city" class="form-control" data-code="city"></select>
 									</div>
 									<div class="mb-3 col-md-4">
-										<label class="form-label" for="inputState">Grand Company</label>
-										<select id="inputState" class="form-control">
-						                <option selected>Choose...</option>
-						                <option>The Maelstorm</option>
-						              </select>
+										<label class="form-label" for="grandCompany">Grand Company</label>
+										<select name="grandCompany" class="form-control" data-code="grand_company"></select>
 									</div>
 									<div class="mb-3 col-md-4">
-										<label class="form-label" for="inputState">Lank</label>
-										<select id="inputState" class="form-control">
-						                <option selected>Choose...</option>
-						                <option>First Storm Lieutenant</option>
-						              </select>
+										<label class="form-label" for="grandCompanyRank">Rank</label>
+										<select name="grandCompanyRank" class="form-control" data-code="grand_company_rank"></select>
 									</div>
 								</div>	
 								<div class="row">
 									<div class="mb-3 col-md-2">
-										<label class="form-label" for="inputZip">BirthDay</label>
+										<label class="form-label" for="birthMonth">BirthDay</label>
 						              	<select name="birthMonth" class="form-control" data-code="birth_month"></select>
 									</div>
 									<div class="mb-3 col-md-2">
-										<label class="form-label" for="inputZip">&nbsp;</label>
+										<label class="form-label" for="birthDay">&nbsp;</label>
 										<select id="birthDay" class="form-control col" data-code="birth_day"></select>
 									</div>
 									<div class="mb-3 col-md-2">
-										<label class="form-label" for="inputZip">The Twelve</label>
-										<select name="theTwelve" data-code="the_twelve" class="form-control col"></select>
+										<label class="form-label" for="theTwelve">The Twelve</label>
+										<select name="theTwelve" class="form-control col" data-code="the_twelve"></select>
 									</div>
 								</div>
 
@@ -175,43 +169,38 @@
 							<form>
 								<div class="row">
 									<div class="mb-3 col-md-6">
-										<label class="form-label" for="inputFirstName">Hometown Server</label>
-										<select id="inputState" class="form-control">
-						                <option selected>Choose...</option>
-						                <option>Tonberry</option>
-						                <option>Moogle</option>
-						                <option>C</option>
-						              	</select>
+										<label class="form-label" for="hometownServer">Hometown Server</label>
+										<select name="hometownServer" class="form-control" data-code="server_kr"></select>
 									</div>
 									<div class="mb-3 col-md-6">
-										<label class="form-label" for="inputLastName">Main Job</label>
-										<select id="inputState" class="form-control col">
-						                	<option selected>Choose...</option>
-						                	<optgroup label="Classes">
-						                	<option>Archer</option>
-						                	<option>...</option>
-						                	</optgroup>
-						                	<optgroup label="Jobs">
-						                	<option>Gunbreaker</option>
-						                	<option>Dancer</option>
-						                	</optgroup>
+										<label class="form-label" for="mainJob">Main Job</label>
+										<select name="mainJob" class="form-control col" data-code="job">
+<!-- 						                	<option selected>Choose...</option> -->
+<!-- 						                	<optgroup label="Classes"> -->
+<!-- 						                	<option>Archer</option> -->
+<!-- 						                	<option>...</option> -->
+<!-- 						                	</optgroup> -->
+<!-- 						                	<optgroup label="Jobs"> -->
+<!-- 						                	<option>Gunbreaker</option> -->
+<!-- 						                	<option>Dancer</option> -->
+<!-- 						                	</optgroup> -->
 						              	</select>
 									</div>
 
 								</div>
 								<div class="row">
 									<div class="mb-3 col-md-6">
-										<label class="form-label" for="inputFirstName">Eternal Bonding</label>
-										<select id="inputState" class="form-control">
-						                <option selected>Choose...</option>
-						                <option>Looking for a partner</option>
-						                <option>I don't want a bonding now</option>
-						                <option>...</option>
+										<label class="form-label" for="bondingStatus">Eternal Bonding</label>
+										<select id="bondingStatus" class="form-control" data-code="bonding_status">
+							                <option selected>Choose...</option>
+							                <option>Looking for a partner</option>
+							                <option>I don't want a bonding now</option>
+							                <option>...</option>
 						              	</select>
 									</div>
 									<div class="mb-3 col-md-2">
-										<label class="form-label" for="inputZip">Plan</label>
-										<select id="inputState" class="form-control col">
+										<label class="form-label" for="bondingPlan">Plan</label>
+										<select id="bondingPlan" class="form-control col" data-code="bonding_plan">
 							                <option selected>Choose...</option>
 							                <option>Standard</option>
 							                <option>Gold</option>
@@ -219,8 +208,8 @@
 						              	</select>
 									</div>
 									<div class="mb-3 col-md-4">
-										<label class="form-label" for="inputLastName">Bonding Sheet</label>
-										<select id="inputState" class="form-control col">
+										<label class="form-label" for="bondingSheet">Bonding Sheet</label>
+										<select id="bondingSheet" class="form-control col">
 							                <option selected>Choose...</option>
 							                <option>Sheet [2021. 04. 30]</option>
 							                <option>Sheet [2021. 04. 01]</option>
@@ -246,63 +235,9 @@
 								<tr>
 									<th style="width:50%;">Job / Class</th>
 									<th style="width:50%">Level</th>
-<!-- 									<th class="d-none d-md-table-cell" style="width:25%">Date of Birth</th>
-									<th>Actions</th> -->
 								</tr>
 							</thead>
-							<tbody>
-								<tr>
-									<td><img class="icon" th:src="@{/images/icons/class/gladiator.png}"> Gladiator</td>
-									<td>
-										<select id="inputState" class="form-control col">
-											<!-- TODO 하드코딩된 숫자 부분 변경 -->
-											<th:block th:each="num : ${#numbers.sequence(1,80)}">
-												<option th:text="${num}"></option>
-											</th:block>
-										</select>
-									</td>
-								</tr>
-								<tr>
-									<td><img class="icon" th:src="@{/images/icons/class/gladiator.png}"> Gladiator</td>
-									<td>
-										<select id="inputState" class="form-control col">
-											<th:block th:each="num : ${#numbers.sequence(1,80)}">
-												<option th:text="${num}"></option>
-											</th:block>
-										</select>
-									</td>
-								</tr>
-								<tr>
-									<td><img class="icon" th:src="@{/images/icons/class/gladiator.png}"> Gladiator</td>
-									<td>
-										<select id="inputState" class="form-control col">
-											<th:block th:each="num : ${#numbers.sequence(1,80)}">
-												<option th:text="${num}"></option>
-											</th:block>
-										</select>
-									</td>
-								</tr>
-								<tr>
-									<td><img class="icon" th:src="@{/images/icons/class/gladiator.png}"> Gladiator</td>
-									<td>
-										<select id="inputState" class="form-control col">
-											<th:block th:each="num : ${#numbers.sequence(1,80)}">
-												<option th:text="${num}"></option>
-											</th:block>
-										</select>
-									</td>
-								</tr>
-								<tr>
-									<td><img class="icon" th:src="@{/images/icons/class/gladiator.png}"> Gladiator</td>
-									<td>
-										<select id="inputState" class="form-control col">
-											<th:block th:each="num : ${#numbers.sequence(1,80)}">
-												<option th:text="${num}"></option>
-											</th:block>
-										</select>
-									</td>
-								</tr>
-							</tbody>
+							<tbody></tbody>
 						</table>
 					</div>
 				</div> <!-- #job-classes -->
@@ -316,41 +251,38 @@
 						<table class="table table-sm">
 							<thead>
 								<tr>
-									<th style="width:50%;">Job / Class</th>
-									<th style="width:50%">Progress</th>
-<!-- 									<th class="d-none d-md-table-cell" style="width:25%">Date of Birth</th>
-									<th>Actions</th> -->
+									<th style="width:30%;">Patch</th>
+									<th style="width:30%;">Main Quest</th>
+									<th>Progress</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
+									<td>2.0</td>
 									<td>Reborn Realm</td>
 									<td>
-										<select class="form-control col">
-											<option value="main_quests_available">미진행</option>
-											<option value="main_quests_in_progress">진행중</option>
-											<option value="main_quests_final_step">완료</option>
-										</select>
+										<select class="form-control col" data-code="progress"></select>
 									</td>
 								</tr>
 								<tr>
+									<td>3.0</td>
 									<td>Heavensward</td>
 									<td>
-										<select class="form-control col">
-											<option value="main_quests_available">미진행</option>
-											<option value="main_quests_in_progress">진행중</option>
-											<option value="main_quests_final_step">완료</option>
-										</select>
+										<select class="form-control col" data-code="progress"></select>
 									</td>
 								</tr>
 								<tr>
+									<td>4.0</td>
 									<td>Stormblood</td>
 									<td>
-										<select class="form-control col">
-											<option value="main_quests_available">미진행</option>
-											<option value="main_quests_in_progress">진행중</option>
-											<option value="main_quests_final_step">완료</option>
-										</select>
+										<select class="form-control col" data-code="progress"></select>
+									</td>
+								</tr>
+								<tr>
+								<td>5.0</td>
+									<td>ShadowBringers</td>
+									<td>
+										<select class="form-control col" data-code="progress"></select>
 									</td>
 								</tr>
 							</tbody>
@@ -377,31 +309,19 @@
 								<tr>
 									<td>Reborn Realm</td>
 									<td>
-										<select class="form-control col">
-											<option value="main_quests_available">미진행</option>
-											<option value="main_quests_in_progress">진행중</option>
-											<option value="main_quests_final_step">완료</option>
-										</select>
+										<select class="form-control col" data-code="progress"></select>
 									</td>
 								</tr>
 								<tr>
 									<td>Heavensward</td>
 									<td>
-										<select class="form-control col">
-											<option value="main_quests_available">미진행</option>
-											<option value="main_quests_in_progress">진행중</option>
-											<option value="main_quests_final_step">완료</option>
-										</select>
+										<select class="form-control col" data-code="progress"></select>
 									</td>
 								</tr>
 								<tr>
 									<td>Stormblood</td>
 									<td>
-										<select class="form-control col">
-											<option value="main_quests_available">미진행</option>
-											<option value="main_quests_in_progress">진행중</option>
-											<option value="main_quests_final_step">완료</option>
-										</select>
+										<select class="form-control col" data-code="progress"></select>
 									</td>
 								</tr>
 							</tbody>
@@ -422,7 +342,7 @@
 	<script th:src="@{/libs/bootstrap-table-master/dist/extensions/reorder-rows/bootstrap-table-reorder-rows.min.js}"></script>  
 	<script>
 		$(function() {
-			//initCodeSelect();
+			initJobClassTable();
 			
 			$table = $('#table');
 
@@ -540,7 +460,40 @@
 			}
 
 	  })
+	  
+		function initJobClassTable() {
+			var $tbody = $('#job-classes table > tbody');
+			
+			console.log($tbody);
+			
+			
+			$.ajax({
+			    url: contextPath + '/json/code-class/items?codeClassId=job',
+			    type: 'GET',
+			    aysnc: false,
+			    success: function(result) {
+			    	var list = result.list;
+			    	//console.log(list);
+			    	
+			    	var html = '';
+			    	
+			    	for (var i=0; i<list.length; i++) {
+			    		
+			    		html += '<tr>';
+			    		html += '<td><img class="icon" src="' + contextPath + '/images/icons/job/' + list[i].codeVal +  '.png">' + list[i].codeNmEn + '</td>';
+			    		html += '<td>' + 80 + '</td>';
+			    		html += '</tr>';
 
+			    	}
+
+			    	$tbody.html(html);
+			    },
+			    error: function(error) {
+			        //console.error(error);
+			    }
+			});
+
+		}
 	</script>
 </div>
 </html>
