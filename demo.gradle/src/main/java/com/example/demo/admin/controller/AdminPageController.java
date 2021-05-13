@@ -37,5 +37,17 @@ public class AdminPageController {
 		return "admin/code/list";
 	}
 	
+	@GetMapping("/admin/index/form")
+	public String indexForm() {
+	
+		return "admin/index/form";
+	}
+	
+	@GetMapping("/admin/closet/list")
+	public String closetList() {
+	
+		return "admin/closet/list";
+	}
+	
 	
 }

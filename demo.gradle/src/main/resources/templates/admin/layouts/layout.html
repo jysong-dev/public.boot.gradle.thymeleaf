@@ -24,8 +24,9 @@
 	  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
 	  crossorigin="anonymous"></script>
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-	
+	<link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
 	<style type="text/css">
+		* { font-family: 'Spoqa Han Sans Neo', 'sans-serif'; font-weight: light;}
 		.icon {
 			width: 20px;
 			height: 20px;
@@ -63,7 +64,7 @@
 				
 				if ($(select).data('code')) {
 
-					var html = '<option value="" selected>Choose...</option>';
+					var html = '<option value="" selected>==선택==</option>';
 					var options;
 					
 					$.ajax({
@@ -74,7 +75,7 @@
 					    	var options = result.list;
 
 							for (var j=0; j<options.length; j++){
-								html += '<option value="' + options[j].codeVal + '">' + options[j].codeNmEn + '</option>';
+								html += '<option value="' + options[j].codeVal + '">' + options[j].codeNmKo + '</option>';
 							}
 							//console.log(html);
 							$(select).html(html);

@@ -7,71 +7,70 @@
 >
 <div layout:fragment="content" class="container-fluid p-0">
 
-	<h1 class="h3 mb-3">Code List</h1>
+	<h1 class="h3 mb-3">일기장</h1>
 
 	<div class="row">
 	<div class="col">
 	
 		<div class="card rounded-0">
 			<div class="card-header">
-				<button class="btn btn-square btn-success float-right" data-toggle="modal" data-target="#modal-code-create">new code</button>
+				<button class="btn btn-square btn-success float-right" data-toggle="modal" data-target="#modal-diary-create">새 일기</button>
 				<!-- <h5 class="card-title">Code List</h5>
 				<h6 class="card-subtitle text-muted">Add <code>.table-sm</code> to make tables more compact by cutting cell padding in half.</h6> -->
 			</div>
 			
-			<table id="code-class-list" class="table table-sm">
+			<table id="code-class-list" class="table">
 				<thead>
 					<tr>
-						<th>code class id</th>
-						<th style="width: 30%;">code class</th>
-						<th style="width: 40%;">code desc</th>
+						<th>NO</th>
+						<th>제목</th>
+						<th>한마디</th>
+						<th>등록일자</th>
 					</tr>
 				</thead>
-				<tbody></tbody>
+				<tbody>
+					<tr>
+						<td class="text-center" colspan="4">등록된 일기가 없습니다.</td>
+					</tr>
+				</tbody>
 			</table>
 			
 		</div> <!-- .card -->
 		
-		<div class="modal fade" id="modal-code-create" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal fade" id="modal-diary-create" tabindex="-1" role="dialog" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered" role="document">
 				<div class="modal-content rounded-0">
 					<div class="modal-header">
-						<h5 class="modal-title">New Code Class</h5>
+						<h5 class="modal-title">새 일기</h5>
 						<button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<div class="modal-body m-0">
 					
 						<form>
 							<div class="mb-3 row">
-								<label class="col-form-label col-sm-3 text-sm-right">Code Class</label>
+								<label class="col-form-label col-sm-3 text-sm-right">제목</label>
 								<div class="col-sm-9">
 									<input type="text" class="form-control">
 								</div>
 							</div>
 							<div class="mb-3 row">
-								<label class="col-form-label col-sm-3 text-sm-right">Code Class Name (English)</label>
+								<label class="col-form-label col-sm-3 text-sm-right">날짜</label>
 								<div class="col-sm-9">
-									<input type="text" class="form-control">
+									<input type="date" class="form-control">
 								</div>
 							</div>
 							<div class="mb-3 row">
-								<label class="col-form-label col-sm-3 text-sm-right">Code Class Name (Korean)</label>
-								<div class="col-sm-9">
-									<input type="text" class="form-control">
-								</div>
-							</div>
-							<div class="mb-3 row">
-								<label class="col-form-label col-sm-3 text-sm-right">Description</label>
+								<label class="col-form-label col-sm-3 text-sm-right">한마디</label>
 								<div class="col-sm-9">
 									<textarea class="form-control" rows="3"></textarea>
 								</div>
 							</div>
 							<div class="mb-3 row">
-								<label class="col-form-label col-sm-3 text-sm-right pt-sm-0">Availability</label>
+								<label class="col-form-label col-sm-3 text-sm-right pt-sm-0">공개 여부</label>
 								<div class="col-sm-9">
 									<label class="form-check m-0"> <input type="checkbox"
 										class="form-check-input"> <span
-										class="form-check-label">Make Available This Code</span>
+										class="form-check-label">이 일기를 공개합니다.</span>
 									</label>
 								</div>
 							</div>
@@ -105,7 +104,7 @@
 	<script>
 	
 		$(document).ready(function(){
-			getCodeClassList();
+			//getCodeClassList();
 		});
 		
 		function getCodeClassList() {

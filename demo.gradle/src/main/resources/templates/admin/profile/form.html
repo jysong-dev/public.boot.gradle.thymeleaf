@@ -14,7 +14,7 @@
 
 	<div layout:fragment="content" class="container-fluid p-0">
 
-	<h1 class="h3 mb-3">Profile</h1>
+	<h1 class="h3 mb-3">프로필</h1>
 
 	<div class="row">
 		<div class="col-md-3 col-xl-2">
@@ -26,22 +26,22 @@
 
 				<div class="list-group list-group-flush rounded-0" role="tablist">
 					<a class="list-group-item list-group-item-action active" data-toggle="list" href="#profile-images" role="tab">
-						Profile Images
+						프로필 이미지
 				    </a>
 					<a class="list-group-item list-group-item-action" data-toggle="list" href="#basic-profile" role="tab">
-						Basic Profile
+						기본 프로필
 				    </a>
 					<a class="list-group-item list-group-item-action" data-toggle="list" href="#status" role="tab">
-						Status
+						현황
 				    </a>
 					<a class="list-group-item list-group-item-action" data-toggle="list" href="#job-classes" role="tab">
-						Job / Class
+						잡 / 클래스
 				    </a>
 					<a class="list-group-item list-group-item-action" data-toggle="list" href="#main-quest-progress" role="tab">
-						Main Quest Progress
+						메인 퀘스트 진행도
 				    </a>
 					<a class="list-group-item list-group-item-action" data-toggle="list" href="#duty-progress" role="tab">
-						Duty Progress
+						임무 진행도
 				    </a>
 				</div>
 			</div>
@@ -53,13 +53,13 @@
 				<div class="tab-pane fade show active" id="profile-images" role="tabpanel">
 					<div class="card rounded-0">
 						<div class="card-header">
-							<h5 class="card-title mb-0">Profile Images</h5>
+							<h5 class="card-title mb-0">프로필 이미지</h5>
 						</div>
 						<div class="card-body">
 							<form>
 								<div class="row">
 									<div class="mb-3">
-										<label class="form-label w-100">File input</label>
+<!-- 										<label class="form-label w-100">File input</label> -->
 										<input id="file" type="file" multiple="multiple">
 										<small class="form-text text-muted">파일은 최대 5개까지 추가할 수 있습니다.</small>
 									</div>
@@ -73,10 +73,10 @@
 								  data-height="280">
 									<thead>
 										<tr>
-											<th scope="col" data-field="row_id" data-sortable="false" style="width:5%;">no</th>
-											<th scope="col" data-field="filename" data-sortable="false" style="width:65%;">filename</th>
-											<th scope="col" data-field="preview" data-sortable="false" style="width:25%">preview</th>
-											<th scope="col" data-field="actions" data-sortable="false" data-formatter="editFormatter" style="width:5%">actions</th>
+											<th scope="col" data-field="row_id" data-sortable="false" style="width:10%;">순서</th>
+											<th scope="col" data-field="filename" data-sortable="false" style="width:60%;">파일명</th>
+											<th scope="col" data-field="preview" data-sortable="false" style="width:25%">썸네일</th>
+											<th scope="col" data-field="actions" data-sortable="false" data-formatter="editFormatter" style="width:5%">관리</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -85,8 +85,8 @@
 								</table>
 								
 								<div class="mt-3">
-									<button type="submit" class="btn btn-primary">Save changes</button>
-									<button type="submit" class="btn btn-success">Show Preview</button>
+									<button type="submit" class="btn rounded-0 btn-primary">저장</button>
+									<button type="submit" class="btn rounded-0 btn-success">미리보기</button>
 								</div>
 							</form>
 
@@ -98,20 +98,20 @@
 
 					<div class="card rounded-0">
 						<div class="card-header">
-							<h5 class="card-title mb-0">Basic Profile</h5>
+							<h5 class="card-title mb-0">기본 프로필</h5>
 						</div>
 						<div class="card-body">
 							<form>
 								<div class="row row-cols-md-auto align-items-center mb-2">
 									<div class="col-md-6">
-										<label class="mb-2" for="inlineFormInputName2">Character Name</label>
+										<label class="mb-2" for="inlineFormInputName2">캐릭터 이름</label>
 											<input type="checkbox" class="form-check-input ml-2 " id="customControlInline">
-											<label class="form-check-label" for="customControlInline">It's different from in-game name</label>
-										<input type="text" class="form-control mb-2 mr-sm-2" placeholder="Somebody">
+											<label class="form-check-label" for="customControlInline">인게임 닉과 다름</label>
+										<input type="text" class="form-control mb-2 mr-sm-2" required>
 									</div>
 									<div class="col-md-6">
-										<label class="mb-2" for="inlineFormInputGroupUsername2">Entitle</label>
-										<input type="text" class="form-control mb-2 mr-sm-2" placeholder="Guidance Angel">
+										<label class="mb-2" for="inlineFormInputGroupUsername2">칭호</label>
+										<input type="text" class="form-control mb-2 mr-sm-2">
 									</div>
 								</div>
 <!-- 								<div class="row">
@@ -124,34 +124,34 @@
 								</div> -->
 								<div class="row">
 									<div class="mb-3 col-md-4">
-										<label class="form-label" for="city">City</label>
-										<select name="city" class="form-control" data-code="city"></select>
+										<label class="form-label" for="city">시작 도시</label>
+										<select name="city" class="form-control" data-code="city" required></select>
 									</div>
 									<div class="mb-3 col-md-4">
-										<label class="form-label" for="grandCompany">Grand Company</label>
-										<select name="grandCompany" class="form-control" data-code="grand_company"></select>
+										<label class="form-label" for="grandCompany">총사령부</label>
+										<select name="grandCompany" class="form-control" data-code="grand_company" required></select>
 									</div>
 									<div class="mb-3 col-md-4">
-										<label class="form-label" for="grandCompanyRank">Rank</label>
-										<select name="grandCompanyRank" class="form-control" data-code="grand_company_rank"></select>
+										<label class="form-label" for="grandCompanyRank">계급</label>
+										<select name="grandCompanyRank" class="form-control" data-code="grand_company_rank" required></select>
 									</div>
 								</div>	
 								<div class="row">
 									<div class="mb-3 col-md-2">
-										<label class="form-label" for="birthMonth">BirthDay</label>
-						              	<select name="birthMonth" class="form-control" data-code="birth_month"></select>
+										<label class="form-label" for="birthMonth">생일</label>
+						              	<select name="birthMonth" class="form-control" data-code="birth_month" required></select>
 									</div>
 									<div class="mb-3 col-md-2">
 										<label class="form-label" for="birthDay">&nbsp;</label>
-										<select id="birthDay" class="form-control col" data-code="birth_day"></select>
+										<select id="birthDay" class="form-control col" data-code="birth_day" required></select>
 									</div>
 									<div class="mb-3 col-md-2">
-										<label class="form-label" for="theTwelve">The Twelve</label>
-										<select name="theTwelve" class="form-control col" data-code="the_twelve"></select>
+										<label class="form-label" for="theTwelve">수호신</label>
+										<select name="theTwelve" class="form-control col" data-code="the_twelve" required></select>
 									</div>
 								</div>
 
-								<button type="submit" class="btn btn-primary">Save changes</button>
+								<button type="submit" class="btn rounded-0 btn-primary">저장</button>
 							</form>
 
 						</div>
@@ -163,60 +163,40 @@
 					<div class="card rounded-0">
 						<div class="card-header">
 
-							<h5 class="card-title mb-0">Status</h5>
+							<h5 class="card-title mb-0">현황</h5>
 						</div>
 						<div class="card-body">
 							<form>
 								<div class="row">
 									<div class="mb-3 col-md-6">
-										<label class="form-label" for="hometownServer">Hometown Server</label>
-										<select name="hometownServer" class="form-control" data-code="server_kr"></select>
+										<label class="form-label" for="hometownServer">고향 서버</label>
+										<select name="hometownServer" class="form-control" data-code="server_kr" required></select>
 									</div>
 									<div class="mb-3 col-md-6">
-										<label class="form-label" for="mainJob">Main Job</label>
-										<select name="mainJob" class="form-control col" data-code="job">
-<!-- 						                	<option selected>Choose...</option> -->
-<!-- 						                	<optgroup label="Classes"> -->
-<!-- 						                	<option>Archer</option> -->
-<!-- 						                	<option>...</option> -->
-<!-- 						                	</optgroup> -->
-<!-- 						                	<optgroup label="Jobs"> -->
-<!-- 						                	<option>Gunbreaker</option> -->
-<!-- 						                	<option>Dancer</option> -->
-<!-- 						                	</optgroup> -->
-						              	</select>
+										<label class="form-label" for="mainJob">주직</label>
+										<select name="mainJob" class="form-control col" data-code="job" required></select>
 									</div>
-
 								</div>
 								<div class="row">
 									<div class="mb-3 col-md-6">
-										<label class="form-label" for="bondingStatus">Eternal Bonding</label>
-										<select id="bondingStatus" class="form-control" data-code="bonding_status">
-							                <option selected>Choose...</option>
-							                <option>Looking for a partner</option>
-							                <option>I don't want a bonding now</option>
-							                <option>...</option>
-						              	</select>
+										<label class="form-label" for="bondingStatus">언약</label>
+										<select id="bondingStatus" class="form-control" data-code="bonding_status" required></select>
 									</div>
 									<div class="mb-3 col-md-2">
-										<label class="form-label" for="bondingPlan">Plan</label>
-										<select id="bondingPlan" class="form-control col" data-code="bonding_plan">
-							                <option selected>Choose...</option>
-							                <option>Standard</option>
-							                <option>Gold</option>
-							                <option>Platinum</option>
-						              	</select>
+										<label class="form-label" for="bondingPlan">희망 언약식 플랜</label>
+										<select id="bondingPlan" class="form-control col" data-code="bonding_plan"></select>
 									</div>
 									<div class="mb-3 col-md-4">
-										<label class="form-label" for="bondingSheet">Bonding Sheet</label>
-										<select id="bondingSheet" class="form-control col">
-							                <option selected>Choose...</option>
+										<label class="form-label" for="bondingSheet">언약 시트 </label>
+										<small class="form-text text-muted">베타 버전에서는 아직 이용하실 수 없는 기능입니다.</small>
+										<select id="bondingSheet" class="form-control col" disabled="disabled">
+							                <option value="">==선택==</option>
 							                <option>Sheet [2021. 04. 30]</option>
 							                <option>Sheet [2021. 04. 01]</option>
 						              	</select>
 									</div>
 								</div>
-								<button type="submit" class="btn btn-primary">Save changes</button>
+								<button type="submit" class="btn rounded-0 btn-primary">저장</button>
 							</form>
 
 						</div>
@@ -227,18 +207,132 @@
 				<div class="tab-pane fade" id="job-classes" role="tabpanel">
 					<div class="card rounded-0">
 						<div class="card-header">
-							<h5 class="card-title">Job / Class</h5>
+							<h5 class="card-title">잡 / 클래스</h5>
+							<small class="form-text text-muted">아직 퀘스트를 받지 않은 직업의 경우 레벨을 0으로 입력해주세요.</small>
 							<!-- <h6 class="card-subtitle text-muted">Using the most basic table markup, here’s how .table-based tables look in Bootstrap.</h6> -->
 						</div>
+						<div class="card-body">
+						<form>
 						<table class="table table-sm">
-							<thead>
-								<tr>
-									<th style="width:50%;">Job / Class</th>
-									<th style="width:50%">Level</th>
-								</tr>
-							</thead>
-							<tbody></tbody>
+							  <thead>
+							    <tr>
+							      <th scope="col" colspan="2">잡 / 클래스</th>
+							      <th scope="col">레벨</th>
+							    </tr>
+							  </thead>
+							<tbody>
+							<tr>
+						      <th rowspan="9">클래스</th>
+						      <td><img class="icon" th:src="@{/images/icons/class/gladiator.png}"> 검술사</td>
+						      <td><input type="number" name="level" min="0" max="80" class="form-control" required></td>
+						    </tr>
+						    <tr>
+						      <td><img class="icon" th:src="@{/images/icons/class/marauder.png}"> 도끼술사</td>
+						      <td><input type="number" name="level" min="0" max="80" class="form-control" required></td>
+						    </tr>
+						    <tr>
+						      <td><img class="icon" th:src="@{/images/icons/class/conjurer.png}"> 환술사</td>
+						      <td><input type="number" name="level" min="0" max="80" class="form-control" required></td>
+						    </tr>
+						    <tr>
+						      <td><img class="icon" th:src="@{/images/icons/class/pugilist.png}"> 격투사</td>
+						      <td><input type="number" name="level" min="0" max="80" class="form-control" required></td>
+						    </tr>
+						    <tr>
+						      <td><img class="icon" th:src="@{/images/icons/class/lancer.png}"> 창술사</td>
+						      <td><input type="number" name="level" min="0" max="80" class="form-control" required></td>
+						    </tr>
+						    <tr>
+						      <td><img class="icon" th:src="@{/images/icons/class/rogue.png}"> 쌍검사</td>
+						      <td><input type="number" name="level" min="0" max="80" class="form-control" required></td>
+						    </tr>
+						    <tr>
+						      <td><img class="icon" th:src="@{/images/icons/class/archer.png}"> 궁술사</td>
+						      <td><input type="number" name="level" min="0" max="80" class="form-control" required></td>
+						    </tr>
+						    <tr>
+						      <td><img class="icon" th:src="@{/images/icons/class/thaumaturge.png}"> 주술사</td>
+						      <td><input type="number" name="level" min="0" max="80" class="form-control" required></td>
+						    </tr>
+						    <tr>
+						      <td><img class="icon" th:src="@{/images/icons/class/arcanist.png}"> 비술사</td>
+						      <td><input type="number" name="level" min="0" max="80" class="form-control" required></td>
+						    </tr>
+						    
+						    <tr>
+						      <th rowspan="17">잡</th>
+						      <td><img class="icon" th:src="@{/images/icons/job/paladin.png}"> 나이트</td>
+						      <td><input type="number" name="level" min="0" max="80" class="form-control" required></td>
+						    </tr>
+						    <tr>
+						      <td><img class="icon" th:src="@{/images/icons/job/warrior.png}"> 전사</td>
+						      <td><input type="number" name="level" min="0" max="80" class="form-control" required></td>
+						    </tr>
+						    <tr>
+						      <td><img class="icon" th:src="@{/images/icons/job/dark_knight.png}"> 암흑기사</td>
+						      <td><input type="number" name="level" min="0" max="80" class="form-control" required></td>
+						    </tr>
+						    <tr>
+						      <td><img class="icon" th:src="@{/images/icons/job/paladin.png}"> 건브레이커</td>
+						      <td><input type="number" name="level" min="0" max="80" class="form-control" required></td>
+						    </tr>
+						    <tr>
+						      <td><img class="icon" th:src="@{/images/icons/job/white_mage.png}"> 백마도사</td>
+						      <td><input type="number" name="level" min="0" max="80" class="form-control" required></td>
+						    </tr>
+						    <tr>
+						      <td><img class="icon" th:src="@{/images/icons/job/scholar.png}"> 학자</td>
+						      <td><input type="number" name="level" min="0" max="80" class="form-control" required></td>
+						    </tr>
+						    <tr>
+						      <td><img class="icon" th:src="@{/images/icons/job/astrologian.png}"> 점성술사</td>
+						      <td><input type="number" name="level" min="0" max="80" class="form-control" required></td>
+						    </tr>
+						    <tr>
+						      <td><img class="icon" th:src="@{/images/icons/job/monk.png}"> 몽크</td>
+						      <td><input type="number" name="level" min="0" max="80" class="form-control" required></td>
+						    </tr>
+						    <tr>
+						      <td><img class="icon" th:src="@{/images/icons/job/dragoon.png}"> 용기사</td>
+						      <td><input type="number" name="level" min="0" max="80" class="form-control" required></td>
+						    </tr>		    
+						    <tr>
+						      <td><img class="icon" th:src="@{/images/icons/job/samurai.png}"> 사무라이</td>
+						      <td><input type="number" name="level" min="0" max="80" class="form-control" required></td>
+						    </tr>
+						    <tr>
+						      <td><img class="icon" th:src="@{/images/icons/job/bard.png}"> 음유시인</td>
+						      <td><input type="number" name="level" min="0" max="80" class="form-control" required></td>
+						    </tr>
+						    <tr>
+						      <td><img class="icon" th:src="@{/images/icons/job/machinist.png}"> 기공사</td>
+						      <td><input type="number" name="level" min="0" max="80" class="form-control" required></td>
+						    </tr>
+						    <tr>
+						      <td><img class="icon" th:src="@{/images/icons/job/dancer.png}"> 무도가</td>
+						      <td><input type="number" name="level" min="0" max="80" class="form-control" required></td>
+						    </tr>
+						    <tr>
+						      <td><img class="icon" th:src="@{/images/icons/job/black_mage.png}"> 흑마도사</td>
+						      <td><input type="number" name="level" min="0" max="80" class="form-control" required></td>
+						    </tr>
+						    <tr>
+						      <td><img class="icon" th:src="@{/images/icons/job/summoner.png}"> 소환사</td>
+						      <td><input type="number" name="level" min="0" max="80" class="form-control" required></td>
+						    </tr>
+						    <tr>
+						      <td><img class="icon" th:src="@{/images/icons/job/red_mage.png}"> 적마도사</td>
+						      <td><input type="number" name="level" min="0" max="80" class="form-control" required></td>
+						    </tr>
+						    <tr>
+						      <td><img class="icon" th:src="@{/images/icons/job/blue_mage.png}"> 청마도사</td>
+						      <td><input type="number" name="level" min="0" max="60" class="form-control" required></td>
+						    </tr>
+							</tbody>
 						</table>
+							<button type="submit" class="btn rounded-0 btn-primary">저장</button>
+						</form>
+						</div>
 					</div>
 				</div> <!-- #job-classes -->
 				
@@ -248,84 +342,152 @@
 							<h5 class="card-title">Main Quest Progress <img class="icon" th:src="@{/images/icons/duty/main_quests_available.png}"></h5>
 							<!-- <h6 class="card-subtitle text-muted">Using the most basic table markup, here’s how .table-based tables look in Bootstrap.</h6> -->
 						</div>
+						<div class="card-body">
+						<form>
 						<table class="table table-sm">
 							<thead>
 								<tr>
-									<th style="width:30%;">Patch</th>
-									<th style="width:30%;">Main Quest</th>
-									<th>Progress</th>
+									<th style="width:30%;">확장팩</th>
+									<th style="width:15%;">패치</th>
+									<th style="width:35%;">메인 퀘스트</th>
+									<th style="width:25%;">Progress</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>2.0</td>
-									<td>Reborn Realm</td>
-									<td>
-										<select class="form-control col" data-code="progress"></select>
-									</td>
-								</tr>
-								<tr>
-									<td>3.0</td>
-									<td>Heavensward</td>
-									<td>
-										<select class="form-control col" data-code="progress"></select>
-									</td>
-								</tr>
-								<tr>
-									<td>4.0</td>
-									<td>Stormblood</td>
-									<td>
-										<select class="form-control col" data-code="progress"></select>
-									</td>
-								</tr>
-								<tr>
-								<td>5.0</td>
-									<td>ShadowBringers</td>
-									<td>
-										<select class="form-control col" data-code="progress"></select>
-									</td>
-								</tr>
+									<tr>
+										<th rowspan="5">신생 에오르제아</th>
+										<td>2.0.</td>
+										<td>각성한 자들</td>
+										<td><select class="form-control col" data-code="progress" required></select></td>
+									</tr>
+									<tr>
+										<td>2.1.</td>
+										<td>혼돈의 소용돌이</td>
+										<td><select class="form-control col" data-code="progress" required></select></td>
+									</tr>
+									<tr>
+										<td>2.2.</td>
+										<td>에오르제아의 수호자</td>
+										<td><select class="form-control col" data-code="progress" required></select></td>
+									</tr>
+									<tr>
+										<td>2.3.</td>
+										<td>빙결의 환상</td>
+										<td><select class="form-control col" data-code="progress" required></select></td>
+									</tr>
+									<tr>
+										<td>2.4.</td>
+										<td>희망의 등불</td>
+										<td><select class="form-control col" data-code="progress" required></select></td>
+									</tr>
+						
+									<tr>
+										<th rowspan="6">창천의 이슈가르드</th>
+										<td>3.0.</td>
+										<td>창천의 이슈가르드</td>
+										<td><select class="form-control col" data-code="progress" required></select></td>
+									</tr>
+									<tr>
+										<td>3.1.</td>
+										<td>빛과 어둠의 경계</td>
+										<td><select class="form-control col" data-code="progress" required></select></td>
+									</tr>
+									<tr>
+										<td>3.2.</td>
+										<td>운명의 톱니바퀴</td>
+										<td><select class="form-control col" data-code="progress" required></select></td>
+									</tr>
+									<tr>
+										<td>3.3.</td>
+										<td>최후의 포효</td>
+										<td><select class="form-control col" data-code="progress" required></select></td>
+									</tr>
+									<tr>
+										<td>3.4.</td>
+										<td>혼을 계승하는 자</td>
+										<td><select class="form-control col" data-code="progress" required></select></td>
+									</tr>
+									<tr>
+										<td>3.5.</td>
+										<td>숙명의 끝</td>
+										<td><select class="form-control col" data-code="progress" required></select></td>
+									</tr>
+						
+									<tr>
+										<th rowspan="6">홍련의 해방자</th>
+										<td>4.0.</td>
+										<td>홍련의 해방자</td>
+										<td><select class="form-control col" data-code="progress" required></select></td>
+									</tr>
+									<tr>
+										<td>4.1.</td>
+										<td>영웅의 귀환</td>
+										<td><select class="form-control col" data-code="progress" required></select></td>
+									</tr>
+									<tr>
+										<td>4.2.</td>
+										<td>새벽의 빛</td>
+										<td><select class="form-control col" data-code="progress" required></select></td>
+									</tr>
+									<tr>
+										<td>4.3.</td>
+										<td>월하의 꽃</td>
+										<td><select class="form-control col" data-code="progress" required></select></td>
+									</tr>
+									<tr>
+										<td>4.4.</td>
+										<td>광란의 전주곡</td>
+										<td><select class="form-control col" data-code="progress" required></select></td>
+									</tr>
+									<tr>
+										<td>4.5.</td>
+										<td>영웅을 위한 진혼가</td>
+										<td><select class="form-control col" data-code="progress" required></select></td>
+									</tr>
+						
+									<tr>
+										<th rowspan="6">칠흑의 반역자</th>
+										<td>5.0.</td>
+										<td>칠흑의 반역자</td>
+										<td><select class="form-control col" data-code="progress" required></select></td>
+									</tr>
+									<tr>
+										<td>5.1.</td>
+										<td>하얀 서약, 검은 밀약</td>
+										<td><select class="form-control col" data-code="progress" required></select></td>
+									</tr>
+									<tr>
+										<td>5.2.</td>
+										<td>추억의 흉성</td>
+										<td><select class="form-control col" data-code="progress" required></select></td>
+									</tr>
+									<tr>
+										<td>5.3.</td>
+										<td>크리스탈의 잔광</td>
+										<td><select class="form-control col" data-code="progress" required></select></td>
+									</tr>
+									<tr>
+										<td>5.4.</td>
+										<td>또 하나의 미래</td>
+										<td><select class="form-control col" data-code="progress" required></select></td>
+									</tr>
 							</tbody>
 						</table>
+							<button type="submit" class="btn rounded-0 btn-primary">저장</button>
+						</form>
+						</div>
 					</div>
 				</div> <!-- #main-quest-progress -->
 				
 				<div class="tab-pane fade" id="duty-progress" role="tabpanel">
 					<div class="card rounded-0">
 						<div class="card-header">
-							<h5 class="card-title">Duty Progress <img class="icon" th:src="@{/images/icons/duty/main_quests_available.png}"></h5>
+							<h5 class="card-title">임무 진행도 <img class="icon" th:src="@{/images/icons/duty/trial.png}"></h5>
 							<!-- <h6 class="card-subtitle text-muted">Using the most basic table markup, here’s how .table-based tables look in Bootstrap.</h6> -->
 						</div>
-						<table class="table table-sm">
-							<thead>
-								<tr>
-									<th style="width:50%;">Job / Class</th>
-									<th style="width:50%">Progress</th>
-<!-- 									<th class="d-none d-md-table-cell" style="width:25%">Date of Birth</th>
-									<th>Actions</th> -->
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>Reborn Realm</td>
-									<td>
-										<select class="form-control col" data-code="progress"></select>
-									</td>
-								</tr>
-								<tr>
-									<td>Heavensward</td>
-									<td>
-										<select class="form-control col" data-code="progress"></select>
-									</td>
-								</tr>
-								<tr>
-									<td>Stormblood</td>
-									<td>
-										<select class="form-control col" data-code="progress"></select>
-									</td>
-								</tr>
-							</tbody>
-						</table>
+						<div class="card-body">
+							<p>베타 버전에서는 아직 이용하실 수 없는 기능입니다.</p>
+						</div>
 					</div>
 				</div> <!-- #duty-progress -->
 
@@ -342,7 +504,8 @@
 	<script th:src="@{/libs/bootstrap-table-master/dist/extensions/reorder-rows/bootstrap-table-reorder-rows.min.js}"></script>  
 	<script>
 		$(function() {
-			initJobClassTable();
+			//initJobClassTable();
+			//initMainQuestTable();
 			
 			$table = $('#table');
 
@@ -461,39 +624,75 @@
 
 	  })
 	  
-		function initJobClassTable() {
-			var $tbody = $('#job-classes table > tbody');
+// 		function initJobClassTable() {
+// 			var $tbody = $('#job-classes table > tbody');
 			
-			console.log($tbody);
+// 			console.log($tbody);
 			
 			
-			$.ajax({
-			    url: contextPath + '/json/code-class/items?codeClassId=job',
-			    type: 'GET',
-			    aysnc: false,
-			    success: function(result) {
-			    	var list = result.list;
-			    	//console.log(list);
+// 			$.ajax({
+// 			    url: contextPath + '/json/code-class/items?codeClassId=job',
+// 			    type: 'GET',
+// 			    aysnc: false,
+// 			    success: function(result) {
+// 			    	var list = result.list;
+// 			    	//console.log(list);
 			    	
-			    	var html = '';
+// 			    	var html = '';
 			    	
-			    	for (var i=0; i<list.length; i++) {
+// 			    	for (var i=0; i<list.length; i++) {
 			    		
-			    		html += '<tr>';
-			    		html += '<td><img class="icon" src="' + contextPath + '/images/icons/job/' + list[i].codeVal +  '.png">' + list[i].codeNmEn + '</td>';
-			    		html += '<td>' + 80 + '</td>';
-			    		html += '</tr>';
+// 			    		html += '<tr>';
+// 			    		html += '<td><img class="icon" src="' + contextPath + '/images/icons/job/' + list[i].codeVal +  '.png"> ' + list[i].codeNmKo + '</td>';
+// 			    		html += '<td><input type="number" name="level" min="0" max="80" class="form-control"></td>';
+// 			    		html += '</tr>';
 
-			    	}
+// 			    	}
 
-			    	$tbody.html(html);
-			    },
-			    error: function(error) {
-			        //console.error(error);
-			    }
-			});
+// 			    	$tbody.html(html);
+// 			    },
+// 			    error: function(error) {
+// 			        //console.error(error);
+// 			    }
+// 			});
 
-		}
+// 		}
+		
+// 		function initMainQuestTable() {
+// 			var $tbody = $('#main-quest-progress table > tbody');
+			
+// 			$.ajax({
+// 			    url: contextPath + '/json/code-class/items?codeClassId=patch',
+// 			    type: 'GET',
+// 			    aysnc: false,
+// 			    success: function(result) {
+// 			    	var list = result.list;
+// 			    	//console.log(list);
+			    	
+// 			    	var html = '';
+			    	
+// 			    	for (var i=0; i<list.length; i++) {
+			    		
+// 			    		html += '<tr>';
+// 			    		html += '<td>' + list[i].codeDesc + '</td>';
+// 			    		html += '<td>' + list[i].codeVal + '</td>';
+// 			    		html += '<td>' + list[i].codeNmKo + '</td>';
+// 			    		html += '<td><select name="progress" class="form-control" data-code="progress" required></td>';
+// 			    		html += '</tr>';
+
+// 			    	}
+
+// 			    	$tbody.html(html);
+// 			    },
+// 			    error: function(error) {
+// 			        //console.error(error);
+// 			    },
+// 			    complete: function() {
+// 			    	initCodeSelect();
+// 			    }
+// 			});
+
+// 		}
 	</script>
 </div>
 </html>

@@ -10,7 +10,14 @@
        </a>
 
 			<ul class="sidebar-nav">
+			
+				<li class="sidebar-item">
+					<a class="sidebar-link" th:href="@{/}" target="_blank">
+						<i class="align-middle" data-feather="home"></i> <span class="align-middle">Home</span>
+					</a>	
+				</li>
 				<li class="sidebar-item active">
+				
 					<a class="sidebar-link" href="/admin/index">
 		             <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
 		           </a>
@@ -36,20 +43,20 @@
 		             <i class="align-middle mr-2" data-feather="folder"></i> <span class="align-middle">Prototype</span>
 		           </a>
 					<ul id="prototype" class="sidebar-dropdown list-unstyled collapse show" data-parent="#sidebar">
-						<li class="sidebar-item"><a class="sidebar-link" href="#none"><i class="align-middle mr-2" data-feather="settings"></i>Settings</a></li>
-						<li class="sidebar-item"><a class="sidebar-link" href="#none"><i class="align-middle mr-2" data-feather="home"></i>Index</a></li>
-						<li class="sidebar-item"><a class="sidebar-link" href="/admin/profile/form"><i class="align-middle mr-2" data-feather="user"></i>Profile</a></li>
-						<li class="sidebar-item"><a class="sidebar-link" href="#none"><i class="align-middle mr-2" data-feather="image"></i>Closet</a></li>
+						<li class="sidebar-item"><a class="sidebar-link" href="#none"><i class="align-middle mr-2" data-feather="settings"></i>설정</a></li>
+						<li class="sidebar-item"><a class="sidebar-link" href="/admin/index/form"><i class="align-middle mr-2" data-feather="home"></i>홈 화면</a></li>
+						<li class="sidebar-item"><a class="sidebar-link" href="/admin/profile/form"><i class="align-middle mr-2" data-feather="user"></i>프로필</a></li>
+						<li class="sidebar-item"><a class="sidebar-link" href="/admin/closet/list"><i class="align-middle mr-2" data-feather="image"></i>일기장</a></li>
 					</ul>
 				</li>
 				
 				<li class="sidebar-item">
 					<a href="#sheets" data-toggle="collapse" class="sidebar-link collapsed">
-		             <i class="align-middle mr-2" data-feather="folder"></i> <span class="align-middle">Sheets</span>
+		             <i class="align-middle mr-2" data-feather="folder"></i> <span class="align-middle">시트 관리</span>
 		           </a>
 					<ul id="sheets" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-						<li class="sidebar-item"><a class="sidebar-link" href="#none">Bonding Sheets</a></li>
-						<li class="sidebar-item"><a class="sidebar-link" href="#none" onclick="alert('not available now');">Trial Sheets</a></li>
+						<li class="sidebar-item"><a class="sidebar-link" href="#none" onclick="alert('준비중인 기능입니다.');">언약 시트</a></li>
+						<li class="sidebar-item"><a class="sidebar-link" href="#none" onclick="alert('준비중인 기능입니다.');">공략 시트</a></li>
 					</ul>
 				</li>
 							
