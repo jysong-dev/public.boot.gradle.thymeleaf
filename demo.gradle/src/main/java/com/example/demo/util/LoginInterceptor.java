@@ -15,6 +15,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 		HttpSession session = request.getSession();
 		if (session == null) {
 			response.getOutputStream().println("Login Required!");
+			response.sendRedirect("/user/sign_in");
 			return false;
 		}
 		

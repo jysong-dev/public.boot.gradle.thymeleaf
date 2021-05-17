@@ -46,6 +46,7 @@ public class PageController {
 		
 		return "user/sign_in";
 	}
+	
 	@GetMapping("/user/sign_up")
 	public String userSignUp() {
 		
