@@ -4,8 +4,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.example.demo.domain.UserVO;
 
 public class LoginInterceptor implements HandlerInterceptor {
 
@@ -13,13 +16,16 @@ public class LoginInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		HttpSession session = request.getSession();
-		if (session == null) {
-			response.getOutputStream().println("Login Required!");
-			response.sendRedirect("/user/sign_in");
-			return false;
-		}
-		
-		return true;
+        UserVO loginVO = (UserVO) session.getAttribute("userInfo");
+ 
+        if(ObjectUtils.isEmpty(loginVO)){
+        	response.getOutputStream().println("Login Required!");
+        	response.sendRedirect("/user/sign_in");
+            return false;
+        }else{
+            session.setMaxInactiveInterval(30*60);
+            return true;
+        }
 	}
 
 	@Override

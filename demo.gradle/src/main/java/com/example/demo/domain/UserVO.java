@@ -8,6 +8,7 @@ public class UserVO {
 	private String password;
 	private java.util.Date registDatetime;
 	private java.util.Date lastLoginDatetime;
+	private String authority;
 	
 	public java.math.BigDecimal getUserKey() {
 		return userKey;
@@ -44,6 +45,12 @@ public class UserVO {
 	}
 	public void setLastLoginDatetime(java.util.Date lastLoginDatetime) {
 		this.lastLoginDatetime = lastLoginDatetime;
+	}
+	public String getAuthority() {
+		return authority;
+	}
+	public void setAuthority(String authority) {
+		this.authority = authority;
 	}
 	
 }

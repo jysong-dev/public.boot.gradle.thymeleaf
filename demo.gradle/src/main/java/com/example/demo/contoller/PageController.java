@@ -40,13 +40,7 @@ public class PageController {
 		
 		return "search/list";
 	}
-	
-	@GetMapping("/user/sign_in")
-	public String userSignIn() {
-		
-		return "user/sign_in";
-	}
-	
+
 	@GetMapping("/user/sign_up")
 	public String userSignUp() {
 		
