@@ -43,10 +43,10 @@ public class AdminPageController {
 		return "admin/index/form";
 	}
 	
-	@GetMapping("/admin/closet/list")
-	public String closetList() {
+	@GetMapping("/admin/diary/list")
+	public String diaryList() {
 	
-		return "admin/closet/list";
+		return "admin/diary/list";
 	}
 	
 	
