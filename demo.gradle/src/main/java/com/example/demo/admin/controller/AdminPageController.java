@@ -18,6 +18,7 @@ public class AdminPageController {
 
 	@GetMapping("/admin/index")
 	public String index(Model model) {
+		model.addAttribute("menuId", "adminIndex");
 
 		List<CodeVO> codeClassList = codeService.selectCodeClassList();
 		
@@ -32,25 +33,29 @@ public class AdminPageController {
 	}
 
 	@GetMapping("/admin/code/list")
-	public String codeList() {
-	
+	public String codeList(Model model) {
+		model.addAttribute("menuId", "code");
+		
 		return "admin/code/list";
 	}
 	
 	@GetMapping("/admin/index/form")
-	public String indexForm() {
-	
+	public String indexForm(Model model) {
+		model.addAttribute("menuId", "index");
+		
 		return "admin/index/form";
 	}
 	
 	@GetMapping("/admin/diary/list")
-	public String diaryList() {
+	public String diaryList(Model model) {
+		model.addAttribute("menuId", "diary");
 	
 		return "admin/diary/list";
 	}
 	
 	@GetMapping("/admin/settings/form_prototype")
-	public String settingFormPrototype() {
+	public String settingFormPrototype(Model model) {
+		model.addAttribute("menuId", "settings");
 	
 		return "admin/settings/form_prototype";
 	}

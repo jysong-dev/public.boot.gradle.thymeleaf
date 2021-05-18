@@ -13,6 +13,7 @@ public class ProfileController {
 	
 	@GetMapping("/admin/profile/form")
 	public String profileForm(Model model) {
+		model.addAttribute("menuId", "profile");
 
 		return "admin/profile/form";
 	}
