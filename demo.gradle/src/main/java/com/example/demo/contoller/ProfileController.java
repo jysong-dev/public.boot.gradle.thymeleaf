@@ -1,12 +1,8 @@
 package com.example.demo.contoller;
 
-import java.util.List;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import com.example.demo.domain.CodeVO;
 
 @Controller
 public class ProfileController {
@@ -17,7 +13,5 @@ public class ProfileController {
 
 		return "admin/profile/form";
 	}
-	
-	
 
 }

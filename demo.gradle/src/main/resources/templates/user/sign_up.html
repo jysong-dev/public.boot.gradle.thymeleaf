@@ -22,6 +22,34 @@
 			box-shadow: none;
 		}
 	</style>
+	<script>
+		function signUp() {
+			var $form = $('#form-sign-up');
+			var data = $form.serialize();
+			
+			$.ajax({
+				url : contextPath + '/sign_up',
+				type: 'POST',
+				data : data,
+				success: function(data) {
+					console.log(data);
+					
+					if (data.msg) {
+						alert(data.msg);
+					}
+					if (data.success) {
+						if (data.redirectUrl) {
+							location.href = 'data.redirectUrl';
+						}
+					}
+			    },
+			    error: function(err) {
+			   		console.log(err);  
+			    }
+				
+			});
+		}
+	</script>
 </head>
 
 <body>
@@ -42,27 +70,26 @@
 						<div class="card rounded-0">
 							<div class="card-body">
 								<div class="m-sm-4">
-									<form>
-<!-- 										<div class="mb-3">
-											<label class="form-label">Name</label>
-											<input class="form-control form-control-lg" type="text" name="name" placeholder="Enter your name" />
-										</div> -->
+									<form id="form-sign-up">
+										<div class="mb-3">
+											<label class="form-label">이름</label>
+											<input class="form-control form-control-lg" type="text" name="username" placeholder="Enter your name" />
+										</div>
 <!-- 										<div class="mb-3">
 											<label class="form-label">Company</label>
 											<input class="form-control form-control-lg" type="text" name="company" placeholder="Enter your company name" />
 										</div> -->
 										<div class="mb-3">
-											<label class="form-label">Email</label>
-											<input class="form-control form-control-lg" type="email" name="email" placeholder="Enter your email" />
+											<label class="form-label">아이디</label>
+											<input class="form-control form-control-lg" type="email" name="userId" placeholder="Enter your ID" />
 										</div>
 										<div class="mb-3">
-											<label class="form-label">Password</label>
+											<label class="form-label">비밀번호</label>
 											<input class="form-control form-control-lg" type="password" name="password" placeholder="Enter password" />
 										</div>
 
 										<div class="text-center mt-3">
-											<a href="/admin/index" class="btn btn-lg btn-primary">Sign up</a>
-											<!-- <button type="submit" class="btn btn-lg btn-primary">Sign up</button> -->
+											<a onclick="signUp();" class="btn btn-lg btn-primary">가입하기</a>
 										</div>
 									</form>
 								</div>

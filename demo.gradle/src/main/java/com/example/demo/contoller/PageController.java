@@ -41,12 +41,6 @@ public class PageController {
 		return "search/list";
 	}
 
-	@GetMapping("/user/sign_up")
-	public String userSignUp() {
-		
-		return "user/sign_up";
-	}
-
 	@GetMapping("/demo/table_reorder")
 	public String tableReorder() {
 		
