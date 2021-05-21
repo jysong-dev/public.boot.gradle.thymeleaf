@@ -157,13 +157,13 @@
              <img th:src="@{/libs/adminkit-master/static/img/avatars/avatar-5.jpg}" class="avatar img-fluid rounded mr-1" alt="Somebody" /> <span class="text-dark" th:text="${session.userInfo.userId}"></span>
            </a>
 				<div class="dropdown-menu dropdown-menu-right">
-					<a class="dropdown-item d-lg-none d-sm-block" href="#none"><i class="align-middle mr-1" data-feather="user"></i> Somebody</a>
+					<a class="dropdown-item d-lg-none d-sm-block" href="#none"><i class="align-middle mr-1" data-feather="user"></i> <span th:text="${session.userInfo.userId}"></span></a>
 <!-- 					<a class="dropdown-item" href="#"><i class="align-middle mr-1" data-feather="pie-chart"></i> Analytics</a> -->
 					<div class="dropdown-divider d-lg-none d-sm-block"></div>
 					<a class="dropdown-item" href="pages-settings.html"><i class="align-middle mr-1" data-feather="settings"></i> 계정 설정</a>
 					<a class="dropdown-item" href="#"><i class="align-middle mr-1" data-feather="help-circle"></i> 문의하기</a>
 					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">로그아웃</a>
+					<a class="dropdown-item" th:href="@{/logout}">로그아웃</a>
 				</div>
 			</li>
 		</ul>

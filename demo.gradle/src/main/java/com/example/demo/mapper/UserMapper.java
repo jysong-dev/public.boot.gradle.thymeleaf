@@ -1,5 +1,7 @@
 package com.example.demo.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -16,5 +18,7 @@ public interface UserMapper {
 	public void insertUser(UserVO userVO);
 
 	public Integer selectSameUserIdCount(UserVO userVO);
+
+	public List<UserVO> selectUserList();
 
 }

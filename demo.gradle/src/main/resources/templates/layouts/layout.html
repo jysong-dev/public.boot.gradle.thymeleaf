@@ -27,7 +27,10 @@
 			height: 20px;
 		}
 	</style>
-
+	<link id="contextPathHolder" th:data-contextPath="${#httpServletRequest.getContextPath()}"/>
+	<script>
+		var contextPath = $('#contextPathHolder').attr('data-contextPath') ? $('#contextPathHolder').attr('data-contextPath') : '';
+	</script>
 	<th:block layout:fragment="css"></th:block>
 	<th:block layout:fragment="script"></th:block>
 </head>

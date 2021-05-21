@@ -17,15 +17,21 @@
 
 	<link th:href="@{/libs/adminkit-master/static/css/app.css}" rel="stylesheet">
 	<script th:src="@{/libs/adminkit-master/static/js/app.js}"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 	<style>
 		body {
 			box-shadow: none;
 		}
 	</style>
+	<link id="contextPathHolder" th:data-contextPath="${#httpServletRequest.getContextPath()}"/>
 	<script>
+		var contextPath = $('#contextPathHolder').attr('data-contextPath') ? $('#contextPathHolder').attr('data-contextPath') : '';
+		
 		function signUp() {
 			var $form = $('#form-sign-up');
 			var data = $form.serialize();
+			
+			console.log(data);
 			
 			$.ajax({
 				url : contextPath + '/sign_up',
@@ -39,7 +45,7 @@
 					}
 					if (data.success) {
 						if (data.redirectUrl) {
-							location.href = 'data.redirectUrl';
+							location.href = data.redirectUrl;
 						}
 					}
 			    },

@@ -45,6 +45,13 @@ public class UserController {
 
     }
     
+    @GetMapping("/logout")
+    public String login(HttpSession session) {
+        session.invalidate();
+        
+        return "redirect:/user/sign_in";
+    }
+    
     @ResponseBody
     @PostMapping("/sign_up")
     public Map<String, Object> signUp(UserVO userVO) {

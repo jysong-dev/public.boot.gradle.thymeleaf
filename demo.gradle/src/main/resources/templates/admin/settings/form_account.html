@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html
+	lang="ko"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{admin/layouts/layout}"
+>
+<head>
+
+<link th:href="@{/libs/bootstrap-table-master/dist/bootstrap-table.min.css}" rel="stylesheet">
+<link th:href="@{/libs/bootstrap-table-master/dist/extensions/reorder-rows/bootstrap-table-reorder-rows.css}" rel="stylesheet">
+
+</head>
+
+	<div layout:fragment="content" class="container-fluid p-0">
+
+	<h1 class="h3 mb-3">기본 설정</h1>
+
+	<div class="row">
+		<div class="col-md-3 col-xl-2">
+
+			<div class="card">
+<!-- 				<div class="card-header">
+					<h5 class="card-title mb-0">Profile Settings</h5>
+				</div> -->
+
+				<div class="list-group list-group-flush rounded-0" role="tablist">
+					<a class="list-group-item list-group-item-action active" data-toggle="list" href="#basic-setting" role="tab">
+						기본 설정
+				    </a>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-9 col-xl-10">
+			<div class="tab-content">
+				
+				<div class="tab-pane fade show active" id="basic-setting" role="tabpanel">
+					<div class="card rounded-0">
+						<div class="card-header">
+							<h5 class="card-title mb-0">기본 설정</h5>
+						</div>
+						<div class="card-body">
+							<form>
+<!-- 								<div class="row row-cols-md-auto align-items-center mb-2"> -->
+<!-- 									<div class="col-md-6"> -->
+<!-- 										<label class="mb-2" for="inlineFormInputName2">캐릭터 이름</label> -->
+<!-- 											<input type="checkbox" class="form-check-input ml-2 " id="customControlInline"> -->
+<!-- 											<label class="form-check-label" for="customControlInline">인게임 닉과 다름</label> -->
+<!-- 										<input type="text" class="form-control mb-2 mr-sm-2" required> -->
+<!-- 									</div> -->
+<!-- 									<div class="col-md-6"> -->
+<!-- 										<label class="mb-2" for="inlineFormInputGroupUsername2">칭호</label> -->
+<!-- 										<input type="text" class="form-control mb-2 mr-sm-2"> -->
+<!-- 									</div> -->
+<!-- 								</div> -->
+								<div class="row row-cols-md-auto align-items-center ml-0 mb-3">
+									<div class="form-check form-switch">
+										<input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onchange="alert('기본 설정이 완료되지 않아 공개할 수 없습니다.');">
+										<label class="form-check-label" for="flexSwitchCheckDefault">이 프로토타입 공개</label>
+									</div>
+								</div>
+
+								<button type="submit" class="btn rounded-0 btn-primary">저장</button>
+							</form>
+
+						</div>
+					</div>			
+				</div>
+
+	
+			<div class="modal fade" id="modal-widget-create" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content rounded-0">
+					<div class="modal-header">
+						<h5 class="modal-title">새 위젯</h5>
+						<button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body m-0">
+					
+						<form>
+							<div class="mb-3 row">
+								<label class="col-form-label col-sm-3 text-sm-right">위젯 이름</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control">
+								</div>
+							</div>
+							<div class="mb-3 row">
+								<label class="col-form-label col-sm-3 text-sm-right">위젯 유형</label>
+								<div class="col-sm-9">
+									<select name="widgetType" class="form-control" required> <!-- data-code="widget_type" -->
+										<option>친구 모집</option>
+										<option>공대원 모집</option>
+										<option>언약 희망</option>
+										<option>공대 가입 희망</option>
+									</select>
+								</div>
+							</div>
+							<div class="mb-3 row">
+								<label class="col-form-label col-sm-3 text-sm-right">언약 시트</label>
+								<div class="col-sm-9">
+									<select name="bondingSheet" class="form-control" required> <!-- data-code="widget_type" -->
+										<option>친구 모집</option>
+										<option>공대원 모집</option>
+										<option>언약 희망</option>
+										<option>공대 가입 희망</option>
+									</select>
+								</div>
+							</div>
+							<div class="mb-3 row">
+								<label class="col-form-label col-sm-3 text-sm-right">해당 임무</label>
+								<div class="col-sm-9">
+									<select name="duty" class="form-control" required> <!-- data-code="widget_type" -->
+										<option>친구 모집</option>
+										<option>공대원 모집</option>
+										<option>언약 희망</option>
+										<option>공대 가입 희망</option>
+									</select>
+								</div>
+							</div>
+							<div class="mb-3 row">
+								<label class="col-form-label col-sm-3 text-sm-right">한 마디</label>
+								<div class="col-sm-9">
+									<textarea class="form-control" rows="3" maxlength="54"></textarea>
+								</div>
+							</div>
+							<div class="mb-3 row">
+								<label class="col-form-label col-sm-3 text-sm-right pt-sm-0">활성화</label>
+								<div class="col-sm-9">
+									<label class="form-check m-0"> <input type="checkbox"
+										class="form-check-input"> <span
+										class="form-check-label">이 위젯을 메인 화면에 노출합니다.</span>
+									</label>
+								</div>
+							</div>
+							<!-- 										<div class="mb-3 row"> -->
+							<!-- 											<div class="col-sm-10 ml-sm-auto"> -->
+							<!-- 												<button type="submit" class="btn btn-primary">Submit</button> -->
+							<!-- 											</div> -->
+							<!-- 										</div> -->
+						</form>
+
+						<div class="alert alert-danger alert-dismissible rounded-0" role="alert">
+							<button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+							<div class="alert-message">
+								<strong>Hello there!</strong> A simple primary alert—check it out!
+							</div>
+						</div>
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-square btn-secondary" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-square btn-success">Create</button>
+					</div>
+				</div>
+			</div>
+		</div><!-- #modal-code-create -->
+		
+
+	<script
+	  src="https://code.jquery.com/jquery-3.5.1.js"
+	  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+	  crossorigin="anonymous"></script>
+	<script th:src="@{/libs/TableDnD-master/js/jquery.tablednd.js}"></script>
+	<script th:src="@{/libs/bootstrap-table-master/dist/bootstrap-table.min.js}"></script>
+	<script th:src="@{/libs/bootstrap-table-master/dist/extensions/reorder-rows/bootstrap-table-reorder-rows.min.js}"></script>  
+	<script>
+	</script>
+</div>
+</html>
