@@ -5,7 +5,23 @@
 <mapper namespace="com.example.demo.mapper.LogMapper">
 
 	<insert id="insertLog" parameterType="com.example.demo.domain.LogVO">
-
+		insert into log_tb
+		( <!-- log_id : auto increment -->
+			session_id
+			, log_se_code
+			, create_datetime
+			, user_agent
+			, referer
+			, requester_ip)
+		values
+		(	<!-- log_id : auto increment -->
+			#{sessionId}
+			, #{logSeCode}
+			, sysdate()
+			, #{userAgent}
+			, #{referer}
+			, #{requesterIp}
+		)
 	</insert>
   
 </mapper>

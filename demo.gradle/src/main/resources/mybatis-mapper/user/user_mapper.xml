@@ -22,5 +22,16 @@
 		set last_login_datetime = sysdate()
 		where user_key = #{userKey}
 	</update>
+	
+	<select id="selectSameUserIdCount" parameterType="com.example.demo.domain.UserVO" resultType="java.lang.Integer">
+		select 
+			count(*)
+		from user_tb
+		where user_id = #{userId}
+	</select>
+	
+	
+	
+	
 
 </mapper>

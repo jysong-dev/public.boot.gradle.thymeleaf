@@ -13,4 +13,8 @@ public interface UserMapper {
 
 	public void updateUserLastLoginDatetime(UserVO userVO);
 
+	public void insertUser(UserVO userVO);
+
+	public Integer selectSameUserIdCount(UserVO userVO);
+
 }

@@ -9,13 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.domain.UserVO;
 import com.example.demo.service.UserService;
-
-import ch.qos.logback.classic.Logger;
 
 @Controller
 public class UserController {
@@ -61,16 +58,12 @@ public class UserController {
     			
     			jsonObj.put("success", false);
     			jsonObj.put("msg", "이미 사용중인 아이디입니다.");
-    			
-    			return jsonObj;
     		} else {
     			userService.insertUser(userVO);	
     			
     			jsonObj.put("success", true);
     			jsonObj.put("msg", "회원가입되었습니다.");
     			jsonObj.put("redirectUrl", "/user/sign_in");
-    			
-    			return jsonObj;
     		}
 
     	} catch (Exception e) {
@@ -80,7 +73,8 @@ public class UserController {
 			jsonObj.put("msg", "처리 중 오류가 발생하였습니다. 관리자에게 문의하세요.");
 //			jsonObj.put("redirectUrl", "/user/sign_up");
 		}
-
+    	
+    	return jsonObj;
     }
     
 	@GetMapping("/user/sign_in")

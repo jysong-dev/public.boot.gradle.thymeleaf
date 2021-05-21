@@ -21,6 +21,16 @@ public class UserService {
 		
 		userMapper.updateUserLastLoginDatetime(userVO);
 	}
+
+	public void insertUser(UserVO userVO) {
+		
+		userMapper.insertUser(userVO);
+	}
+
+	public Integer selectSameUserIdCount(UserVO userVO) {
+		
+		return userMapper.selectSameUserIdCount(userVO);
+	}
 	
 
 }
