@@ -22,7 +22,10 @@ public class AdminPageController {
 	public String index(Model model) {
 		model.addAttribute("menuId", "adminIndex");
 		
-		List<UserVO> userList = userService.selectUserList();
+		//List<UserVO> userList = userService.selectUserList();
+		
+		// JPA 테스트
+		List<UserVO> userList = userService.findAll();
 		
 		model.addAttribute("userList", userList);
 

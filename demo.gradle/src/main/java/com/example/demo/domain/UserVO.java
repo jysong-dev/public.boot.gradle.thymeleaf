@@ -1,15 +1,62 @@
 package com.example.demo.domain;
 
+import java.math.BigDecimal;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+import groovy.transform.builder.Builder;
+
+@EntityScan
+@Entity
+@Table(name="user_tb")
 public class UserVO {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY) // IDENTITY : 기본키 생성을 데이터베이스에 위임
+	@Column	
 	private java.math.BigDecimal userKey;
-	private String userId;
-	private String username;
-	private String password;
-	private java.util.Date registDatetime;
-	private java.util.Date lastLoginDatetime;
-	private String authority;
 	
+	@Column
+	private String userId;
+	
+	@Column	
+	private String username;
+	
+	@Column
+	private String password;
+	
+	@Column
+	private java.util.Date registDatetime;
+	
+	@Column
+	private java.util.Date lastLoginDatetime;
+	
+	@Column
+	private String authority;
+
+	public UserVO() {}
+
+	@Builder
+	public UserVO(BigDecimal userKey, String userId, String username, String password, Date registDatetime,
+			Date lastLoginDatetime, String authority) {
+		super();
+		this.userKey = userKey;
+		this.userId = userId;
+		this.username = username;
+		this.password = password;
+		this.registDatetime = registDatetime;
+		this.lastLoginDatetime = lastLoginDatetime;
+		this.authority = authority;
+	}
+
 	public java.math.BigDecimal getUserKey() {
 		return userKey;
 	}

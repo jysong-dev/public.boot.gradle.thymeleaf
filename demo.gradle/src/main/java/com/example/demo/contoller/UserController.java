@@ -24,7 +24,8 @@ public class UserController {
     public String login(UserVO userVO, HttpSession session) {
 
     	try {
-    		UserVO userInfo = userService.selectUser(userVO);
+    		//UserVO userInfo = userService.selectUser(userVO);
+    		UserVO userInfo = userService.findByUserIdAndPassword(userVO);
         	
             if(userInfo != null){
             	
