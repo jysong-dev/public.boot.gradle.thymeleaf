@@ -1,23 +1,62 @@
 package com.example.demo.domain;
 
+import java.math.BigDecimal;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+import groovy.transform.builder.Builder;
+
+@EntityScan
+@Entity
+@Table(name="log_tb")
 public class LogVO {
 	
-	private String logId;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column	
+	private BigDecimal logId;
+	@Column
 	private String sessionId;
+	@Column
 	private String logSeCode;
-	private String createDatetime;
-	private String createYear;
-	private String createMonth;
-	private String createDay;
-	private String createHour;
+	@Column
+	private Date createDatetime = new Date();
+	@Column
 	private String userAgent;
+	@Column
 	private String referer;
+	@Column
 	private String requesterIp;
 	
-	public String getLogId() {
+	public LogVO() {
+		
+	}
+	
+	@Builder
+	public LogVO(BigDecimal logId, String sessionId, String logSeCode, Date createDatetime, String createYear,
+			String createMonth, String createDay, String createHour, String userAgent, String referer,
+			String requesterIp) {
+		this.logId = logId;
+		this.sessionId = sessionId;
+		this.logSeCode = logSeCode;
+		this.createDatetime = createDatetime;
+		this.userAgent = userAgent;
+		this.referer = referer;
+		this.requesterIp = requesterIp;
+	}
+	
+	public BigDecimal getLogId() {
 		return logId;
 	}
-	public void setLogId(String logId) {
+	public void setLogId(BigDecimal logId) {
 		this.logId = logId;
 	}
 	public String getSessionId() {
@@ -32,35 +71,11 @@ public class LogVO {
 	public void setLogSeCode(String logSeCode) {
 		this.logSeCode = logSeCode;
 	}
-	public String getCreateDatetime() {
+	public Date getCreateDatetime() {
 		return createDatetime;
 	}
-	public void setCreateDatetime(String createDatetime) {
+	public void setCreateDatetime(Date createDatetime) {
 		this.createDatetime = createDatetime;
-	}
-	public String getCreateYear() {
-		return createYear;
-	}
-	public void setCreateYear(String createYear) {
-		this.createYear = createYear;
-	}
-	public String getCreateMonth() {
-		return createMonth;
-	}
-	public void setCreateMonth(String createMonth) {
-		this.createMonth = createMonth;
-	}
-	public String getCreateDay() {
-		return createDay;
-	}
-	public void setCreateDay(String createDay) {
-		this.createDay = createDay;
-	}
-	public String getCreateHour() {
-		return createHour;
-	}
-	public void setCreateHour(String createHour) {
-		this.createHour = createHour;
 	}
 	public String getUserAgent() {
 		return userAgent;
@@ -80,5 +95,6 @@ public class LogVO {
 	public void setRequesterIp(String requesterIp) {
 		this.requesterIp = requesterIp;
 	}
+
 
 }

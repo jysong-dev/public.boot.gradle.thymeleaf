@@ -24,12 +24,11 @@ public class UserController {
     public String login(UserVO userVO, HttpSession session) {
 
     	try {
-    		//UserVO userInfo = userService.selectUser(userVO);
     		UserVO userInfo = userService.findByUserIdAndPassword(userVO);
         	
             if(userInfo != null){
             	
-            	userService.updateUserLastLoginDatetime(userInfo);
+            	userService.updateByUserKey(userVO);
             	
                 session.setAttribute("userInfo", userInfo);
 
@@ -60,14 +59,15 @@ public class UserController {
     	
     	try {
     		
-    		Integer sameUserIdCnt = userService.selectSameUserIdCount(userVO);
+    		//Integer sameUserIdCnt = userService.findByUserId(userVO);
+    		Integer sameUserIdCnt = userService.countByUserId(userVO);
     		
     		if (sameUserIdCnt > 0) {
     			
     			jsonObj.put("success", false);
     			jsonObj.put("msg", "이미 사용중인 아이디입니다.");
     		} else {
-    			userService.insertUser(userVO);	
+    			userService.save(userVO);	
     			
     			jsonObj.put("success", true);
     			jsonObj.put("msg", "회원가입되었습니다.");

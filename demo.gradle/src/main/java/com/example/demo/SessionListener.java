@@ -45,7 +45,7 @@ public class SessionListener implements HttpSessionListener, HttpSessionIdListen
 			logVO.setReferer(referer);
 			logVO.setRequesterIp(req.getRemoteAddr());
 			
-			logService.insertLog(logVO);
+			logService.save(logVO);
 			
 		} catch (Exception e) {
 			LOGGER.error("Exception : " + e);
@@ -74,7 +74,7 @@ public class SessionListener implements HttpSessionListener, HttpSessionIdListen
 			logVO.setReferer(referer);
 			logVO.setRequesterIp(req.getRemoteAddr());
 			
-			logService.insertLog(logVO);
+			logService.save(logVO);
 			
 		} catch (Exception e) {
 			LOGGER.error("Exception : " + e);

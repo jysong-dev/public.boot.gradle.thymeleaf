@@ -34,7 +34,7 @@ public class UserVO {
 	private String password;
 	
 	@Column
-	private java.util.Date registDatetime;
+	private java.util.Date registDatetime = new Date();
 	
 	@Column
 	private java.util.Date lastLoginDatetime;
@@ -47,7 +47,6 @@ public class UserVO {
 	@Builder
 	public UserVO(BigDecimal userKey, String userId, String username, String password, Date registDatetime,
 			Date lastLoginDatetime, String authority) {
-		super();
 		this.userKey = userKey;
 		this.userId = userId;
 		this.username = username;

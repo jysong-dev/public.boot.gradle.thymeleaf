@@ -4,31 +4,31 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.mapper.UserMapper">
 
-	<select id="selectUserList" parameterType="com.example.demo.domain.UserVO" resultType="com.example.demo.domain.UserVO">
+<!-- 	<select id="selectUserList" parameterType="com.example.demo.domain.UserVO" resultType="com.example.demo.domain.UserVO">
 		select 
 			user_key
 			, user_id
 			, username
-			<!-- , password -->
+			, password
 			, regist_datetime
 			, last_login_datetime
 			, authority
 		from user_tb
 		order by regist_datetime desc
-	</select>
+	</select> -->
 	
-	<select id="selectUser" parameterType="com.example.demo.domain.UserVO" resultType="com.example.demo.domain.UserVO">
+<!-- 	<select id="selectUser" parameterType="com.example.demo.domain.UserVO" resultType="com.example.demo.domain.UserVO">
 		select 
 			user_key
 			, user_id
 			, username
-			<!-- , password -->
+			, password
 			, regist_datetime
 			, last_login_datetime
 			, authority
 		from user_tb
 		where user_id = #{userId} and password = #{password}
-	</select>
+	</select> -->
 
 	<update id="updateUserLastLoginDatetime" parameterType="com.example.demo.domain.UserVO">
 		update user_tb
@@ -36,12 +36,12 @@
 		where user_key = #{userKey}
 	</update>
 	
-	<select id="selectSameUserIdCount" parameterType="com.example.demo.domain.UserVO" resultType="java.lang.Integer">
+<!-- 	<select id="selectSameUserIdCount" parameterType="com.example.demo.domain.UserVO" resultType="java.lang.Integer">
 		select 
 			count(*)
 		from user_tb
 		where user_id = #{userId}
-	</select>
+	</select> -->
 	
 	<insert id="insertUser" parameterType="com.example.demo.domain.UserVO">
 		insert into user_tb

@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,45 +14,40 @@ import com.example.demo.repository.UserRepository;
 public class UserService {
 	
 	@Autowired
-	public UserMapper userMapper;
-	
-	@Autowired
 	public UserRepository userRepository;
 
-	public UserVO selectUser(UserVO userVO) {
-		
-		return userMapper.selectUser(userVO);
+	public void updateByUserKey(UserVO userVO) {
+		Optional<UserVO> e = userRepository.findByUserKey(userVO.getUserKey());
+
+		if (e.isPresent()) {
+			e.get().setUsername(userVO.getUsername());
+			e.get().setPassword(userVO.getPassword());
+			e.get().setAuthority(userVO.getAuthority());
+			e.get().setLastLoginDatetime(userVO.getLastLoginDatetime());
+			userRepository.save(userVO);
+		}
 	}
 
-	public void updateUserLastLoginDatetime(UserVO userVO) {
+	public void save(UserVO userVO) {
 		
-		userMapper.updateUserLastLoginDatetime(userVO);
+		userRepository.save(userVO);
 	}
 
-	public void insertUser(UserVO userVO) {
-		
-		userMapper.insertUser(userVO);
-	}
-
-	public Integer selectSameUserIdCount(UserVO userVO) {
-		
-		return userMapper.selectSameUserIdCount(userVO);
-	}
-
-	public List<UserVO> selectUserList() {
-		
-		return userMapper.selectUserList();
-	}
-	
-	/** jpa test **/
 	public List<UserVO> findAll() {
-		List<UserVO> users = new ArrayList<>();
-		userRepository.findAll().forEach(e -> users.add(e));
-		return users;
+		
+//		List<UserVO> users = new ArrayList<>();
+//		userRepository.findAll().forEach(e -> users.add(e));
+		return userRepository.findAll();
 	}
 
 	public UserVO findByUserIdAndPassword(UserVO userVO) {
+		
 		return userRepository.findByUserIdAndPassword(userVO.getUserId(), userVO.getPassword());
+	}
+
+	public Integer countByUserId(UserVO userVO) {
+		
+		return userRepository.countByUserId(userVO.getUserId());
 	}
 
 }
