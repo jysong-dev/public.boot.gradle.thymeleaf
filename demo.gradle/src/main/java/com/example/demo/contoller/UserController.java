@@ -58,8 +58,7 @@ public class UserController {
     	Map<String, Object> jsonObj = new HashMap<String, Object>();
     	
     	try {
-    		
-    		//Integer sameUserIdCnt = userService.findByUserId(userVO);
+
     		Integer sameUserIdCnt = userService.countByUserId(userVO);
     		
     		if (sameUserIdCnt > 0) {

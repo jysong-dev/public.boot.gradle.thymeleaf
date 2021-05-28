@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.domain.UserVO;
@@ -37,7 +38,7 @@ public class UserService {
 		
 //		List<UserVO> users = new ArrayList<>();
 //		userRepository.findAll().forEach(e -> users.add(e));
-		return userRepository.findAll();
+		return userRepository.findAll(Sort.by(Sort.Direction.DESC, "registDatetime"));
 	}
 
 	public UserVO findByUserIdAndPassword(UserVO userVO) {
