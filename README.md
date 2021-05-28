@@ -14,6 +14,7 @@ Demo Project for Spring Boot, Gradle, Thymeleaf
 - MariaDB
 - jQuery
 - Bootstrap
+- JPA
 
 ## 2. Result Url
 - Front : http://ec2-3-36-220-229.ap-northeast-2.compute.amazonaws.com:8083/
