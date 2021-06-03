@@ -8,6 +8,19 @@
 	<style>
 		@import url(https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 		@import url(https://fonts.googleapis.com/earlyaccess/kopubbatang.css);
+		@import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap');
+		@font-face {
+		    font-family: 'BMDOHYEON';
+		    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');
+		    font-weight: normal;
+		    font-style: normal;
+		}
+		@font-face {
+		    font-family: 'BMJUA';
+		    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
+		    font-weight: normal;
+		    font-style: normal;
+		}
 		
 		* {
 			font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
@@ -43,12 +56,12 @@
 			color: #fff;
 		}
 		
-		small {
-			text-weight: light;
-			font-size: 12pt;
-			text-align : right;
-			float: right;
-		}
+/* 		small { */
+/* 			text-weight: light; */
+/* 			font-size: 12pt; */
+/* 			text-align : right; */
+/* 			float: right; */
+/* 		} */
 		
 		.result-border-top {
 			background-color: black; width: 1500px; height:50px;
@@ -106,11 +119,22 @@
 				if(input.files && input.files[0]) {
 					const reader = new FileReader()
 					reader.onload = e => {
-						$('.result').css({
-							'background-image' : 'linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url(' + e.target.result + ')',
-							'background-position' : 'center',
-							'background-size' : 'cover'
-						});
+						
+						var theme = $('#theme').val();
+						
+						if (theme == 'dark') {
+							$('.result').css({
+								'background-image' : 'linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url(' + e.target.result + ')',
+								'background-position' : 'center',
+								'background-size' : 'cover'
+							});
+						} else if (theme == 'light') {
+							$('.result').css({
+								'background-image' : 'linear-gradient( rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3) ), url(' + e.target.result + ')',
+								'background-position' : 'center',
+								'background-size' : 'cover'
+							});
+						}
 					}
 					reader.readAsDataURL(input.files[0])
 				}
@@ -141,6 +165,9 @@
 				//페이지에 출력
 				$('#downloadImage > p').remove();
 				$('#downloadImage').append(resultString);
+				
+				var font_color = $('#font-color').val();
+				$('#downloadImage > p').css({'color' : font_color});
 			});
 
 		});
@@ -183,13 +210,67 @@
 			}
 		}
 		
+		function changeFontFamily(select) {
+			var option = $(select).val();
+			
+			$('.result > p').attr('style', 'font-family : ' + option + '!important');
+		}
 		
+		function changeFontStyle(select) {
+			var option = $(select).val();
+			
+			$('.result > p').css({'font-style' : option  });	
+
+		}
+		
+		function changeFontWeight(select) {
+			var option = $(select).val();
+			
+			$('.result > p').css({'font-weight' : option });
+		}
+		
+		function changeFontColor(select) {
+			var option = $(select).val();
+			
+			$('.result > p').css({'color' : option });
+		}
+		
+		function changeTheme(select) {
+			var option = $(select).val();
+			var bg_url = $(".result").css("background-image").replace(/^url\(['"](.+)['"]\)/, '$1');
+			bg_url = bg_url.replace('linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),', '');
+			bg_url = bg_url.replace('linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),', '');
+			
+			//console.log(bg_url.replace('linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),', ''));
+			//console.log(bg_url.replace('linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),', ''));
+			//console.log(bg_url);
+			
+			if (option == 'light') {
+				$('.result-border-top').css({'background-color' : '#ffffff'});
+				$('.result-border-bottom').css({'background-color' : '#ffffff'});
+				$('.result').css({
+					'background-image' : 'linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),' + bg_url,
+					'background-position' : 'center',
+					'background-size' : 'cover'
+				});
+			} else if (option == 'dark') {
+				$('.result-border-top').css({'background-color' : '#000000'});
+				$('.result-border-bottom').css({'background-color' : '#000000'});
+				$('.result').css({
+					'background-image' : 'linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),' + bg_url,
+					'background-position' : 'center',
+					'background-size' : 'cover'
+				});
+			}
+			
+		}
+
 	</script>
 </head>
 <body>
 	<h1 class="spoka">트위터 텍스트 헤더 만들기</h1>
 	<ul>
-		<li>만든이 : <a href="https://peing.net/ko/one_of_dev" target="_blank">@one_of_dev</a> 불편한 점이나 이런 기능 있었으면 좋겠는 부분 자유롭게 얘기해 주세요!</li>
+		<li>만든이 : <a href="https://peing.net/ko/one_of_dev" target="_blank">@one_of_dev</a> 불편한 점이나 이런 기능 있었으면 좋겠는 부분 자유롭게 얘기해 주세요! 오류 제보 환영</li>
 		<li>완성된 헤더 예시 (클릭 시 크게 보기 가능)
 			<div>
 				<a href="header-maker/VTlI67dH.jpg" target="_blank">
@@ -229,27 +310,56 @@
 					<input type="number" class="form-control" onchange="changeBorderWeight(this);">
 				</div>
 				<div class="form-group">
-					<label>스타일</label>
+					<label>테마</label>
+					<select class="form-control" onchange="changeTheme(this);" id="theme">
+						<option value="dark" selected>어둡게</option>
+						<option value="light">밝게</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label>문단 스타일</label>
 					<select class="form-control" onchange="changeStyleType(this);">
 						<option value="paragraph">문단 나열형</option>
 						<option value="center">중앙 강조형</option>
 					</select>
 				</div>
-				
-				
+				<div class="form-group">
+					<label>폰트</label>
+					<select class="form-control" onchange="changeFontFamily(this);">
+						<option value="KoPub Batang">Kopub바탕</option>
+						<option value="Nanum Myeongjo">나눔명조</option>
+						<option value="BMDOHYEON">도현체</option>
+						<option value="BMJUA">주아체</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label>글자 스타일</label>
+					<select class="form-control" onchange="changeFontStyle(this);">
+						<option value="normal">기본</option>
+						<option value="italic">기울게</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label>글씨 굵기</label>
+					<select class="form-control" onchange="changeFontWeight(this);">
+						<option value="normal">기본</option>
+						<option value="bold">굵게</option>
+						<option value="lighter">얇게</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label>글자색</label>
+					<select class="form-control" onchange="changeFontColor(this);" id="font-color">
+						<option value="#ffffff" selected>화이트</option>
+						<option value="#000000">블랙</option>
+					</select>
+				</div>
 			</div>
 			<div class="col-6">
 				<div class="form-group">
 					<label for="input-text">문구</label>
 					<textarea id="input-text" class="form-control" rows="10"></textarea>
 				</div>
-				<!-- <div class="form-group">
-					<label for="theme">테마</label>
-						<select class="form-control" id="theme">
-							<option>어둡게</option>
-							<option>밝게</option>
-						</select>
-				</div> -->
 			</div>
 		</div>
 
