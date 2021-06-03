@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
@@ -35,15 +36,19 @@ public class LogVO {
 	private String referer;
 	@Column
 	private String requesterIp;
+	@Column
+	private Date visitDay;
+	@Column
+	private Integer hits;
 	
 	public LogVO() {
 		
 	}
 	
 	@Builder
-	public LogVO(BigDecimal logId, String sessionId, String logSeCode, Date createDatetime, String createYear,
-			String createMonth, String createDay, String createHour, String userAgent, String referer,
-			String requesterIp) {
+	public LogVO(BigDecimal logId, String sessionId, String logSeCode, Date createDatetime, String userAgent,
+			String referer, String requesterIp, Date visitDay, Integer hits) {
+		super();
 		this.logId = logId;
 		this.sessionId = sessionId;
 		this.logSeCode = logSeCode;
@@ -51,6 +56,8 @@ public class LogVO {
 		this.userAgent = userAgent;
 		this.referer = referer;
 		this.requesterIp = requesterIp;
+		this.visitDay = visitDay;
+		this.hits = hits;
 	}
 	
 	public BigDecimal getLogId() {
@@ -95,6 +102,19 @@ public class LogVO {
 	public void setRequesterIp(String requesterIp) {
 		this.requesterIp = requesterIp;
 	}
+	public Date getVisitDay() {
+		return visitDay;
+	}
+	public void setVisitDay(Date visitDay) {
+		this.visitDay = visitDay;
+	}
 
+	public Integer getHits() {
+		return hits;
+	}
+
+	public void setHits(Integer hits) {
+		this.hits = hits;
+	}
 
 }

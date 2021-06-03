@@ -203,6 +203,7 @@
 					</div>
 	<!-- script -->
 	<script>
+		// Recent Movement
 		document.addEventListener("DOMContentLoaded", function() {
 			var ctx = document.getElementById("chartjs-dashboard-line").getContext("2d");
 			var gradient = ctx.createLinearGradient(0, 0, 0, 225);
@@ -214,7 +215,7 @@
 				data: {
 					labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
 					datasets: [{
-						label: "Sales ($)",
+						label: "Hits",
 						fill: true,
 						backgroundColor: gradient,
 						borderColor: window.theme.primary,
@@ -259,7 +260,7 @@
 						}],
 						yAxes: [{
 							ticks: {
-								stepSize: 1000
+								stepSize: 100
 							},
 							display: true,
 							borderDash: [3, 3],

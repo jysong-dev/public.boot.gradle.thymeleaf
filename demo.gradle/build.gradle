@@ -2,7 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.4.4'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
-	id 'com.ewerk.gradle.plugins.querydsl' version '1.0.10'
+	//id 'com.ewerk.gradle.plugins.querydsl' version '1.0.10'
 }
 
 group = 'com.example'
@@ -32,7 +32,13 @@ dependencies {
 	compile 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.3'
 	compile group: 'org.bgee.log4jdbc-log4j2', name: 'log4jdbc-log4j2-jdbc4', version: '1.16'
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
-	implementation 'com.querydsl:querydsl-jpa'
+	//compile("com.querydsl:querydsl-core")
+	//implementation 'com.querydsl:querydsl-jpa'
+	//compileOnly 'org.projectlombok:lombok'    
+    //annotationProcessor 'org.projectlombok:lombok'
+    //annotationProcessor("com.querydsl:querydsl-apt:${dependencyManagement.importedProperties['querydsl.version']}:jpa") // querydsl JPAAnnotationProcessor 사용 지정
+    //annotationProcessor("jakarta.persistence:jakarta.persistence-api") // java.lang.NoClassDefFoundError(javax.annotation.Entity) 발생 대응 
+    //annotationProcessor("jakarta.annotation:jakarta.annotation-api") // java.lang.NoClassDefFoundError (javax.annotation.Generated) 발생 대응 
 }
 
 test {
@@ -40,22 +46,34 @@ test {
 }
 
 //---------------querydsl-----------------------
-def querydslDir = "$buildDir/generated/querydsl"
+//def querydslDir = "src/main/generated"
 
-querydsl {
-    jpa = true
-    querydslSourcesDir = querydslDir
-}
+//querydsl {
+//    jpa = true
+//    querydslSourcesDir = querydslDir
+//}
 
-sourceSets {
-    main.java.srcDir querydslDir
-}
+//sourceSets {
+//	main.java.srcDir querydslDir
+//}
 
-configurations {
-    querydsl.extendsFrom compileClasspath
-}
+//configurations {
+//    querydsl.extendsFrom compileClasspath
+//}
 
-compileQuerydsl {
-    options.annotationProcessorPath = configurations.querydsl
-}
+//compileQuerydsl {
+//    options.annotationProcessorPath = configurations.querydsl
+//}
+
+//clean {
+//	delete file('src/main/generated') // 인텔리제이 Annotation processor 생성물 생성위치
+//}
+
+/**
+ * 인텔리제이 Annotation processor 에 생성되는 'src/main/generated' 디렉터리 삭제
+ */
+//task cleanGeneatedDir(type: Delete) { // 인텔리제이 annotation processor 가 생성한 Q클래스가 clean 태스크로 삭제되는 게 불편하다면 둘 중에 하나를 선택 
+//    delete file('src/main/generated')
+//}
+
 //---------------querydsl-----------------------
