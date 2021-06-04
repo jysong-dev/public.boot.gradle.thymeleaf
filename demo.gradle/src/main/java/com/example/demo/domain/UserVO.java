@@ -37,7 +37,7 @@ public class UserVO {
 	private java.util.Date registDatetime = new Date();
 	
 	@Column
-	private java.util.Date lastLoginDatetime;
+	private java.util.Date lastLoginDatetime = new Date();
 	
 	@Column
 	private String authority;

@@ -36,6 +36,8 @@ public class LogVO {
 	private String referer;
 	@Column
 	private String requesterIp;
+	@Column
+	private String locale;
 	@Transient
 	private String visitDay;
 	@Transient
@@ -49,7 +51,7 @@ public class LogVO {
 	
 	@Builder
 	public LogVO(BigDecimal logId, String sessionId, String logSeCode, Date createDatetime, String userAgent,
-			String referer, String requesterIp, String visitDay, Integer hits, String browser) {
+			String referer, String requesterIp, String visitDay, Integer hits, String browser, String locale) {
 		super();
 		this.logId = logId;
 		this.sessionId = sessionId;
@@ -61,6 +63,7 @@ public class LogVO {
 		this.visitDay = visitDay;
 		this.hits = hits;
 		this.browser = browser;
+		this.locale = locale;
 	}
 	
 	public BigDecimal getLogId() {
@@ -122,6 +125,12 @@ public class LogVO {
 	}
 	public void setBrowser(String browser) {
 		this.browser = browser;
+	}
+	public String getLocale() {
+		return locale;
+	}
+	public void setLocale(String locale) {
+		this.locale = locale;
 	}
 	
 }

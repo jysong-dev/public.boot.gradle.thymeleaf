@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import java.util.Locale;
+
 import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -37,6 +39,10 @@ public class SessionListener implements HttpSessionListener, HttpSessionIdListen
 		try {
 			String agent = req.getHeader("user-agent");
 			String referer = req.getHeader("referer");
+			Locale locale = req.getLocale();
+			
+			//System.out.println("user locale:" + locale.getCountry());
+			
 			LogVO logVO = new LogVO();
 
 			logVO.setSessionId(session.getId());
@@ -44,6 +50,7 @@ public class SessionListener implements HttpSessionListener, HttpSessionIdListen
 			logVO.setUserAgent(agent);
 			logVO.setReferer(referer);
 			logVO.setRequesterIp(req.getRemoteAddr());
+			logVO.setLocale(locale.getCountry());
 			
 			logService.save(logVO);
 			
