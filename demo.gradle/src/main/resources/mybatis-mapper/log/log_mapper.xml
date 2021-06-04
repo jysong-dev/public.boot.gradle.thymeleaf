@@ -4,9 +4,9 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.mapper.LogMapper">
 
-	<insert id="insertLog" parameterType="com.example.demo.domain.LogVO">
+<!-- 	<insert id="insertLog" parameterType="com.example.demo.domain.LogVO">
 		insert into log_tb
-		( <!-- log_id : auto increment -->
+		( log_id : auto increment
 			session_id
 			, log_se_code
 			, create_datetime
@@ -14,7 +14,7 @@
 			, referer
 			, requester_ip)
 		values
-		(	<!-- log_id : auto increment -->
+		(	log_id : auto increment
 			#{sessionId}
 			, #{logSeCode}
 			, sysdate()
@@ -22,6 +22,42 @@
 			, #{referer}
 			, #{requesterIp}
 		)
-	</insert>
+	</insert> -->
+  
+	<select id="countByCreatePnttm" parameterType="com.example.demo.domain.LogVO" resultType="com.example.demo.domain.LogVO">
+		select
+			date_format(a.create_datetime, '%Y-%m-%d') as visit_day
+			, count(*) as hits
+		from log_tb a
+		where
+			a.log_se_code = #{logSeCode}
+			and a.create_datetime <![CDATA[ <= ]]> sysdate()
+			and a.create_datetime  <![CDATA[ >= ]]> date_add(sysdate(), interval -7 day)
+		group by date_format(a.create_datetime, '%Y-%m-%d')
+	</select>
+	
+	<select id="countByBrowser" parameterType="com.example.demo.domain.LogVO" resultType="com.example.demo.domain.LogVO">
+		SELECT
+			x.BROWSER
+			, COUNT(*) AS HITS
+		FROM (
+			SELECT
+				*,
+				CASE
+					WHEN instr(USER_AGENT, 'Trident') != 0 THEN 'IE'
+					WHEN instr(USER_AGENT, 'Edge') != 0 THEN 'Edge'
+					WHEN instr(USER_AGENT, 'Whale') != 0 THEN 'Naver Whale'
+					WHEN instr(USER_AGENT, 'Opera') != 0 OR instr(USER_AGENT, 'OPR') != 0 THEN 'Opera'
+					WHEN instr(USER_AGENT, 'Safari') != 0 AND instr(USER_AGENT, 'Chrome') = 0 THEN 'Safari'
+					WHEN instr(USER_AGENT, 'Chrome') != 0 THEN 'Chrome'
+					WHEN instr(USER_AGENT, 'Firefox') != 0 THEN 'Firefox'
+				ELSE 'ANONYMOUS'
+				END AS 'BROWSER'
+			FROM log_tb
+			WHERE LOG_SE_CODE = #{logSeCode}
+			ORDER BY CREATE_DATETIME DESC
+		) x
+		GROUP BY x.BROWSER
+</select>
   
 </mapper>

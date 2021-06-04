@@ -80,7 +80,7 @@
 							<div class="card flex-fill w-100">
 								<div class="card-header">
 
-									<h5 class="card-title mb-0">Recent Movement</h5>
+									<h5 class="card-title mb-0">Recent Hits</h5>
 								</div>
 								<div class="card-body py-3">
 									<div class="chart chart-sm">
@@ -107,19 +107,19 @@
 										</div>
 
 										<table class="table mb-0">
-											<tbody>
-												<tr>
-													<td>Chrome</td>
-													<td class="text-right">4306</td>
-												</tr>
-												<tr>
-													<td>Firefox</td>
-													<td class="text-right">3801</td>
-												</tr>
-												<tr>
-													<td>IE</td>
-													<td class="text-right">1689</td>
-												</tr>
+											<tbody id="tbody-browser">
+<!-- 												<tr> -->
+<!-- 													<td>Chrome</td> -->
+<!-- 													<td class="text-right">4306</td> -->
+<!-- 												</tr> -->
+<!-- 												<tr> -->
+<!-- 													<td>Firefox</td> -->
+<!-- 													<td class="text-right">3801</td> -->
+<!-- 												</tr> -->
+<!-- 												<tr> -->
+<!-- 													<td>IE</td> -->
+<!-- 													<td class="text-right">1689</td> -->
+<!-- 												</tr> -->
 											</tbody>
 										</table>
 									</div>
@@ -209,96 +209,182 @@
 			var gradient = ctx.createLinearGradient(0, 0, 0, 225);
 			gradient.addColorStop(0, "rgba(215, 227, 244, 1)");
 			gradient.addColorStop(1, "rgba(215, 227, 244, 0)");
+			
 			// Line chart
-			new Chart(document.getElementById("chartjs-dashboard-line"), {
-				type: "line",
-				data: {
-					labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-					datasets: [{
-						label: "Hits",
-						fill: true,
-						backgroundColor: gradient,
-						borderColor: window.theme.primary,
-						data: [
-							2115,
-							1562,
-							1584,
-							1892,
-							1587,
-							1923,
-							2566,
-							2448,
-							2805,
-							3438,
-							2917,
-							3327
-						]
-					}]
+			$.ajax({
+				type : 'GET',
+				url : contextPath + '/log/header',
+				dataType : 'json',
+				error:function(request,status,error){
+					console.log(request,status,error);
 				},
-				options: {
-					maintainAspectRatio: false,
-					legend: {
-						display: false
-					},
-					tooltips: {
-						intersect: false
-					},
-					hover: {
-						intersect: true
-					},
-					plugins: {
-						filler: {
-							propagate: false
-						}
-					},
-					scales: {
-						xAxes: [{
-							reverse: true,
-							gridLines: {
-								color: "rgba(0,0,0,0.0)"
-							}
-						}],
-						yAxes: [{
-							ticks: {
-								stepSize: 100
-							},
-							display: true,
-							borderDash: [3, 3],
-							gridLines: {
-								color: "rgba(0,0,0,0.0)"
-							}
-						}]
+				success : function(result){
+					//console.log(result.data);
+					var list = result.data;
+					
+					var labels = [];
+					var data = [];
+
+					for (var i=0; i < list.length; i++) {
+						labels.push(list[i].visitDay);
+						data.push(list[i].hits);
 					}
+					
+					new Chart(document.getElementById("chartjs-dashboard-line"), {
+					type: "line",
+					data: {
+						//labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+						labels: labels,
+						datasets: [{
+							label: "Hits",
+							fill: true,
+							backgroundColor: gradient,
+							borderColor: window.theme.primary,
+							//data: [
+							//	2115,
+							//	1562,
+							//	1584,
+							//	1892,
+							//	1587,
+							//	1923,
+							//	2566,
+							//	2448,
+							//	2805,
+							//	3438,
+							//	2917,
+							//	3327
+							//]
+							data : data
+						}]
+					},
+					options: {
+						maintainAspectRatio: false,
+						legend: {
+							display: false
+						},
+						tooltips: {
+							intersect: false
+						},
+						hover: {
+							intersect: true
+						},
+						plugins: {
+							filler: {
+								propagate: false
+							}
+						},
+						scales: {
+							xAxes: [{
+								reverse: true,
+								gridLines: {
+									color: "rgba(0,0,0,0.0)"
+								}
+							}],
+							yAxes: [{
+								ticks: {
+									stepSize: 100
+								},
+								display: true,
+								borderDash: [3, 3],
+								gridLines: {
+									color: "rgba(0,0,0,0.0)"
+								}
+							}]
+						}
+					}
+				});
+					
+					
 				}
+				 
 			});
+
 		});
 	</script>
 	<script>
+		// Browser Usage
 		document.addEventListener("DOMContentLoaded", function() {
-			// Pie chart
-			new Chart(document.getElementById("chartjs-dashboard-pie"), {
-				type: "pie",
-				data: {
-					labels: ["Chrome", "Firefox", "IE"],
-					datasets: [{
-						data: [4306, 3801, 1689],
-						backgroundColor: [
-							window.theme.primary,
-							window.theme.warning,
-							window.theme.danger
-						],
-						borderWidth: 5
-					}]
+			$.ajax({
+				type : 'GET',
+				url : contextPath + '/log/browser',
+				dataType : 'json',
+				error:function(request,status,error){
+					console.log(request,status,error);
 				},
-				options: {
-					responsive: !window.MSInputMethodContext,
-					maintainAspectRatio: false,
-					legend: {
-						display: false
-					},
-					cutoutPercentage: 75
+				success : function(result){
+					//console.log(result.data);
+					var list = result.data;
+					
+					var labels = [];
+					var data = [];
+					var bg_colors = [];
+					var table_rows = '';
+
+					for (var i=0; i < list.length; i++) {
+						labels.push(list[i].browser);
+						data.push(list[i].hits);
+						bg_colors.push("#" + Math.floor(Math.random() * 16777215).toString(16));
+						
+						var tr = '<tr>'
+						+ '<td>' + list[i].browser + '</td>'
+						+ '<td class="text-right">' + list[i].hits + '</td>'
+						+ '</tr>';
+						
+						table_rows += tr;
+					}
+					
+					$('#tbody-browser').html(table_rows);
+					
+					// Pie chart
+					new Chart(document.getElementById("chartjs-dashboard-pie"), {
+						type: "pie",
+						data: {
+							labels: labels,
+							datasets: [{
+								data: data,
+								backgroundColor: bg_colors,
+								borderWidth: 5
+							}]
+						},
+						options: {
+							responsive: !window.MSInputMethodContext,
+							maintainAspectRatio: false,
+							legend: {
+								display: false
+							},
+							cutoutPercentage: 75
+						}
+					});
+					
+					
 				}
+				 
 			});
+
+			// Pie chart
+// 			new Chart(document.getElementById("chartjs-dashboard-pie"), {
+// 				type: "pie",
+// 				data: {
+// 					labels: ["Chrome", "Firefox", "IE"],
+// 					datasets: [{
+// 						data: [4306, 3801, 1689],
+// 						backgroundColor: [
+// 							window.theme.primary,
+// 							window.theme.warning,
+// 							window.theme.danger
+// 						],
+// 						borderWidth: 5
+// 					}]
+// 				},
+// 				options: {
+// 					responsive: !window.MSInputMethodContext,
+// 					maintainAspectRatio: false,
+// 					legend: {
+// 						display: false
+// 					},
+// 					cutoutPercentage: 75
+// 				}
+// 			});
 		});
 	</script>
 	<script>

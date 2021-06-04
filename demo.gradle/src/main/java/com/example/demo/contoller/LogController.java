@@ -26,11 +26,32 @@ public class LogController {
 		try {
 			LogVO logVO = new LogVO();
 			logVO.setLogSeCode("HEADER");
-			List<LogVO> headerLogs = logService.findByLogSeCode(logVO);
-			System.out.println("headerLogs:" + headerLogs.toString());
+			List<LogVO> headerLogs = logService.countByCreatePnttm(logVO);
 			
 			resultObj.put("success", true);
 			resultObj.put("data", headerLogs);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			resultObj.put("success", false);
+			resultObj.put("msg", "조회에 실패하였습니다.");
+		}
+		
+		return resultObj;
+	}
+	
+	@RequestMapping("/log/browser")
+	@ResponseBody
+	public Map<String, Object> getHeaderMakerLogBrowserAnalysis() {
+		Map<String, Object> resultObj = new HashMap<String, Object>();
+		
+		try {
+			LogVO logVO = new LogVO();
+			logVO.setLogSeCode("HEADER");
+			List<LogVO> browserLogs = logService.countByBrowser(logVO);
+			
+			resultObj.put("success", true);
+			resultObj.put("data", browserLogs);
 			
 		} catch (Exception e) {
 			e.printStackTrace();

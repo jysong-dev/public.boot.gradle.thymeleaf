@@ -36,10 +36,12 @@ public class LogVO {
 	private String referer;
 	@Column
 	private String requesterIp;
-	@Column
-	private Date visitDay;
-	@Column
+	@Transient
+	private String visitDay;
+	@Transient
 	private Integer hits;
+	@Transient
+	private String browser;
 	
 	public LogVO() {
 		
@@ -47,7 +49,7 @@ public class LogVO {
 	
 	@Builder
 	public LogVO(BigDecimal logId, String sessionId, String logSeCode, Date createDatetime, String userAgent,
-			String referer, String requesterIp, Date visitDay, Integer hits) {
+			String referer, String requesterIp, String visitDay, Integer hits, String browser) {
 		super();
 		this.logId = logId;
 		this.sessionId = sessionId;
@@ -58,6 +60,7 @@ public class LogVO {
 		this.requesterIp = requesterIp;
 		this.visitDay = visitDay;
 		this.hits = hits;
+		this.browser = browser;
 	}
 	
 	public BigDecimal getLogId() {
@@ -102,19 +105,23 @@ public class LogVO {
 	public void setRequesterIp(String requesterIp) {
 		this.requesterIp = requesterIp;
 	}
-	public Date getVisitDay() {
+	public String getVisitDay() {
 		return visitDay;
 	}
-	public void setVisitDay(Date visitDay) {
+	public void setVisitDay(String visitDay) {
 		this.visitDay = visitDay;
 	}
-
 	public Integer getHits() {
 		return hits;
 	}
-
 	public void setHits(Integer hits) {
 		this.hits = hits;
 	}
-
+	public String getBrowser() {
+		return browser;
+	}
+	public void setBrowser(String browser) {
+		this.browser = browser;
+	}
+	
 }
