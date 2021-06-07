@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,7 +24,7 @@ public class UserService {
 			e.get().setUsername(userVO.getUsername());
 			e.get().setPassword(userVO.getPassword());
 			e.get().setAuthority(userVO.getAuthority());
-			e.get().setLastLoginDatetime(userVO.getLastLoginDatetime());
+			e.get().setLastLoginDatetime(new Date());
 			userRepository.save(userVO);
 		}
 	}

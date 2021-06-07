@@ -28,7 +28,7 @@ public class UserController {
         	
             if(userInfo != null){
             	
-            	userService.updateByUserKey(userVO);
+            	userService.updateByUserKey(userInfo);
             	
                 session.setAttribute("userInfo", userInfo);
 

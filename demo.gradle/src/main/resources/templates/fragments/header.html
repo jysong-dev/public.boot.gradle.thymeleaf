@@ -2,7 +2,7 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
 <header th:fragment="header-fragment">
-	<h3 class="float-md-start mb-0">Somebody's <a href="#">Prototype</a></h3>
+	<h3 class="float-md-start mb-0"><span th:text="${session.userInfo.username}"></span>'s <a href="#none">Prototype</a></h3>
 	
 		<!-- 로그인 중일 때 -->
 			<!-- 로그아웃 상태일 때 -->
@@ -27,12 +27,13 @@
 			</span>
 			<!-- <span class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign In</span> -->
 			  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-			  	<a class="dropdown-item" style="font-size: 12px !important; text-shadow: none;" href="#">반응 <span class="badge badge-pill bg-danger ml-2">7</span></a>
-			  	<a class="dropdown-item" style="font-size: 12px !important; text-shadow: none;" href="/admin/index">관리하기</a>
+			  	<!-- <a th:if="${not #strings.isEmpty(session.userInfo)}" class="dropdown-item" style="font-size: 12px !important; text-shadow: none;" href="#">반응 <span class="badge badge-pill bg-danger ml-2">7</span></a> -->
+			  	<a th:if="${not #strings.isEmpty(session.userInfo)}" class="dropdown-item" style="font-size: 12px !important; text-shadow: none;" href="/admin/index">관리하기</a>
 			  	<a class="dropdown-item" style="font-size: 12px !important; text-shadow: none;" href="/search/list">둘러보기</a>
 			  	<div class="dropdown-divider"></div>
-			    <a class="dropdown-item" style="font-size: 12px !important; text-shadow: none;" href="#">로그아웃</a>
-			    <a class="dropdown-item" style="font-size: 12px !important; text-shadow: none;" href="#">Help</a>
+			    <a th:if="${not #strings.isEmpty(session.userInfo)}" class="dropdown-item" style="font-size: 12px !important; text-shadow: none;" th:href="@{/logout}">로그아웃</a>
+				<a th:if="${#strings.isEmpty(session.userInfo)}" class="dropdown-item" style="font-size: 12px !important; text-shadow: none;" th:href="@{/sign_in}">로그인</a>
+			    <a class="dropdown-item" style="font-size: 12px !important; text-shadow: none;" href="https://peing.net/en/one_of_dev">Help</a>
 			  </div>
 		</div>
 	</nav>

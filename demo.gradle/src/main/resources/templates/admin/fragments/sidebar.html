@@ -10,10 +10,12 @@
        </a>
 
 			<ul class="sidebar-nav">
-			
 				<li class="sidebar-item">
-					<a class="sidebar-link" th:href="@{/}" target="_blank">
+					<a class="sidebar-link" th:href="@{/{userId}(userId = ${session.userInfo.userId})}" target="_blank">
 						<i class="align-middle" data-feather="home"></i> <span class="align-middle">Home</span>
+					</a>
+					<a class="sidebar-link" th:href="@{/search/list}" target="_blank">
+						<i class="align-middle" data-feather="search"></i> <span class="align-middle">둘러보기</span>
 					</a>	
 				</li>
 				<li class="sidebar-item" th:classappend="${menuId} == adminIndex ? active" th:if="${session.userInfo.authority == 'admin'}">
