@@ -42,13 +42,13 @@ public class PrototypeController {
     @GetMapping("/{userId}")
     public String index(@PathVariable("userId") String userId, Model model){
     	
-//    	UserVO userVO = new UserVO();
-//    	userVO.setUserId(userId);
-//    	UserVO userInfo = userService.findByUserId(userVO);
-//    	
-//    	PrototypeMasterVO prototypeMasterVO = new PrototypeMasterVO();
-//    	prototypeMasterVO.setUserKey(userInfo.getUserKey());
-//    	PrototypeMasterVO prototypeMasterInfo = prototypeMasterService.findByUserKey(prototypeMasterVO);
+    	UserVO userVO = new UserVO();
+    	userVO.setUserId(userId);
+    	UserVO userInfo = userService.findByUserId(userVO);
+    	
+    	PrototypeMasterVO prototypeMasterVO = new PrototypeMasterVO();
+    	prototypeMasterVO.setUserKey(userInfo.getUserKey());
+    	PrototypeMasterVO prototypeMasterInfo = prototypeMasterService.findByUserKey(prototypeMasterVO);
 //    	
 //    	if (!"favicon.ico".equals(userId)) {
 //    		
@@ -68,6 +68,8 @@ public class PrototypeController {
 //    			 return "redirect:admin/index";
 //    		}
 //    	}
+    	
+    	model.addAttribute("userInfo", userInfo);
     	
         //return "redirect:admin/index";
         return "index";
