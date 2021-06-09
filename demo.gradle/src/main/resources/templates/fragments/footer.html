@@ -3,6 +3,6 @@
 	xmlns:th="http://www.thymeleaf.org">  
 	<footer th:fragment="footer-fragment" class="mt-auto text-white-50">
 	<!-- <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p> -->
-	<p>Somebody | Gunbreaker | Moogle, Korea</p>
+	<p><span th:text="${userInfo.username}"></span> | Gunbreaker | Moogle, Korea</p>
 	</footer>
 </html>

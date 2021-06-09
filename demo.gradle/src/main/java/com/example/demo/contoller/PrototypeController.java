@@ -41,98 +41,35 @@ public class PrototypeController {
 	
     @GetMapping("/{userId}")
     public String index(@PathVariable("userId") String userId, Model model){
+  	
+    	if (!"favicon.ico".equals(userId)) {
     	
-    	UserVO userVO = new UserVO();
-    	userVO.setUserId(userId);
-    	UserVO userInfo = userService.findByUserId(userVO);
+    		addUserModelAttribute(userId, model);
+	    	
+//	    	if (!"favicon.ico".equals(userId)) {
+//	    		
+//	    		LOGGER.info("유저 아이디 : " + userId);
+//	    		if ( prototypeMasterInfo != null && "Y".equals(prototypeMasterInfo.getPrototypeVisiblilty()) ) {
+//	    	    	
+//	    			WidgetVO widgetVO = new WidgetVO();
+//	    			List<WidgetVO> widgetList = widgetService.findByPrototypeId(widgetVO);
+//	    			
+//	    			// 위젯 목록
+//	    	    	model.addAttribute("widgetList", widgetList);
+//	    			// 알림, 반응 목록
+//	    			//model.addAttribute(attributeValue);
+//	    			
+//	    			return "index";
+//	    		} else {
+//	    			 return "redirect:admin/index";
+//	    		}
+//	    	}
     	
-    	PrototypeMasterVO prototypeMasterVO = new PrototypeMasterVO();
-    	prototypeMasterVO.setUserKey(userInfo.getUserKey());
-    	PrototypeMasterVO prototypeMasterInfo = prototypeMasterService.findByUserKey(prototypeMasterVO);
-//    	
-//    	if (!"favicon.ico".equals(userId)) {
-//    		
-//    		LOGGER.info("유저 아이디 : " + userId);
-//    		if ( prototypeMasterInfo != null && "Y".equals(prototypeMasterInfo.getPrototypeVisiblilty()) ) {
-//    	    	
-//    			WidgetVO widgetVO = new WidgetVO();
-//    			List<WidgetVO> widgetList = widgetService.findByPrototypeId(widgetVO);
-//    			
-//    			// 위젯 목록
-//    	    	model.addAttribute("widgetList", widgetList);
-//    			// 알림, 반응 목록
-//    			//model.addAttribute(attributeValue);
-//    			
-//    			return "index";
-//    		} else {
-//    			 return "redirect:admin/index";
-//    		}
-//    	}
-    	
-    	model.addAttribute("userInfo", userInfo);
+    	}
     	
         //return "redirect:admin/index";
         return "index";
     }
-	
-	@GetMapping("/{userId}/diary/list")
-	public String diaryList(@PathVariable("userId") String userId) {
-		
-    	UserVO userVO = new UserVO();
-    	userVO.setUserId(userId);
-    	UserVO userInfo = userService.findByUserId(userVO);
-		
-		return "diary/list";
-	}
-	
-	@GetMapping("/{userId}/diary/view")
-	public String diaryView(@PathVariable("userId") String userId) {
-		
-		return "diary/view";
-	}
-	
-	@GetMapping("/{userId}/profile/view")
-	public String profileView(@PathVariable("userId") String userId) {
-		
-		return "profile/view";
-	}
-	
-	@PostMapping("/prototype/setting/update")
-	@ResponseBody
-	public Map<String, Object> updatePrototypeSetting(PrototypeMasterVO prototypeMasterVO, HttpServletRequest req) {
-		Map<String, Object> jsonObj = new HashMap<String, Object>();
-
-		HttpSession session = req.getSession();
-		UserVO sessionUserInfo = (UserVO)session.getAttribute("userInfo");
-
-//		try {
-//			
-//			if ("Y".equals(prototypeMasterVO.getPrototypeVisiblilty())) {
-//			
-//				if (checkPrototypeIsAvailable(sessionUserInfo)) {
-//					prototypeMasterService.update(prototypeMasterVO);
-//					jsonObj.put("success", true);
-//					jsonObj.put("msg", "이 프로토타입이 공개되었습니다.");
-//				} else {
-//					jsonObj.put("success", false);
-//					jsonObj.put("msg", "미입력된 필수 정보가 있어 프로토타입을 공개할 수 없습니다.");
-//				}
-//			
-//			} else {
-//				prototypeMasterService.update(prototypeMasterVO);
-//				jsonObj.put("success", true);
-//				jsonObj.put("msg", "이 프로토타입이 비공개되었습니다.");
-//			}
-//
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			jsonObj.put("success", false);
-//			jsonObj.put("msg", "미입력된 필수 정보가 있어 프로토타입을 공개할 수 없습니다.");
-//		}
-
-
-		return jsonObj;
-	}
 
 	public Boolean checkPrototypeIsAvailable (UserVO userVO) {
 		Boolean isAvailable = false;
@@ -143,5 +80,17 @@ public class PrototypeController {
 		
 		return isAvailable;
 	}
+	
+    public void addUserModelAttribute(String userId, Model model) {
+    	UserVO userVO = new UserVO();
+    	userVO.setUserId(userId);
+    	UserVO userInfo = userService.findByUserId(userVO);
+    	
+    	PrototypeMasterVO prototypeMasterVO = new PrototypeMasterVO();
+    	prototypeMasterVO.setUserKey(userInfo.getUserKey());
+    	PrototypeMasterVO prototypeMasterInfo = prototypeMasterService.findByUserKey(prototypeMasterVO);
+    	
+    	model.addAttribute("userInfo", userInfo);
+    }
 	
 }

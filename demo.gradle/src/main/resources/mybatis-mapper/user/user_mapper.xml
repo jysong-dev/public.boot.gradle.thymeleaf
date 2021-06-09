@@ -59,5 +59,11 @@
 			, #{lastLoginDatetime}
 			, 'user')
 	</insert>
+	
+	<select id="selectNextUserKey" resultType="java.math.BigDecimal">
+		select 
+			ifnull(max(user_key), 0) + 1 as next_user_key
+		from user_tb
+	</select>
 
 </mapper>

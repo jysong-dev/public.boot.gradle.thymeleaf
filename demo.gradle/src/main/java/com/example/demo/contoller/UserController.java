@@ -1,5 +1,7 @@
 package com.example.demo.contoller;
 
+import java.math.BigDecimal;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,7 +13,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.example.demo.domain.PrototypeMasterVO;
 import com.example.demo.domain.UserVO;
+import com.example.demo.service.PrototypeMasterService;
 import com.example.demo.service.UserService;
 
 @Controller
@@ -19,6 +23,9 @@ public class UserController {
 
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	PrototypeMasterService prototypeMasterService;
 
     @PostMapping("/login")
     public String login(UserVO userVO, HttpSession session) {
@@ -32,7 +39,12 @@ public class UserController {
             	
                 session.setAttribute("userInfo", userInfo);
 
-                return "redirect:/admin/index";
+                if ("admin".equals(userInfo.getAuthority())) {
+                	return "redirect:/admin/index";	
+                } else {
+                	return "redirect:/admin/settings/form_prototype";
+                }
+                
             } else {
             	
             	return "redirect:/user/sign_up";
@@ -66,7 +78,16 @@ public class UserController {
     			jsonObj.put("success", false);
     			jsonObj.put("msg", "이미 사용중인 아이디입니다.");
     		} else {
-    			userService.save(userVO);	
+    			
+    			BigDecimal nextUserKey = userService.selectNextUserKey();
+    			userVO.setUserKey(nextUserKey);
+    			userService.save(userVO);
+    			
+    			PrototypeMasterVO prototypeMasterVO = new PrototypeMasterVO();
+    			prototypeMasterVO.setPrototypeVisiblilty("N");
+    			prototypeMasterVO.setUserKey(nextUserKey);
+    			prototypeMasterVO.setCreateDatetime(new Date());
+    			prototypeMasterService.save(prototypeMasterVO);
     			
     			jsonObj.put("success", true);
     			jsonObj.put("msg", "회원가입되었습니다.");
@@ -86,6 +107,8 @@ public class UserController {
     
 	@GetMapping("/user/sign_in")
 	public String userSignIn() {
+		
+		System.out.println("");
 		
 		return "user/sign_in";
 	}

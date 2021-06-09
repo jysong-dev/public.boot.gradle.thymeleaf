@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -9,10 +10,14 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.domain.UserVO;
+import com.example.demo.mapper.UserMapper;
 import com.example.demo.repository.UserRepository;
 
 @Service
 public class UserService {
+	
+	@Autowired
+	public UserMapper userMapper;
 	
 	@Autowired
 	public UserRepository userRepository;
@@ -54,6 +59,11 @@ public class UserService {
 	public UserVO findByUserId(UserVO userVO) {
 
 		return userRepository.findByUserId(userVO.getUserId());
+	}
+
+	public BigDecimal selectNextUserKey() {
+
+		return userMapper.selectNextUserKey();
 	}
 
 }

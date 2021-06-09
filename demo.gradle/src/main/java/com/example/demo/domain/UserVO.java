@@ -20,7 +20,6 @@ import groovy.transform.builder.Builder;
 public class UserVO {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY) // IDENTITY : 기본키 생성을 데이터베이스에 위임
 	@Column	
 	private java.math.BigDecimal userKey;
 	

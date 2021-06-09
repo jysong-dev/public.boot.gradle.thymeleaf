@@ -16,4 +16,8 @@ public class PrototypeMasterService {
 		return prototypeMasterRepository.findByUserKey(prototypeMasterVO.getUserKey());
 	}
 
+	public void save(PrototypeMasterVO prototypeMasterVO) {
+		prototypeMasterRepository.save(prototypeMasterVO);
+	}
+
 }

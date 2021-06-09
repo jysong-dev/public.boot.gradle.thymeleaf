@@ -132,7 +132,7 @@
 	                            <div class="inside">
 	                                <i class="fa fa-plus"></i>
 	                                <span class="date">2021. 04. 17</span>
-	                                <h4><a href="/diary/view">Title one goes here</a></h4>
+	                                <h4><a th:href="@{/{userId}/diary/view(userId = ${userInfo.userId})}">Title one goes here</a></h4>
 	                                <p>Cum sociis natoque penatibus et magnis dis parturient</p>
 	                            </div>
 	                        </div>

@@ -1,5 +1,6 @@
 package com.example.demo.mapper;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -20,5 +21,7 @@ public interface UserMapper {
 	public Integer selectSameUserIdCount(UserVO userVO);
 
 	public List<UserVO> selectUserList();
+
+	public BigDecimal selectNextUserKey();
 
 }

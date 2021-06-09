@@ -2,23 +2,12 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
 <header th:fragment="header-fragment">
-	<h3 class="float-md-start mb-0"><span th:text="${session.userInfo.username}"></span>'s <a href="#none">Prototype</a></h3>
-	
-		<!-- 로그인 중일 때 -->
-			<!-- 로그아웃 상태일 때 -->
-<!-- 		<div class="nav-link dropdown">
-			<span class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign In</span>
-			  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-			    <a class="dropdown-item" style="font-size: 12px !important; text-shadow: none;" href="#">Logout</a>
-			    <a class="dropdown-item" style="font-size: 12px !important; text-shadow: none;" href="#">My Prototype</a>
-			  </div>
-		</div> -->
-	
+	<h3 class="float-md-start mb-0"><span th:text="${userInfo.username}"></span>'s <a href="#none">Prototype</a></h3>
+
 	<nav class="nav nav-masthead justify-content-center float-md-end">
-		<a class="nav-link" href="/">Index</a>
-		<a class="nav-link" href="/profile/view">Profiles</a>
-		<a class="nav-link"  href="/diary/list">Diary</a>
-		<!-- <a class="nav-link" href="/user/sign_in">Sign In</a> -->
+		<a class="nav-link" th:href="@{/{userId}(userId = ${userInfo.userId})}">Index</a>
+		<a class="nav-link" th:href="@{/{userId}/profile/view(userId = ${userInfo.userId})}">Profiles</a>
+		<a class="nav-link" th:href="@{/{userId}/diary/list(userId = ${userInfo.userId})}">Diary</a>
 		
 		<div class="nav-link dropdown" style="float: right; width: 50px;">
 			<span id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle text-white">
@@ -32,7 +21,7 @@
 			  	<a class="dropdown-item" style="font-size: 12px !important; text-shadow: none;" href="/search/list">둘러보기</a>
 			  	<div class="dropdown-divider"></div>
 			    <a th:if="${not #strings.isEmpty(session.userInfo)}" class="dropdown-item" style="font-size: 12px !important; text-shadow: none;" th:href="@{/logout}">로그아웃</a>
-				<a th:if="${#strings.isEmpty(session.userInfo)}" class="dropdown-item" style="font-size: 12px !important; text-shadow: none;" th:href="@{/sign_in}">로그인</a>
+				<a th:if="${#strings.isEmpty(session.userInfo)}" class="dropdown-item" style="font-size: 12px !important; text-shadow: none;" th:href="@{/user/sign_in}">로그인</a>
 			    <a class="dropdown-item" style="font-size: 12px !important; text-shadow: none;" href="https://peing.net/en/one_of_dev">Help</a>
 			  </div>
 		</div>
