@@ -103,30 +103,30 @@ public class PrototypeController {
 		HttpSession session = req.getSession();
 		UserVO sessionUserInfo = (UserVO)session.getAttribute("userInfo");
 
-		try {
-			
-			if ("Y".equals(prototypeMasterVO.getPrototypeVisiblilty())) {
-			
-				if (checkPrototypeIsAvailable(sessionUserInfo)) {
-					prototypeMasterService.update(prototypeMasterVO);
-					jsonObj.put("success", true);
-					jsonObj.put("msg", "이 프로토타입이 공개되었습니다.");
-				} else {
-					jsonObj.put("success", false);
-					jsonObj.put("msg", "미입력된 필수 정보가 있어 프로토타입을 공개할 수 없습니다.");
-				}
-			
-			} else {
-				prototypeMasterService.update(prototypeMasterVO);
-				jsonObj.put("success", true);
-				jsonObj.put("msg", "이 프로토타입이 비공개되었습니다.");
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			jsonObj.put("success", false);
-			jsonObj.put("msg", "미입력된 필수 정보가 있어 프로토타입을 공개할 수 없습니다.");
-		}
+//		try {
+//			
+//			if ("Y".equals(prototypeMasterVO.getPrototypeVisiblilty())) {
+//			
+//				if (checkPrototypeIsAvailable(sessionUserInfo)) {
+//					prototypeMasterService.update(prototypeMasterVO);
+//					jsonObj.put("success", true);
+//					jsonObj.put("msg", "이 프로토타입이 공개되었습니다.");
+//				} else {
+//					jsonObj.put("success", false);
+//					jsonObj.put("msg", "미입력된 필수 정보가 있어 프로토타입을 공개할 수 없습니다.");
+//				}
+//			
+//			} else {
+//				prototypeMasterService.update(prototypeMasterVO);
+//				jsonObj.put("success", true);
+//				jsonObj.put("msg", "이 프로토타입이 비공개되었습니다.");
+//			}
+//
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			jsonObj.put("success", false);
+//			jsonObj.put("msg", "미입력된 필수 정보가 있어 프로토타입을 공개할 수 없습니다.");
+//		}
 
 
 		return jsonObj;
