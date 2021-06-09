@@ -21,7 +21,7 @@ public interface UserRepository extends JpaRepository<UserVO, BigDecimal> {
 
 	public List<UserVO> findAll();
 
-	public Integer findByUserId(String userId);
+	public UserVO findByUserId(String userId);
 
 	public Optional<UserVO> findByUserKey(BigDecimal userKey);
 

@@ -51,4 +51,9 @@ public class UserService {
 		return userRepository.countByUserId(userVO.getUserId());
 	}
 
+	public UserVO findByUserId(UserVO userVO) {
+
+		return userRepository.findByUserId(userVO.getUserId());
+	}
+
 }
