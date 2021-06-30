@@ -11,17 +11,21 @@ import com.example.demo.domain.UserVO;
 @Repository
 @Mapper
 public interface UserMapper {
-	
-	public UserVO selectUser(UserVO userVO);
-
-	public void updateUserLastLoginDatetime(UserVO userVO);
-
-	public void insertUser(UserVO userVO);
-
-	public Integer selectSameUserIdCount(UserVO userVO);
-
-	public List<UserVO> selectUserList();
 
 	public BigDecimal selectNextUserKey();
+	
+	/**
+	 * jpa 추가로 삭제
+	 */
+	
+	//public UserVO selectUser(UserVO userVO);
+
+	//public Integer selectSameUserIdCount(UserVO userVO);
+
+	//public List<UserVO> selectUserList();
+
+	//public void updateUserLastLoginDatetime(UserVO userVO);
+
+	//public void insertUser(UserVO userVO);
 
 }

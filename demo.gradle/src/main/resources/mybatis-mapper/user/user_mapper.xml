@@ -4,7 +4,21 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.mapper.UserMapper">
 
-<!-- 	<select id="selectUserList" parameterType="com.example.demo.domain.UserVO" resultType="com.example.demo.domain.UserVO">
+	<select id="selectNextUserKey" resultType="java.math.BigDecimal">
+		select 
+			ifnull(max(user_key), 0) + 1 as next_user_key
+		from user_tb
+	</select>
+
+	<!-- 이하 jpa 추가로 삭제 -->
+
+<!-- 	<update id="updateUserLastLoginDatetime" parameterType="com.example.demo.domain.UserVO">
+		update user_tb
+		set last_login_datetime = sysdate()
+		where user_key = #{userKey}
+	</update> -->
+	
+	<!-- 	<select id="selectUserList" parameterType="com.example.demo.domain.UserVO" resultType="com.example.demo.domain.UserVO">
 		select 
 			user_key
 			, user_id
@@ -29,21 +43,15 @@
 		from user_tb
 		where user_id = #{userId} and password = #{password}
 	</select> -->
-
-	<update id="updateUserLastLoginDatetime" parameterType="com.example.demo.domain.UserVO">
-		update user_tb
-		set last_login_datetime = sysdate()
-		where user_key = #{userKey}
-	</update>
 	
-<!-- 	<select id="selectSameUserIdCount" parameterType="com.example.demo.domain.UserVO" resultType="java.lang.Integer">
+	<!-- 	<select id="selectSameUserIdCount" parameterType="com.example.demo.domain.UserVO" resultType="java.lang.Integer">
 		select 
 			count(*)
 		from user_tb
 		where user_id = #{userId}
 	</select> -->
 	
-	<insert id="insertUser" parameterType="com.example.demo.domain.UserVO">
+<!-- 	<insert id="insertUser" parameterType="com.example.demo.domain.UserVO">
 		insert into user_tb
 			(user_id
 			, username
@@ -58,12 +66,6 @@
 			, sysdate()
 			, #{lastLoginDatetime}
 			, 'user')
-	</insert>
-	
-	<select id="selectNextUserKey" resultType="java.math.BigDecimal">
-		select 
-			ifnull(max(user_key), 0) + 1 as next_user_key
-		from user_tb
-	</select>
+	</insert> -->
 
 </mapper>
