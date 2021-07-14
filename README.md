@@ -2,7 +2,7 @@
 
 Spring Boot, Gradle, Thymeleaf를 이용한 게임 프로필 만들기 사이트
 
-[1. Skill Stacks](#1.-skill-stacks)
+[1. Skill Stacks](#1.-skill-stacks)  
 [2. Result Url](#2.-result-url)
 
 ## 1. Skill Stacks
