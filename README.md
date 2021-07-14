@@ -1,6 +1,6 @@
 # public.boot.gradle.thymeleaf
 
-Demo Project for Spring Boot, Gradle, Thymeleaf
+Spring Boot, Gradle, Thymeleaf를 이용한 게임 프로필 만들기 사이트
 
 [1. Skill Stacks](#1.-skill-stacks)
 [2. Result Url](#2.-result-url)
