@@ -160,8 +160,8 @@
 					<a class="dropdown-item d-lg-none d-sm-block" href="#none"><i class="align-middle mr-1" data-feather="user"></i> <span th:text="${session.userInfo.userId}"></span></a>
 <!-- 					<a class="dropdown-item" href="#"><i class="align-middle mr-1" data-feather="pie-chart"></i> Analytics</a> -->
 					<div class="dropdown-divider d-lg-none d-sm-block"></div>
-					<a class="dropdown-item" href="pages-settings.html"><i class="align-middle mr-1" data-feather="settings"></i> 계정 설정</a>
-					<a class="dropdown-item" href="#"><i class="align-middle mr-1" data-feather="help-circle"></i> 문의하기</a>
+					<a class="dropdown-item" th:href="@{/admin/settings/form-account}"><i class="align-middle mr-1" data-feather="settings"></i> 계정 설정</a>
+					<a class="dropdown-item" href="https://peing.net/ko/one_of_dev" target="_blank"><i class="align-middle mr-1" data-feather="help-circle"></i> 문의하기</a>
 					<div class="dropdown-divider"></div>
 					<a class="dropdown-item" th:href="@{/logout}">로그아웃</a>
 				</div>

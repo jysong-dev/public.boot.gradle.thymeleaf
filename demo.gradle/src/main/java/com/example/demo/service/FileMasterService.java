@@ -20,12 +20,18 @@ public class FileMasterService {
 
 	public BigDecimal save(FileMasterVO fileMasterVO) {
 		
-		java.math.BigDecimal nextFileMasterId = fileMasterMapper.selectNextFileMasterId();
-		
-		fileMasterVO.setFileMasterId(nextFileMasterId);
-		fileMasterRepository.save(fileMasterVO);
-		
-		return nextFileMasterId;
+		try {
+			java.math.BigDecimal nextFileMasterId = fileMasterMapper.selectNextFileMasterId();
+			
+			fileMasterVO.setFileMasterId(nextFileMasterId);
+			fileMasterRepository.save(fileMasterVO);
+			
+			return nextFileMasterId;
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return new BigDecimal(0);
 	}
 
 }

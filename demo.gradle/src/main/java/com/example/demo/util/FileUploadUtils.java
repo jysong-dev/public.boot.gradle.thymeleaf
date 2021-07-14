@@ -2,34 +2,30 @@ package com.example.demo.util;
 
 import java.io.File;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.example.demo.domain.FileMasterVO;
 import com.example.demo.domain.FileVO;
-import com.example.demo.service.FileMasterService;
-import com.example.demo.service.FileService;
 
+@Component("fileUploadUtils")
 public class FileUploadUtils {
 
-	@Autowired
-	FileService fileService;
+    final String fileStorePath = "/apps/upload/";
 	
-	@Autowired
-	FileMasterService fileMasterService;
-	
-	final String fileStorePath = "C:" + File.separator ;
-	
-	public java.math.BigDecimal uploadFiles(List<MultipartFile> files) {
+	public List<FileVO> uploadFiles(java.math.BigDecimal fileMasterId, List<MultipartFile> files) {
+		List<FileVO> fileInfoList = new ArrayList<FileVO>();
 		
 		try {
-			FileMasterVO fileMasterVO = new FileMasterVO();
-			java.math.BigDecimal fileMasterId = fileMasterService.save(fileMasterVO);
-			
+
+			//System.out.println("==================fileStorePath: " + fileStorePath);
+			int idx = 1;
 			for (MultipartFile file : files) {
+				
+				//System.out.println("==================file:" + file.toString());
 				
 				String orgFileName = file.getOriginalFilename();
 				String extension = orgFileName.substring(orgFileName.lastIndexOf("."), orgFileName.length());
@@ -44,20 +40,22 @@ public class FileUploadUtils {
 	            file.transferTo(new File(filePath));
 
 	            FileVO fileVO = new FileVO();
+	            fileVO.setFileSn(new BigDecimal(idx));
 	            fileVO.setFileMasterId(fileMasterId);
 	            fileVO.setOrgFileName(orgFileName);
 	            fileVO.setFileName(fileName);
 	            fileVO.setFilePath(filePath);
-	            fileService.save(fileVO);
-
+	            fileVO.setFileSize(new BigDecimal(file.getSize()));
+	            fileInfoList.add(fileVO);
+	            
+	            idx++;
 			}
 			
-			return fileMasterId;
-
         } catch(Exception e) {
             e.printStackTrace();
-            return new BigDecimal(0);
         }
+		return fileInfoList;
 	}
 
 }
+

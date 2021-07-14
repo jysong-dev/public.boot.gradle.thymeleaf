@@ -31,15 +31,15 @@ public class FileVO {
 	@Column
 	private String filePath;
 	@Column
-	private Date registDate;
+	private Date registDate = new Date();
 	@Column
-	private String fileSize;
+	private java.math.BigDecimal fileSize;
 	
 	public FileVO() {}
 
 	@Builder
 	public FileVO(BigDecimal fileMasterId, BigDecimal fileId, BigDecimal fileSn, String fileName, String filePath,
-			Date registDate, String fileSize, String orgFileName) {
+			Date registDate, BigDecimal fileSize, String orgFileName) {
 		this.fileMasterId = fileMasterId;
 		this.fileId = fileId;
 		this.fileSn = fileSn;
@@ -98,11 +98,11 @@ public class FileVO {
 		this.registDate = registDate;
 	}
 
-	public String getFileSize() {
+	public BigDecimal getFileSize() {
 		return fileSize;
 	}
 
-	public void setFileSize(String fileSize) {
+	public void setFileSize(BigDecimal fileSize) {
 		this.fileSize = fileSize;
 	}
 

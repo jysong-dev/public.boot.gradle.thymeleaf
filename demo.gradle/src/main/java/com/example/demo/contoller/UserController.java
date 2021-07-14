@@ -81,6 +81,7 @@ public class UserController {
     			
     			BigDecimal nextUserKey = userService.selectNextUserKey();
     			userVO.setUserKey(nextUserKey);
+    			userVO.setAuthority("user");
     			userService.save(userVO);
     			
     			PrototypeMasterVO prototypeMasterVO = new PrototypeMasterVO();

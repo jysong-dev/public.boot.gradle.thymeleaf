@@ -48,25 +48,11 @@ public class AdminPageController {
 		return "admin/code/list";
 	}
 	
-	@GetMapping("/admin/index/form")
-	public String indexForm(Model model) {
-		model.addAttribute("menuId", "index");
-		
-		return "admin/index/form";
-	}
-	
 	@GetMapping("/admin/diary/list")
 	public String diaryList(Model model) {
 		model.addAttribute("menuId", "diary");
 	
 		return "admin/diary/list";
-	}
-	
-	@GetMapping("/admin/settings/form_prototype")
-	public String settingFormPrototype(Model model) {
-		model.addAttribute("menuId", "settings");
-	
-		return "admin/settings/form_prototype";
 	}
 	
 }

@@ -6,7 +6,15 @@
 	layout:decorate="~{admin/layouts/layout}"
 >
 <head>
-
+<style>
+	.image-preview {
+		height: 500px;
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-color: #d3d3d3;
+	}
+</style>
 <link th:href="@{/libs/bootstrap-table-master/dist/bootstrap-table.min.css}" rel="stylesheet">
 <link th:href="@{/libs/bootstrap-table-master/dist/extensions/reorder-rows/bootstrap-table-reorder-rows.css}" rel="stylesheet">
 
@@ -44,11 +52,16 @@
 							<h5 class="card-title mb-0">배경 설정</h5>
 						</div>
 						<div class="card-body">
-							<form>
+							<form method="post" action="/admin/index/save-background" enctype="multipart/form-data">
+								<div class="row">
+									<div class="col-12 image-preview" id="image-preview">
+									
+									</div>
+								</div>
 								<div class="row">
 									<div class="mb-3">
 										<label class="form-label w-100"><small class="form-text text-muted">파일은 하나만 추가할 수 있습니다.</small></label>
-										<input id="file" type="file">
+										<input id="file" name="background-image" type="file">
 										<br>	
 									</div>
 									
@@ -206,6 +219,43 @@
 	<script th:src="@{/libs/bootstrap-table-master/dist/bootstrap-table.min.js}"></script>
 	<script th:src="@{/libs/bootstrap-table-master/dist/extensions/reorder-rows/bootstrap-table-reorder-rows.min.js}"></script>  
 	<script>
+		$(document).ready(function() {
+			$(document).on('change', '#file', function() {
+				imagePreview(this);
+			})
+			
+			function imagePreview(input) {
+			    if(input.files && input.files[0]) {
+// 			        var file = input.files[0].value;
+			        
+// 			        var imgHeader = file.lastIndexOf("\\");
+// 			        var imgMiddle = file.lastIndexOf(".");      
+// 			        var imgName = file.substring(imgHeader+1, imgMiddle);
+			      
+// 			        var filepoint = file.substring(imgMiddle+1,img.length);
+// 			        var imgtype = filepoint.toLowerCase();
+// 			        alert(imgHeader +"/"+ imgMiddle +"/"+ imgName + "/" + imgtype);
+			        
+// 			        if ( imgtype != "jpg" ){
+// 			            $(input).val('');
+// 			            alert("사진은 jpg 파일만 업로드할 수 있습니다.");
+			     
+// 			            return;
+// 			        }
+			        
+			        // FileReader 인스턴스 생성
+			        const reader = new FileReader()
+			        // 이미지가 로드가 된 경우
+			        reader.onload = e => {
+			            const target = document.getElementById("image-preview")
+			            $(target).css('background-image', 'url(\"' + e.target.result + '\")');
+			        }
+			        // reader가 이미지 읽도록 하기
+			        reader.readAsDataURL(input.files[0])
+			    }
+			}
+
+		})
 	</script>
 </div>
 </html>
