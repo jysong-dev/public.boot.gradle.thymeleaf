@@ -53,8 +53,10 @@
 						</div>
 						<div class="card-body">
 							<form method="post" action="/admin/index/save-background" enctype="multipart/form-data">
+								<input type="hidden" name="prototypeId" th:value="${prototypeMasterVO.prototypeId}">
+								<input type="hidden" name="backgroundId" th:value="${prototypeBackgroundVO.backgroundId}">
 								<div class="row">
-									<div class="col-12 image-preview" id="image-preview">
+									<div class="col-12 image-preview" id="image-preview" th:style="'background-image: url(' + @{/upload/} + ${fileVO.fileName} + ');'">
 									
 									</div>
 								</div>

@@ -12,4 +12,6 @@ import com.example.demo.domain.FileVO;
 @Repository
 public interface FileRepository extends JpaRepository<FileVO, BigDecimal> {
 
+	FileVO findByFileMasterId(BigDecimal fileMasterId);
+
 }

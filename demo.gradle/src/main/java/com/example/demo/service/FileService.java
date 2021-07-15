@@ -15,4 +15,8 @@ public class FileService {
 		fileRepository.save(fileVO);
 	}
 
+	public FileVO findByFileMasterId(FileVO fileVO) {
+		return fileRepository.findByFileMasterId(fileVO.getFileMasterId());
+	}
+
 }

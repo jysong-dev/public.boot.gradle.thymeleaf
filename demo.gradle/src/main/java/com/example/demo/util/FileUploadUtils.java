@@ -14,7 +14,8 @@ import com.example.demo.domain.FileVO;
 @Component("fileUploadUtils")
 public class FileUploadUtils {
 
-    final String fileStorePath = "/apps/upload/";
+	public static final String fileStorePath = "/apps/upload/";
+    //public static final String fileStorePath = "C:/upload/";
 	
 	public List<FileVO> uploadFiles(java.math.BigDecimal fileMasterId, List<MultipartFile> files) {
 		List<FileVO> fileInfoList = new ArrayList<FileVO>();
