@@ -44,36 +44,36 @@
 											<h5 class="card-title mb-0">계정 설정</h5>
 										</div>
 										<div class="card-body">
-											<form>
+											<form method="post" action="/admin/settings/save-account-info" enctype="multipart/form-data">
+												<input type="hidden" name="userKey" th:value="${userVO.userKey}">
 												<div class="row">
 													<div class="col-md-8">
 														<div class="mb-3">
 															<label class="form-label" for="username">닉네임</label>
-															<input type="text" class="form-control" id="username">
+															<input type="text" class="form-control" id="username" name="username" th:value="${userVO.username}">
 														</div>
 														<div class="mb-3">
-															<label class="form-label" for="inputUsername">한마디</label>
-															<textarea rows="2" class="form-control" id="inputBio"></textarea>
+															<label class="form-label" for="userBio">한마디</label>
+															<textarea rows="2" class="form-control" name="userBio" th:text="${userVO.userBio}"></textarea>
 														</div>
 													</div>
 													<div class="col-md-4">
 														<div class="text-center">
-															<img alt="Charles Hall" th:src="@{/libs/adminkit-master/static/img/avatars/avatar.jpg}" class="rounded-circle img-responsive mt-2" width="128" height="128" />
+															<img th:if="${not #strings.isEmpty(fileVO?.fileName)}" alt="profile image" id="image-preview" class="rounded img-responsive mt-2" width="128" height="128" th:src="@{/upload/} + ${fileVO.fileName}">
+															<img th:if="${#strings.isEmpty(fileVO?.fileName)}" alt="profile image" id="image-preview" src="https://via.placeholder.com/128" class="rounded img-responsive mt-2" width="128" height="128" />
 															<div class="mt-2">
-																<input id="file" type="file" style="display: none;">
-																<span class="btn btn-primary rounded-0" onclick="$('#file').click();"><i class="fas fa-upload"></i> Upload</span>
+																<input id="file" name="profile-image" type="file" style="display: none;">
+																<span class="btn btn-primary rounded-0" onclick="$('#file').click();"><i class="fas fa-upload"></i> 업로드</span>
 															</div>
-															<small>For best results, use an image at least 128px by 128px in .jpg format</small>
+															<small>이미지는 128px X 128px 사이즈를 권장합니다.</small>
+<!-- 															<small>For best results, use an image at least 128px by 128px in .jpg format</small> -->
 														</div>
 													</div>
 												</div>
-
-												<button type="submit" class="btn btn-primary rounded-0">Save changes</button>
+												<button type="submit" class="btn btn-primary rounded-0">저장</button>
 											</form>
-
 										</div>
 									</div>
-
 								</div>
 								<div class="tab-pane fade" id="password" role="tabpanel">
 									<div class="card">
@@ -130,10 +130,44 @@
 	<script th:src="@{/libs/bootstrap-table-master/dist/bootstrap-table.min.js}"></script>
 	<script th:src="@{/libs/bootstrap-table-master/dist/extensions/reorder-rows/bootstrap-table-reorder-rows.min.js}"></script>  
 	<script>
+		$(document).ready(function() {
+			$(document).on('change', '#file', function() {
+				imagePreview(this);
+			})
+		
+			function imagePreview(input) {
+			    if(input.files && input.files[0]) {
+	//			        var file = input.files[0].value;
+			        
+	//			        var imgHeader = file.lastIndexOf("\\");
+	//			        var imgMiddle = file.lastIndexOf(".");      
+	//			        var imgName = file.substring(imgHeader+1, imgMiddle);
+			      
+	//			        var filepoint = file.substring(imgMiddle+1,img.length);
+	//			        var imgtype = filepoint.toLowerCase();
+	//			        alert(imgHeader +"/"+ imgMiddle +"/"+ imgName + "/" + imgtype);
+			        
+	//			        if ( imgtype != "jpg" ){
+	//			            $(input).val('');
+	//			            alert("사진은 jpg 파일만 업로드할 수 있습니다.");
+			     
+	//			            return;
+	//			        }
+			        
+			        // FileReader 인스턴스 생성
+			        const reader = new FileReader()
+			        // 이미지가 로드가 된 경우
+			        reader.onload = e => {
+			            const target = document.getElementById("image-preview")
+			            $(target).attr('src', e.target.result);
+			        }
+			        // reader가 이미지 읽도록 하기
+			        reader.readAsDataURL(input.files[0])
+			    }
+			}
 	
-	
-	
-	
+		})
+		
 	</script>
 </div>
 </html>

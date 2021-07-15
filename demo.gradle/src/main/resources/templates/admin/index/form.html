@@ -56,7 +56,10 @@
 								<input type="hidden" name="prototypeId" th:value="${prototypeMasterVO.prototypeId}">
 								<input type="hidden" name="backgroundId" th:value="${prototypeBackgroundVO.backgroundId}">
 								<div class="row">
-									<div class="col-12 image-preview" id="image-preview" th:style="'background-image: url(' + @{/upload/} + ${fileVO.fileName} + ');'">
+									<div th:if="${not #strings.isEmpty(fileVO?.fileName)}" class="col-12 image-preview" id="image-preview" th:style="'background-image: url(' + @{/upload/} + ${fileVO?.fileName} + ');'">
+									
+									</div>
+									<div th:if="${#strings.isEmpty(fileVO?.fileName)}" class="col-12 image-preview" id="image-preview" th:style="'background-image: url(' + @{/upload/} + ${fileVO?.fileName} + ');'">
 									
 									</div>
 								</div>

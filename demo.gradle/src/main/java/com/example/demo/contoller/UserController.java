@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.example.demo.domain.FileVO;
 import com.example.demo.domain.PrototypeMasterVO;
 import com.example.demo.domain.UserVO;
+import com.example.demo.service.FileService;
 import com.example.demo.service.PrototypeMasterService;
 import com.example.demo.service.UserService;
 
@@ -26,6 +28,9 @@ public class UserController {
 	
 	@Autowired
 	PrototypeMasterService prototypeMasterService;
+	
+	@Autowired
+	FileService fileService;
 
     @PostMapping("/login")
     public String login(UserVO userVO, HttpSession session) {
@@ -35,9 +40,15 @@ public class UserController {
         	
             if(userInfo != null){
             	
+            	/* 마지막 로그인 시점 갱신 */
             	userService.updateByUserKey(userInfo);
             	
-                session.setAttribute("userInfo", userInfo);
+				FileVO fileVO = new FileVO();
+				fileVO.setFileMasterId(userInfo.getFileMasterId());
+				fileVO = fileService.findByFileMasterId(fileVO);
+				
+				session.setAttribute("userInfo", userInfo);
+				session.setAttribute("profileImage", fileVO);
 
                 if ("admin".equals(userInfo.getAuthority())) {
                 	return "redirect:/admin/index";	
@@ -52,7 +63,7 @@ public class UserController {
     	} catch (Exception e) {
 			e.printStackTrace();
 			
-			return "redirect:/index";
+			return "redirect:/admin/index";
 		}
 
     }

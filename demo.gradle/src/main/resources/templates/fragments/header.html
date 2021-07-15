@@ -11,8 +11,9 @@
 		
 		<div class="nav-link dropdown" style="float: right; width: 50px;">
 			<span id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle text-white">
-				<img th:src="@{/example/thumb/thumb01.png}" style="width: 50%; height: 100%;" class="avatar img-fluid rounded mr-1" alt="" />
-				<span class="bg-danger" style="border-radius : 50%; position: absolute; top: 1.5px; right: 18.7px; width: 7px; height: 7px;"></span>
+				<img th:if="${not #strings.isEmpty(session.profileImage?.fileName)}" th:src="@{/upload/} + ${session.profileImage?.fileName}" style="width: 50%; height: 100%;" class="avatar img-fluid rounded mr-1" alt="" />
+<!-- 				<img th:if="${#strings.isEmpty(session.profileImage?.fileName)}" src="https://via.placeholder.com/40x40.png" style="width: 50%; height: 100%;" class="avatar img-fluid rounded mr-1" alt="" /> -->
+<!-- 				<span class="bg-danger" style="border-radius : 50%; position: absolute; top: 1.5px; right: 18.7px; width: 7px; height: 7px;"></span> -->
 			</span>
 			<!-- <span class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign In</span> -->
 			  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -28,5 +29,4 @@
 	</nav>
 	
 </header>
-
 </html>

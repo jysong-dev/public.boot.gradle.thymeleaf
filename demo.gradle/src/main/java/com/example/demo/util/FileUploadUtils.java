@@ -14,9 +14,8 @@ import com.example.demo.domain.FileVO;
 @Component("fileUploadUtils")
 public class FileUploadUtils {
 
-	//.addResourceLocations("file:/DATA/video/"); //리눅스 root에서 시작하는 폴더 경로
-	public static final String fileStorePath = "/home/ec2-user/apps";
-    //public static final String fileStorePath = "file:///C:/upload/";
+	//public static final String fileStorePath = "/home/ec2-user/apps";
+    public static final String fileStorePath = "C:/upload/"; //file:///
 	
 	public List<FileVO> uploadFiles(java.math.BigDecimal fileMasterId, List<MultipartFile> files) {
 		List<FileVO> fileInfoList = new ArrayList<FileVO>();

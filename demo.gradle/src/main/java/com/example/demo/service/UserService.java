@@ -23,15 +23,20 @@ public class UserService {
 	public UserRepository userRepository;
 
 	public void updateByUserKey(UserVO userVO) {
-		Optional<UserVO> e = userRepository.findByUserKey(userVO.getUserKey());
-
-		if (e.isPresent()) {
-			e.get().setUsername(userVO.getUsername());
-			e.get().setPassword(userVO.getPassword());
-			e.get().setAuthority(userVO.getAuthority());
-			e.get().setLastLoginDatetime(new Date());
-			userRepository.save(userVO);
-		}
+		
+		userRepository.save(userVO);
+		
+//		Optional<UserVO> e = userRepository.findByUserKey(userVO.getUserKey());
+//
+//		if (e.isPresent()) {
+//			e.get().setUsername(e.get().getUsername());
+//			e.get().setPassword(e.get().getPassword());
+//			e.get().setAuthority(e.get().getAuthority());
+//			e.get().setFileMasterId(userVO.getFileMasterId());
+//			e.get().setUserBio(userVO.getUserBio());
+//			e.get().setLastLoginDatetime(new Date());
+//			userRepository.save(userVO);
+//		}
 	}
 
 	public void save(UserVO userVO) {
