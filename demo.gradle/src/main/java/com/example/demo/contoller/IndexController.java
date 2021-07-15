@@ -89,6 +89,7 @@ public class IndexController {
 			List<FileVO> fileInfoList = fileUploadUtils.uploadFiles(fileMasterId, files);
 			
 			if (fileInfoList.size() > 0) {
+				fileMasterVO.setFileMasterId(fileMasterId);
 				fileMasterService.save(fileMasterVO);
 				for (FileVO fileVO : fileInfoList) {
 					fileService.save(fileVO);
