@@ -17,21 +17,25 @@ public class FileMasterService {
 	
 	@Autowired
 	FileMasterMapper fileMasterMapper;
+	
+	public BigDecimal selectNextFileMasterId() {
+		return fileMasterMapper.selectNextFileMasterId();
+	}
 
-	public BigDecimal save(FileMasterVO fileMasterVO) {
+	public void save(FileMasterVO fileMasterVO) {
 		
 		try {
-			java.math.BigDecimal nextFileMasterId = fileMasterMapper.selectNextFileMasterId();
+			//java.math.BigDecimal nextFileMasterId = fileMasterMapper.selectNextFileMasterId();
 			
-			fileMasterVO.setFileMasterId(nextFileMasterId);
+			//fileMasterVO.setFileMasterId(nextFileMasterId);
 			fileMasterRepository.save(fileMasterVO);
 			
-			return nextFileMasterId;
+			//return nextFileMasterId;
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		return new BigDecimal(0);
+		//return new BigDecimal(0);
 	}
 
 }

@@ -85,11 +85,14 @@ public class IndexController {
 			files.add(file);
 			
 			FileMasterVO fileMasterVO = new FileMasterVO();
-			java.math.BigDecimal fileMasterId = fileMasterService.save(fileMasterVO);
+			java.math.BigDecimal fileMasterId = fileMasterService.selectNextFileMasterId();
 			List<FileVO> fileInfoList = fileUploadUtils.uploadFiles(fileMasterId, files);
 			
-			for (FileVO fileVO : fileInfoList) {
-				fileService.save(fileVO);
+			if (fileInfoList.size() > 0) {
+				fileMasterService.save(fileMasterVO);
+				for (FileVO fileVO : fileInfoList) {
+					fileService.save(fileVO);
+				}
 			}
 
 			prototypeBackgroundVO.setFileMasterId(fileMasterId);
