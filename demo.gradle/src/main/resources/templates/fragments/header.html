@@ -9,10 +9,12 @@
 		<a class="nav-link" th:href="@{/{userId}/profile/view(userId = ${userInfo.userId})}">Profiles</a>
 		<a class="nav-link" th:href="@{/{userId}/diary/list(userId = ${userInfo.userId})}">Diary</a>
 		
-		<div class="nav-link dropdown" style="float: right; width: 50px;">
+		<a th:if="${session.userInfo == null}" class="nav-link text-white" th:href="@{/user/sign-in}">Sign In</a>
+		
+		<div th:if="${session.userInfo != null}" class="nav-link dropdown" style="float: right; width: 50px;">
 			<span id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle text-white">
 				<img th:if="${not #strings.isEmpty(session.profileImage?.fileName)}" th:src="@{/upload/} + ${session.profileImage?.fileName}" style="width: 50%; height: 100%;" class="avatar img-fluid rounded mr-1" alt="" />
-<!-- 				<img th:if="${#strings.isEmpty(session.profileImage?.fileName)}" src="https://via.placeholder.com/40x40.png" style="width: 50%; height: 100%;" class="avatar img-fluid rounded mr-1" alt="" /> -->
+				<img th:if="${#strings.isEmpty(session.profileImage?.fileName)}" src="https://via.placeholder.com/40x40.png" style="width: 50%; height: 100%;" class="avatar img-fluid rounded mr-1" alt="" />
 <!-- 				<span class="bg-danger" style="border-radius : 50%; position: absolute; top: 1.5px; right: 18.7px; width: 7px; height: 7px;"></span> -->
 			</span>
 			<!-- <span class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign In</span> -->
@@ -22,7 +24,7 @@
 			  	<a class="dropdown-item" style="font-size: 12px !important; text-shadow: none;" href="/search/list">둘러보기</a>
 			  	<div class="dropdown-divider"></div>
 			    <a th:if="${not #strings.isEmpty(session.userInfo)}" class="dropdown-item" style="font-size: 12px !important; text-shadow: none;" th:href="@{/logout}">로그아웃</a>
-				<a th:if="${#strings.isEmpty(session.userInfo)}" class="dropdown-item" style="font-size: 12px !important; text-shadow: none;" th:href="@{/user/sign_in}">로그인</a>
+				<a th:if="${#strings.isEmpty(session.userInfo)}" class="dropdown-item" style="font-size: 12px !important; text-shadow: none;" th:href="@{/user/sign-in}">로그인</a>
 			    <a class="dropdown-item" style="font-size: 12px !important; text-shadow: none;" href="https://peing.net/en/one_of_dev">Help</a>
 			  </div>
 		</div>

@@ -53,12 +53,12 @@ public class UserController {
                 if ("admin".equals(userInfo.getAuthority())) {
                 	return "redirect:/admin/index";	
                 } else {
-                	return "redirect:/admin/settings/form_prototype";
+                	return "redirect:/admin/settings/form-prototype";
                 }
                 
             } else {
             	
-            	return "redirect:/user/sign_up";
+            	return "redirect:/user/sign-up";
             }
     	} catch (Exception e) {
 			e.printStackTrace();
@@ -72,11 +72,11 @@ public class UserController {
     public String login(HttpSession session) {
         session.invalidate();
         
-        return "redirect:/user/sign_in";
+        return "redirect:/user/sign-in";
     }
     
     @ResponseBody
-    @PostMapping("/sign_up")
+    @PostMapping("/sign-up")
     public Map<String, Object> signUp(UserVO userVO) {
     	Map<String, Object> jsonObj = new HashMap<String, Object>();
     	
@@ -103,7 +103,7 @@ public class UserController {
     			
     			jsonObj.put("success", true);
     			jsonObj.put("msg", "회원가입되었습니다.");
-    			jsonObj.put("redirectUrl", "/user/sign_in");
+    			jsonObj.put("redirectUrl", "/user/sign-in");
     		}
 
     	} catch (Exception e) {
@@ -111,24 +111,24 @@ public class UserController {
 			
 			jsonObj.put("success", false);
 			jsonObj.put("msg", "처리 중 오류가 발생하였습니다. 관리자에게 문의하세요.");
-//			jsonObj.put("redirectUrl", "/user/sign_up");
+//			jsonObj.put("redirectUrl", "/user/sign-up");
 		}
     	
     	return jsonObj;
     }
     
-	@GetMapping("/user/sign_in")
+	@GetMapping("/user/sign-in")
 	public String userSignIn() {
 		
 		System.out.println("");
 		
-		return "user/sign_in";
+		return "user/sign-in";
 	}
 	
-	@GetMapping("/user/sign_up")
+	@GetMapping("/user/sign-up")
 	public String userSignUp() {
 		
-		return "user/sign_up";
+		return "user/sign-up";
 	}
 	
 }

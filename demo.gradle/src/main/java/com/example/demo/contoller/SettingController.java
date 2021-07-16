@@ -45,7 +45,7 @@ public class SettingController {
 		try {
 			UserVO userVO = (UserVO) session.getAttribute("userInfo");
 			if (userVO == null) {
-				return "redirect:/user/sign_in";
+				return "redirect:/user/sign-in";
 			} else {
 				FileVO fileVO = new FileVO();
 				fileVO.setFileMasterId(userVO.getFileMasterId());
@@ -58,7 +58,7 @@ public class SettingController {
 			e.printStackTrace();
 		}
 
-		return "admin/settings/form_account";
+		return "admin/settings/form-account";
 	}
 	
 	@PostMapping("/admin/settings/save-account-info")
@@ -69,7 +69,7 @@ public class SettingController {
 			UserVO sessionUserInfo = (UserVO) session.getAttribute("userInfo");
 			if (userVO == null) {
 				
-				return "redirect:/user/sign_in";
+				return "redirect:/user/sign-in";
 			} else {
 				
 				userVO.setUserId(sessionUserInfo.getUserId());
@@ -115,15 +115,15 @@ public class SettingController {
 			e.printStackTrace();
 		}
 
-		return "redirect:/admin/settings/form_account";
+		return "redirect:/admin/settings/form-account";
 	}
 	
 	
-	@GetMapping("/admin/settings/form_prototype")
+	@GetMapping("/admin/settings/form-prototype")
 	public String settingFormPrototype(Model model) {
 		model.addAttribute("menuId", "settings");
 	
-		return "admin/settings/form_prototype";
+		return "admin/settings/form-prototype";
 	}
 	
 }

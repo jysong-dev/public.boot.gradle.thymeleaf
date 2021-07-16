@@ -48,7 +48,7 @@ public class IndexController {
 			UserVO userVO = (UserVO) session.getAttribute("userInfo");
 			if (userVO == null) {
 				
-				return "redirect:/user/sign_in";
+				return "redirect:/user/sign-in";
 			} else {
 				PrototypeMasterVO prototypeMasterVO = new PrototypeMasterVO();
 				prototypeMasterVO.setUserKey(userVO.getUserKey());

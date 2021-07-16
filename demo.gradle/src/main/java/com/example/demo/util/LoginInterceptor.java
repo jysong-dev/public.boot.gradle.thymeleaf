@@ -20,7 +20,7 @@ public class LoginInterceptor implements HandlerInterceptor {
  
         if(ObjectUtils.isEmpty(loginVO)){
         	response.getOutputStream().println("Login Required!");
-        	response.sendRedirect("/user/sign_in");
+        	response.sendRedirect("/user/sign-in");
             return false;
         }else{
             session.setMaxInactiveInterval(30*60);
