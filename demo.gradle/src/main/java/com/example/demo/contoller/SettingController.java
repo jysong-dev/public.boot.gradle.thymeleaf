@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.multipart.MultipartFile;
@@ -60,7 +61,7 @@ public class SettingController {
 
 		return "admin/settings/form-account";
 	}
-	
+
 	@PostMapping("/admin/settings/save-account-info")
 	public String saveAccountInfo(UserVO userVO, MultipartHttpServletRequest request, HttpSession session, Model model) {
 		
@@ -78,8 +79,8 @@ public class SettingController {
 				userVO.setLastLoginDatetime(sessionUserInfo.getLastLoginDatetime());
 				
 				MultipartFile file = (MultipartFile) request.getFile("profile-image");
-				
-				if (file != null) {
+				if (StringUtils.hasText(file.getOriginalFilename())) {
+					
 					List<MultipartFile> files = new ArrayList<MultipartFile>();
 					files.add(file);
 					
